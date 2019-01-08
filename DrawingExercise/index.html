@@ -146,6 +146,10 @@ $(document).ready(() => {
 });
 </script>
 <style>
+	html, body {
+		max-height: 100vh;
+		overflow:hidden;
+	}
 	.point {
 		position:fixed;
 		border-radius:50%;
@@ -155,6 +159,9 @@ $(document).ready(() => {
 		height:80vh;
 		border-bottom: 1vh solid black;
 		cursor: crosshair;
+	}
+	#controls {
+		max-height: 20vh;
 	}
 	#dBox {
 		
