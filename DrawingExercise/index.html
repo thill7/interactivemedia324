@@ -143,6 +143,10 @@ $(document).ready(() => {
 			$("#eraser").attr("class","btn btn-info");
 		}
 	});
+	$('html, body').on('touchstart touchmove', function(e){ 
+     //prevent native touch activity like scrolling
+     e.preventDefault(); 
+	});
 });
 </script>
 <style>
