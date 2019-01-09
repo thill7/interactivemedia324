@@ -15,6 +15,35 @@
 		background-color:dimgrey;
 		color:ghostwhite;
 	}
+	#gallery {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0 4px;
+	}
+	.column {
+		flex: 25%;
+		max-width: 25%;
+		padding: 0 4px;
+	}
+	.column img {
+		margin-top: 8px;
+		vertical-align: middle;
+	}
+	/* Responsive layout - makes a two column-layout instead of four columns */
+	@media screen and (max-width: 800px) {
+	  .column {
+		flex: 50%;
+		max-width: 50%;
+	  }
+	}
+
+	/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+	@media screen and (max-width: 600px) {
+	  .column {
+		flex: 100%;
+		max-width: 100%;
+	  }
+	}
 </style>
 </head>
 <body>
@@ -23,14 +52,18 @@
 		<h1>Gallery</h1>
 	</div>
 	</div>
-	<div class="container-fluid">
-		<div id="col1">
+	<div class="container-fluid" id="gallery">
+		<div id="col1" class="column">
+			<img src="../Drawings/abstract1.png" />
 		</div>
-		<div id="col2">
+		<div id="col2" class="column">
+			<img src="../Drawings/abstract2.png" />
 		</div>
-		<div id="col3">
+		<div id="col3" class="column">
+			<img src="../Drawings/abstract3.png" />
 		</div>
-		<div id="col4">
+		<div id="col4" class="column">
+			<img src="../Drawings/abstract4.png" />
 		</div>
 	</div>
 </body>
