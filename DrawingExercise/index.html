@@ -7,10 +7,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-$(document).ready(() => {
+$(document).ready(async () => {
 	var boxSize = 45;
 	var featherAmt = 1;
 	var randColor = true;
+	var AI = false;
 	var eraser = false;
 	var currentColor = "navy";
 	var mouseCoord = {
@@ -88,18 +89,20 @@ $(document).ready(() => {
 		}
 	}
 	$(document).on("mousemove touchmove", (e) => {
-		mouseCoord.xCoord = e.pageX;
-		mouseCoord.yCoord = e.pageY;
-		if(mouseCoord.xCoord == undefined || mouseCoord.yCoord == undefined) {
-			var touch = e.originalEvent.touches[0];
-			mouseCoord.xCoord = touch.pageX;
-			mouseCoord.yCoord = touch.pageY;
-		}
-		console.log(mouseCoord);
-		if(eraser == true && mouseDown == true) {
-			var target = e.target;
-			if($(target).hasClass("point")) {
-				$(target).remove();
+		if(AI == false) {
+			mouseCoord.xCoord = e.pageX;
+			mouseCoord.yCoord = e.pageY;
+			if(mouseCoord.xCoord == undefined || mouseCoord.yCoord == undefined) {
+				var touch = e.originalEvent.touches[0];
+				mouseCoord.xCoord = touch.pageX;
+				mouseCoord.yCoord = touch.pageY;
+			}
+			console.log(mouseCoord);
+			if(eraser == true && mouseDown == true) {
+				var target = e.target;
+				if($(target).hasClass("point")) {
+					$(target).remove();
+				}
 			}
 		}
 	});
@@ -146,6 +149,77 @@ $(document).ready(() => {
 	$('html, body').on('touchstart touchmove', function(e){ 
      //prevent native touch activity like scrolling
      e.preventDefault(); 
+	});
+	function drawDiamond(startX,startY,radius) {
+		return new Promise((resolve,reject) => {
+		AI = true;
+		var circumference = 3.14 * 2 * radius;
+		mouseCoord.xCoord = startX;
+		mouseCoord.yCoord = startY - radius;
+		var movePoint = function() {
+			draw();
+			if(mouseCoord.yCoord <= startY && mouseCoord.xCoord >= startX) {
+				mouseCoord.xCoord += (360/circumference);
+				mouseCoord.yCoord += (360/circumference);
+			}
+			else if(mouseCoord.yCoord > startY && mouseCoord.xCoord >= startX) {
+				mouseCoord.xCoord -= (360/circumference);
+				mouseCoord.yCoord += (360/circumference);
+			}
+			else if(mouseCoord.yCoord > startY && mouseCoord.xCoord < startX) {
+				mouseCoord.xCoord -= (360/circumference);
+				mouseCoord.yCoord -= (360/circumference);
+			}
+			else {
+				mouseCoord.xCoord += (360/circumference);
+				mouseCoord.yCoord -= (360/circumference);
+			}
+		}
+		var AIDraw = setInterval(movePoint,1);
+		setTimeout(() => { clearInterval(AIDraw);AI = false; resolve(AI);},360);
+		});
+	}
+	function drawSquiggle(startX,startY,length,time) {
+		return new Promise((resolve,reject) => {
+		AI = true;
+		mouseCoord.xCoord = startX;
+		mouseCoord.yCoord = startY;
+		var interval = length / time;
+		var squiggle = function() {	
+			draw();
+			if(mouseCoord.xCoord < startX + length) {
+				mouseCoord.xCoord += (interval);
+				mouseCoord.yCoord = startY + (50 * (Math.sin(mouseCoord.xCoord)));
+			}
+		}
+		var AIDraw = setInterval(squiggle,1);
+		setTimeout(() => { clearInterval(AIDraw); AI = false; resolve(AI); }, time);
+		});
+	
+	}
+	var lowerXBound = drawingLimitsBox.xOffset;
+	var upperXBound = drawingLimitsBox.xOffset + drawingLimitsBox.width;
+	var lowerYBound = drawingLimitsBox.yOffset;
+	var upperYBound = drawingLimitsBox.yOffset + drawingLimitsBox.height;
+	$("#randDraw").click(async() => {
+		if(AI == false){
+			$("#randDraw").attr("class","btn disabled");
+			for(let i = 0; i < 40; i++) {
+			
+			var prob = (Math.floor(Math.random() * 100) + 1);
+			var rad = (Math.floor(Math.random() * 100) + 5);
+			var length = (Math.floor(Math.random() * 6600) + 6300);
+			var randY = (Math.floor(Math.random() * (upperYBound - 1)) + (lowerYBound + 1));
+			var randX = (Math.floor(Math.random() * (upperXBound - 1)) + (lowerXBound + 1));
+			if(prob <= 70) {
+				await drawDiamond(randX,randY,rad);
+			}
+			else {
+				await drawSquiggle(randX,randY,length,2000);
+			}
+			$("#randDraw").attr("class","btn btn-warning");
+		}
+	}
 	});
 });
 </script>
@@ -211,6 +285,7 @@ $(document).ready(() => {
 					<div class="btn-group">
 						<button class="btn btn-danger" id="clrBtn">Clear All</button>
 						<button class="btn btn-info" id="eraser">Eraser</button>
+						<button class="btn btn-warning" id="randDraw">Randomize</button>
 					</div>
 					</div>
 					<div class="col-lg-6">
