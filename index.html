@@ -15,14 +15,9 @@
 <body>
 <script>
 $(document).ready(() => {
-	var video = document.getElementById("screenshot");
-	video.pause();
-	video.play();
-	$("#screenshot").on("mouseover",() => {
-		if(video.paused == true) {
-			video.play();
-		}
-	});
+	 $('#screenshot')[0].on("mouseover",function() {
+        	this.paused ? this.play() : this.pause();
+    	});
 });
 </script>
 <nav class="navbar navbar-inverse">
