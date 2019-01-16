@@ -15,8 +15,6 @@
 <body>
 <script>
 $(document).ready(() => {
-	var video = document.getElementById("screenshot");
-	video.paused ? video.play() : video.pause();
 });
 </script>
 <nav class="navbar navbar-inverse">
@@ -40,7 +38,7 @@ $(document).ready(() => {
 			<h2>Desktop Screenshot</h2>
 		</div>
 		<div class="panel-body">
-			<video id="screenshot" loop>
+			<video id="screenshot" autoplay loop>
 				<source src="screenshot.mp4" type="video/mp4" />
 			</video>
 		</div>
