@@ -15,10 +15,10 @@
 <body>
 <script>
 $(document).ready(() => {
-	 $('#screenshot').on("mouseover","mouseout",function() {
-        	if($("#screenshot")).get(0).paused == true) { this.play(); }
+	 $('#screenshot').on("hover",function() {
+        	if($("#screenshot").get(0).paused == true) { this.play(); }
     	},{
-		if($("#screenshot")).get(0).paused == false) { this.pause(); }		    
+		if($("#screenshot").get(0).paused == false) { this.pause(); }		    
 	 });
 });
 </script>
