@@ -15,9 +15,11 @@
 <body>
 <script>
 $(document).ready(() => {
-	 $('#screenshot').on("mouseover",function() {
-        	this.paused ? this.play() : this.pause();
-    	});
+	 $('#screenshot').on("mouseover","mouseout",function() {
+        	this.paused ? this.play();
+    	},{
+		!this.paused ? this.pause();		    
+	 });
 });
 </script>
 <nav class="navbar navbar-inverse">
