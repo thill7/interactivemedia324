@@ -16,6 +16,7 @@
 <script>
 $(document).ready(() => {
 	var video = document.getElementById("screenshot");
+	video.pause();
 	video.play();
 	$("#screenshot").on("mouseover",() => {
 		if(video.paused == true) {
