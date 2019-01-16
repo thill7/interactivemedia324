@@ -15,10 +15,11 @@
 <body>
 <script>
 $(document).ready(() => {
-	$("#screenshot").play();
+	var video = document.getElementById("screenshot");
+	video.play();
 	$("#screenshot").on("mouseover",() => {
-		if($("#screenshot").paused == true) {
-			$("#screenshot").play();
+		if(video.paused == true) {
+			video.play();
 		}
 	});
 });
