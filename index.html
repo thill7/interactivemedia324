@@ -15,7 +15,7 @@
 <body>
 <script>
 $(document).ready(() => {
-	var video = document.getElementById("screenshot");
+	var video = $("#screenshot").get(0);
 	video.play();
 	$("#screenshot").on("mouseover",() => {
 		if(video.paused == true) {
