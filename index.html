@@ -16,9 +16,9 @@
 <script>
 $(document).ready(() => {
 	 $('#screenshot').on("mouseover","mouseout",function() {
-        	this.paused ? this.play();
+        	if(this.paused) { this.play(); }
     	},{
-		!this.paused ? this.pause();		    
+		if(!this.paused) { this.pause(); }		    
 	 });
 });
 </script>
