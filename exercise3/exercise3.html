@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<style>
+	#canvas {
+		width:100vw;
+		height:100vh;
+		background: url('important.jpg');
+	}
+	.boxAlt {
+		background-color: white;
+		box-shadow: 0 -2vh 1vh grey inset;
+		display:inline-block;
+		transition: all 0.25s ease;
+		opacity: 0.5;
+	}
+	.box {
+		background-color: black;
+		display:inline-block;
+		transition: all 4s ease;
+		
+	}
+</style>
+<body>
+<script>
+$(document).ready(() => {
+	const cols = 10;
+	const rows = 10;
+	var boxAmt = 0;
+	
+	for(let i = 0; i < rows; i++) {
+		$("<div>").attr({"id":"row"+i}).css({"height":(window.innerHeight / rows)+"px","width":"100%"}).appendTo("#canvas");
+		for(let j = 0; j < cols; j++) {
+			$("<div>").attr({"class":"box","id":"box"+boxAmt}).css({"height":"100%","width":(window.innerWidth / cols)+"px"}).appendTo("#row"+i);
+			boxAmt++;
+		}
+	}
+	
+	$(document).on("mouseover",".box",(e) => {
+		var el = e.target;
+		if($(el).hasClass("box")) {
+			$(el).attr("class","boxAlt");
+		}
+		
+	});
+	$(document).on("mouseout",".boxAlt",(e) => {
+		var el = e.target;
+		if($(el).hasClass("boxAlt")) {
+			$(el).attr("class","box");
+		}
+		
+	});
+});
+</script>
+<div id="canvas">
+
+</div>
+</body>
+</html>
