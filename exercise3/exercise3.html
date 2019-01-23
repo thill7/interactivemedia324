@@ -8,10 +8,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style>
+	html,body {
+		overflow:hidden;
+	}
 	#canvas {
 		width:100vw;
 		height:100vh;
-		background: url('important.jpg');
+		background: url('important.jpg') center;
+		background-repeat: no-repeat;
+  		background-size: contain, cover;
 	}
 	.boxAlt {
 		background-color: white;
@@ -23,15 +28,15 @@
 	.box {
 		background-color: black;
 		display:inline-block;
-		transition: all 4s ease;
+		transition: all 10s ease;
 		
 	}
 </style>
 <body>
 <script>
 $(document).ready(() => {
-	const cols = 10;
-	const rows = 10;
+	const cols = 16;
+	const rows = 9;
 	var boxAmt = 0;
 	
 	for(let i = 0; i < rows; i++) {
