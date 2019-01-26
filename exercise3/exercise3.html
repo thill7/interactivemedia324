@@ -34,7 +34,7 @@
 </style>
 <body>
 <script>
-$(document).ready(() => {
+$(document).ready(async () => {
 	function gcd(a,b) {
 		if(!b) {
 			return a;
@@ -43,10 +43,13 @@ $(document).ready(() => {
 			return gcd(b, a % b);	
 		}
 	}
-	const ratioGCD = gcd((screen.innerHeight),(screen.innerwidth));
+	const ratioGCD = await gcd((window.innerHeight),(window.innerwidth));
+	console.log(`Width is ${window.innerWidth} and Height is ${window.innerHeight}`);
+	
 	console.log(ratioGCD);
-	const cols = (screen.innerWidth / ratioGCD) * 8;
-	const rows = (screen.innerHeight / ratioGCD) * 8;
+	const cols = (window.innerWidth / ratioGCD);
+	const rows = (window.innerHeight / ratioGCD);
+	console.log(`Rows are ${rows} and columns are ${cols}`);
 	var boxAmt = 0;
 	
 	for(let i = 0; i < rows; i++) {
