@@ -43,10 +43,10 @@ $(document).ready(() => {
 			return gcd(b, a % b);	
 		}
 	}
-	const ratioGCD = gcd((window.innerHeight),(window.innerwidth));
+	const ratioGCD = gcd((screen.innerHeight),(screen.innerwidth));
 	console.log(ratioGCD);
-	const cols = (window.innerWidth / ratioGCD) * 8;
-	const rows = (window.innerHeight / ratioGCD) * 8;
+	const cols = (screen.innerWidth / ratioGCD) * 8;
+	const rows = (screen.innerHeight / ratioGCD) * 8;
 	var boxAmt = 0;
 	
 	for(let i = 0; i < rows; i++) {
