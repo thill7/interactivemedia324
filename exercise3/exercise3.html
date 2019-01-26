@@ -35,8 +35,17 @@
 <body>
 <script>
 $(document).ready(() => {
-	const cols = 16;
-	const rows = 9;
+	function gcd(a,b) {
+		if(!b) {
+			return a;
+		}
+		else {
+			return gcd(b, a % b);	
+		}
+	}
+	const ratioGCD = gcd((window.innerHeight),(window.innerwidth));
+	const cols = (window.innerWidth / ratioGCD);
+	const rows = (window.innerHeight / ratioGCD);
 	var boxAmt = 0;
 	
 	for(let i = 0; i < rows; i++) {
