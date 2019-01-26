@@ -43,12 +43,12 @@ $(document).ready(async () => {
 			return gcd(b, a % b);	
 		}
 	}
-	const ratioGCD = await gcd((window.innerHeight),(window.innerwidth));
-	console.log(`Width is ${window.innerWidth} and Height is ${window.innerHeight}`);
+	const ratioGCD = await gcd((screen.height),(screen.width));
+	console.log(`Width is ${screen.width} and Height is ${screen.width}`);
 	
 	console.log(ratioGCD);
-	const cols = (window.innerWidth / ratioGCD);
-	const rows = (window.innerHeight / ratioGCD);
+	const cols = Math.floor((screen.width / ratioGCD))*8;
+	const rows = Math.floor((screen.height / ratioGCD))*8;
 	console.log(`Rows are ${rows} and columns are ${cols}`);
 	var boxAmt = 0;
 	
