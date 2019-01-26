@@ -44,11 +44,11 @@ $(document).ready(async () => {
 		}
 	}
 	const ratioGCD = await gcd((screen.height),(screen.width));
-	console.log(`Width is ${screen.width} and Height is ${screen.width}`);
+	console.log(`Width is ${screen.width} and Height is ${screen.height}`);
 	
 	console.log(ratioGCD);
-	const cols = Math.floor((screen.width / ratioGCD))*8;
-	const rows = Math.floor((screen.height / ratioGCD))*8;
+	const cols = Math.floor((screen.width / ratioGCD));
+	const rows = Math.floor((screen.height / ratioGCD));
 	console.log(`Rows are ${rows} and columns are ${cols}`);
 	var boxAmt = 0;
 	
