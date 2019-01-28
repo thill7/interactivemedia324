@@ -1,0 +1,68 @@
+<html lang='en'>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	#home {
+		height: 100vh;
+		width: 100vw;
+		overflow:hidden;
+	}
+	.row {
+		height: 50vh;
+		width: 100vw;
+	}
+	.bodyCol {
+		height: 100%;
+		filter: blur(20px);
+		border: 5px solid black;
+		box-sizing: border-box;
+		transition: filter 0.5s ease;
+	}
+	.bodyCol:hover {
+		filter: none;
+		
+	}
+	@media only screen and (max-width: 992px) {
+		.bodyCol {
+			border: none;
+		}
+	}
+	.boxImg {
+		height: 100%;
+		max-width: 100%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+</head>
+<body>
+<script>
+$(document).ready(() => {
+
+});
+</script>
+<div id="home" class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 bodyCol" id="tl">
+			<img src="./static/gun.svg" class="boxImg" />
+		</div>
+		<div class="col-md-6 bodyCol" id="tr">
+			<img src="./static/dog.svg" class="boxImg" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 bodyCol" id="bl">
+			<img src="./static/burger.svg" class="boxImg" />
+		</div>
+		<div class="col-md-6 bodyCol" id="br">
+			<img src="./static/why.svg" class="boxImg" />
+		</div>
+	</div>
+</div>
+</body>
+</html>
