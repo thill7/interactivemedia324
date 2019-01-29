@@ -33,7 +33,7 @@ $(document).ready(async () => {
 		$(".carousel-indicators").empty();
 		$(".carousel-inner").empty();
 			$.each(images, (i, image) => {
-				let el = $("<div>").attr("class","item").html("<div class='innerImg' style=\"background:url('"+image+"') center center no-repeat;\"></div>");
+				let el = $("<div>").attr("class","item").html("<div class='innerImg' style=\"background:url('"+image+"') center center no-repeat;background-size:contain;\"></div>");
 				//html("<img src='"+image+"' class='carouselImg' />");
 				let indicator = $("<li>").attr({"data-target":"#carousel","data-slide-to":(i)});
 				$(el).appendTo(".carousel-inner");
