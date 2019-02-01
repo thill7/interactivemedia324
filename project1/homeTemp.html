@@ -90,11 +90,39 @@
 	#warning > button {
 		font-size: 10vh;
 	}
+	#aboutTag {
+		width:10vw;
+		height:10vw;
+		border-radius:50%;
+		background-color:red;
+		position:fixed;
+		right:-5vw;
+		bottom:-5vw;
+		z-index: 99;
+		transition: transform 2s ease;
+	}
+	#aboutTag > h3 {
+		position: absolute;
+		top:2vw;
+		left:2vw;
+	}
+	#aboutText {
+		opacity:0;
+		transition: opacity 1s ease;
+		font-size: 2vw;
+		color: white;
+		position: fixed;
+		z-index: 999;
+	}
 </style>
 </head>
 <body>
 <script>
 $(document).ready(async () => {
+	$("#aboutTag").click(() => {
+			$("#aboutTag").css("transform","scale(150)");
+			$("#aboutText").css("opacity","1");
+	});
 	var url = "https://api.reddit.com/r/wtfstockphotos/search.json?restrict_sr=true&q=";
 	var sTerm = "dog";
 	function setCarousel(images) {
@@ -149,6 +177,7 @@ $(document).ready(async () => {
 	});
 });
 </script>
+
 <!--<div id="warning">
 	<h1>Attention</h1><br />
 	<p>This website contains images collected from the subreddit /r/wtfstockphotos. I do not own these photos, I did not post these photos in their original form and, most importantly, I did not filter these photos. Browse at your own risk.</p><br />
@@ -156,6 +185,12 @@ $(document).ready(async () => {
 </div>-->
 <div class="tab-content">
 <div id="main" class="tab-pane fade in active">
+<div id="aboutTag">
+	<h3>About</h3>
+</div>
+<div id="aboutText">
+	<p>This is the about section.</p>
+</div>
 <div id="home" class="container-fluid">
 	<div class="row">
 		<a data-toggle="pill" class="mainLink" data-term="gun" href="#carouselPage">
