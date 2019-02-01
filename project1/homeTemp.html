@@ -70,6 +70,26 @@
 		width: 100%;
 		height: 100%;
 	}
+	#warning {
+		width:100vw;
+		height:100vh;
+		position: fixed;
+		z-index: 999;
+		background: linear-gradient(to bottom, crimson, red);
+		color:white;
+		text-align:center;
+	}
+	#warning > h1 {
+		font-size: 40vh;
+	}
+	#warning > p {
+		font-size: 5vh;
+		margin-left: 5vh;
+		margin-right: 5vh;
+	}
+	#warning > button {
+		font-size: 10vh;
+	}
 </style>
 </head>
 <body>
@@ -124,8 +144,16 @@ $(document).ready(async () => {
 	$("#searchQ").on("focusout",() => {
 		$("#mainSearch").css("opacity","0.25");
 	});
+	$("#warningClose").click(() => {
+			$("#warning").fadeOut(500);
+	});
 });
 </script>
+<div id="warning">
+	<h1>Attention</h1><br />
+	<p>This website contains images collected from the subreddit /r/wtfstockphotos. I do not own these photos, I did not post these photos in their original form and, most importantly, I did not filter these photos. Browse at your own risk.</p><br />
+	<button id="warningClose" class="btn btn-success">Ok</button>
+</div>
 <div class="tab-content">
 <div id="main" class="tab-pane fade in active">
 <div id="home" class="container-fluid">
