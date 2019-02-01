@@ -105,6 +105,7 @@ $(document).ready(async () => {
 		});
 	}
 	$(".mainLink").click(async (e) => {
+		window.scrollTo(0,0);
 		var target = e.target;
 		sTerm = $(target).parents(".mainLink").attr("data-term");
 		console.log(sTerm);
