@@ -116,6 +116,7 @@
 		margin-top: 5vh;
 		margin-left: 5vw;
 		margin-right: 15vw;
+		display:none;
 	}
 	#aboutTagExit {
 		opacity:0;
@@ -132,12 +133,12 @@
 <script>
 $(document).ready(async () => {
 	$("#aboutTag").click(() => {
-			$("#aboutText").css("opacity","1");
+			$("#aboutText").css({"opacity":"1","display":"block"});
 			$("#aboutTagExit").css("opacity","1");
 			$("#aboutTag").css("transform","scale(150)");
 	});
 	$("#aboutTagExit").click(() => {
-			$("#aboutText").css("opacity","0");
+			$("#aboutText").css({"opacity":"0","display":"none"});
 			$("#aboutTagExit").css("opacity","0");
 			$("#aboutTag").css("transform","none");
 	});
