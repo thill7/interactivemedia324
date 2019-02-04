@@ -126,6 +126,7 @@
 		z-index:9999;
 		right: 15px;
 		top:15px;
+		display:none;
 	}
 </style>
 </head>
@@ -134,12 +135,12 @@
 $(document).ready(async () => {
 	$("#aboutTag").click(() => {
 			$("#aboutText").css({"opacity":"1","display":"block"});
-			$("#aboutTagExit").css("opacity","1");
+			$("#aboutTagExit").css({"opacity":"1","display":"block"});
 			$("#aboutTag").css("transform","scale(150)");
 	});
 	$("#aboutTagExit").click(() => {
 			$("#aboutText").css({"opacity":"0","display":"none"});
-			$("#aboutTagExit").css("opacity","0");
+			$("#aboutTagExit").css({"opacity":"0","display":"none"});
 			$("#aboutTag").css("transform","none");
 	});
 	var url = "https://api.reddit.com/r/wtfstockphotos/search.json?restrict_sr=true&q=";
