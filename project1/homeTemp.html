@@ -114,6 +114,14 @@
 		position: fixed;
 		z-index: 999;
 	}
+	#aboutTagExit {
+		opacity:0;
+		width: 10vw;
+		position: fixed;
+		z-index:9999;
+		right: 15px;
+		top:15px;
+	}
 </style>
 </head>
 <body>
@@ -122,6 +130,12 @@ $(document).ready(async () => {
 	$("#aboutTag").click(() => {
 			$("#aboutTag").css("transform","scale(150)");
 			$("#aboutText").css("opacity","1");
+			$("#aboutTagExit").css("opacity","1");
+	});
+	$("#aboutTagExit").click(() => {
+			$("#aboutTag").css("transform","none");
+			$("#aboutText").css("opacity","0");
+			$("#aboutTagExit").css("opacity","1");
 	});
 	var url = "https://api.reddit.com/r/wtfstockphotos/search.json?restrict_sr=true&q=";
 	var sTerm = "dog";
@@ -189,8 +203,9 @@ $(document).ready(async () => {
 	<h3>About</h3>
 </div>
 <div id="aboutText">
-	<p>This is the about section.</p>
+	<p>This project was intended to capture the surreal nature of stock photos that not too many people would believe are intentionally created for the purpose of licensing for professional purposes. I chose to highlight 4 recurring themes commonly seen in these confusing stock photos: dogs, food, guns, and borderline surrealist manipulations.</p>
 </div>
+	<button class="btn btn-danger" id="aboutTagExit"><span class="glyphicon glyphicon-remove"></span></button>
 <div id="home" class="container-fluid">
 	<div class="row">
 		<a data-toggle="pill" class="mainLink" data-term="gun" href="#carouselPage">
