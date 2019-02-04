@@ -185,7 +185,7 @@ $(document).ready(async () => {
 		return new Promise((resolve,reject) => {
 		$.ajax({
 			url: url+term,
-			dataType: "jsonp",
+			dataType: "json",
 			method: "GET",
 			success: (data) => {
 				resolve(data);
