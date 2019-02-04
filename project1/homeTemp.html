@@ -132,14 +132,14 @@
 <script>
 $(document).ready(async () => {
 	$("#aboutTag").click(() => {
-			$("#aboutTag").css("transform","scale(150)");
 			$("#aboutText").css("opacity","1");
 			$("#aboutTagExit").css("opacity","1");
+			$("#aboutTag").css("transform","scale(150)");
 	});
 	$("#aboutTagExit").click(() => {
-			$("#aboutTag").css("transform","none");
 			$("#aboutText").css("opacity","0");
 			$("#aboutTagExit").css("opacity","0");
+			$("#aboutTag").css("transform","none");
 	});
 	var url = "https://api.reddit.com/r/wtfstockphotos/search.json?restrict_sr=true&q=";
 	var sTerm = "dog";
