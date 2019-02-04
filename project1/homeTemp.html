@@ -128,6 +128,24 @@
 		top:15px;
 		display:none;
 	}
+	.loader {
+  		border: 16px solid #f3f3f3; /* Light grey */
+  		border-top: 16px solid #3498db; /* Blue */
+  		border-radius: 50%;
+  		width: 25vw;
+  		height: 25vw;
+		position:fixed;
+		z-index:999;
+		left:50vw;
+		top:30vh;
+		display:none;
+  		animation: spin 2s linear infinite;
+	}
+
+	@keyframes spin {
+  		0% { transform: rotate(0deg); }
+  		100% { transform: rotate(360deg); }
+	}
 </style>
 </head>
 <body>
@@ -159,6 +177,8 @@ $(document).ready(async () => {
 				$(".item").eq(0).attr("class","item active");
 			}
 			$("#carousel").show();
+			$("#carousel").carousel('cycle');
+			$(".loader").css("display","none");
 	}
 
 	async function getImages(term="spaghetti") {
@@ -178,6 +198,8 @@ $(document).ready(async () => {
 		var target = e.target;
 		sTerm = $(target).parents(".mainLink").attr("data-term");
 		$("#carousel").hide();
+		$("#carousel").carousel('pause');
+		$(".loader").css("display","block");
 		console.log(sTerm);
 		var images = await getImages(sTerm);
 		console.log(images);
@@ -241,6 +263,7 @@ $(document).ready(async () => {
 </div>
 </div>
 <div id="carouselPage" class="tab-pane fade in">
+	<div class="loader"></div>
 	<a href="#main" data-toggle="pill"><button id="backHome" class="btn btn-primary"><span class="glyphicon glyphicon-home"></span></button></a>
 	<div id="carousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
