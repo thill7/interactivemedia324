@@ -136,7 +136,7 @@
   		height: 25vw;
 		position:fixed;
 		z-index:999;
-		left:50vw;
+		left:36.5vw;
 		top:30vh;
 		display:none;
   		animation: spin 2s linear infinite;
@@ -185,7 +185,7 @@ $(document).ready(async () => {
 		return new Promise((resolve,reject) => {
 		$.ajax({
 			url: url+term,
-			dataType: "json",
+			dataType: "jsonp",
 			method: "GET",
 			success: (data) => {
 				resolve(data);
