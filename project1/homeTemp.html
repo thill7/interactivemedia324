@@ -113,6 +113,9 @@
 		color: white;
 		position: fixed;
 		z-index: 999;
+		margin-top: 5vh;
+		margin-left: 5vw;
+		margin-right: 15vw;
 	}
 	#aboutTagExit {
 		opacity:0;
@@ -135,7 +138,7 @@ $(document).ready(async () => {
 	$("#aboutTagExit").click(() => {
 			$("#aboutTag").css("transform","none");
 			$("#aboutText").css("opacity","0");
-			$("#aboutTagExit").css("opacity","1");
+			$("#aboutTagExit").css("opacity","0");
 	});
 	var url = "https://api.reddit.com/r/wtfstockphotos/search.json?restrict_sr=true&q=";
 	var sTerm = "dog";
