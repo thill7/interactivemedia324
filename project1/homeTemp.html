@@ -158,6 +158,7 @@ $(document).ready(async () => {
 			if($(".item").length > 0) {
 				$(".item").eq(0).attr("class","item active");
 			}
+			$("#carousel").show();
 	}
 
 	async function getImages(term="spaghetti") {
@@ -176,6 +177,7 @@ $(document).ready(async () => {
 		window.scrollTo(0,0);
 		var target = e.target;
 		sTerm = $(target).parents(".mainLink").attr("data-term");
+		$("#carousel").hide();
 		console.log(sTerm);
 		var images = await getImages(sTerm);
 		console.log(images);
