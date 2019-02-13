@@ -16,12 +16,21 @@
 		/* You can change the colors, font, and so on below */
 
 		body {
-			margin: 75px;
-			font-size: 20px;
+			font-size: 5vw;
 			text-transform: uppercase;
-			font-family: "Courier New", Courier, monospace;
+			font-family: "Helvetica",sans-serif;
+			background-color: darkslategrey;
+			transition: background-color 1s ease;
+			color:ghostwhite;
+			overflow-x:hidden;
+			overflow-y:hidden;
+			width:100vw;
+			height:100vh;
 		}
-
+		html {
+			overflow-x:hidden;
+			overflow-y:hidden;
+		}
 		.button-container {
 			position: fixed;
 			bottom: 75px;
@@ -29,21 +38,45 @@
 		}
 
 		.list-one {
-
 		}
 
 		.list-two {
-			text-indent: 1em;
 		}
 
 		.list-three {
-			text-indent: 2em;
+
 		}
 
 		.list-four {
-			text-indent: 3em;
+
 		}
 
+		#container {
+			width:100vw;
+			height:40vh;
+			position: relative;
+			top:20vh;
+			text-align:center;
+			display:inline;
+			line-height: normal;
+		}
+		#spaceBar {
+			opacity:0.25;
+			border:5vh inset grey;
+			border-radius: 1vh;
+			width:40vw;
+			position: fixed;
+			bottom: 1vh;
+			height: 10vh;
+			left:30vw;
+			background-color: ghostwhite;
+			color:black;
+			text-align: center;
+			transition: opacity 1s ease;
+		}
+		#spaceBar:hover {
+			opacity:1;
+		}
 	</style>
 	<!--
 	***** END CSS *****
@@ -61,7 +94,7 @@
 			var one = [
 				"Gender",
 				"Religion",
-				"A maze",
+				"Amazement",
 				"Invention",
 				"Waste",
 				"Opportunity",
@@ -79,40 +112,40 @@
 			// list two content
 			var two = [
 				"is not",
-				"doesn't need to be",
+				"doesn't need",
 				"exists without",
 				"doesn't need",
-				"Apply",
-				"Database",
-				"Facts",
-				"Secure",
-				"Switches",
-				"Stop",
-				"Exchange",
-				"Office",
-				"Access",
-				"Permit",
-				"Directory"
-
+				"isn't dictated by",
+				"without",
+				"apart from",
+				"independent from",
+				"doesn't rely on",
+				"goes on without",
+				"goes beyond",
+				"transcends",
+				"defies",
+				"overcomes",
+				"contradicts",
+				"needs"
 
 				];
 			// list three content
 			var three = [
 				"mechanical structure",
-				"Rules",
-				"Technology",
-				"Computer",
-				"Apply",
+				"rules",
+				"technology",
+				"computers",
+				"applications",
 				"a database",
-				"Facts",
-				"Secure",
-				"Switches",
-				"Stop",
-				"Exchange",
-				"Office",
-				"Access",
-				"Permit",
-				"Directory"
+				"facts",
+				"insecurity",
+				"limits",
+				"stopping",
+				"exchanges",
+				"offices",
+				"access restrictions",
+				"permits",
+				"directories"
 
 
 				];
@@ -125,13 +158,29 @@
 
 				// This is a very common randomizing function.
 				// It takes a list (array) and returns one at random.
+				var colors = [
+					"aqua",
+					"blueviolet",
+					"cornflowerblue",
+					"crimson",
+					"darkorange",
+					"darkslateblue",
+					"lime",
+					"mediumpurple",
+					"midnightblue"
+
+				];
 				function select_random(x){
 					y = x[Math.floor(Math.random()*x.length)];
 					return y;
 				}
+				function random_rgba() {
+    			var rand = Math.floor(Math.random() * colors.length);
+    			return colors[rand];
+				}
 
 				function generate(){
-
+					$("body").css("background-color",random_rgba);
 					// Select a random item from each list
 					var selected_one = select_random(one);
 					var selected_two = select_random(two);
@@ -149,7 +198,12 @@
 				$('button').click(function(){
 					generate();
 				});
-
+				$(document).on("keydown",(e) => {
+					if(e.keyCode === 32) {
+						e.preventDefault();
+						generate();
+					}
+				})
 				generate();
 
 			});
@@ -181,11 +235,15 @@
 
 	in the code below.
 	-->
+	<div id="container">
 	<div class="list-one"></div>
 	<div class="list-two"></div>
 	<div class="list-three"></div>
 	<div class="list-four"></div>
-
+	</div>
+	<div id ="spaceBar">
+		SPACE
+	</div>
 </body>
 
 </html>
