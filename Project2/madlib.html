@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Madlib</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<style>
+  .card {
+    font-size: 5vw;
+  }
+  .input-word {
+	transition: color 1s ease;
+  }
+  .input-word:hover {
+	color:darkcyan;
+	
+  }
+</style>
+  <script>
+$(document).ready(function(){
+	$("#entryModal").modal("show");
+	//tell the script what to look for in the text to generate question inputs
+	var signifiers = [
+		{
+		"sig":"[p/t]",
+		"meaning":"person/thing"
+		},
+		{
+		"sig":"[pl]",
+		"meaning":"place"
+		},
+		{
+		"sig":"[loc]",
+		"meaning":"location"
+		},
+		{
+		"sig":"[v]",
+		"meaning":"verb"
+		},
+		{
+		"sig":"[pro]",
+		"meaning":"pronoun"
+		},
+		{
+		"sig":"[prop]",
+		"meaning":"pronoun (possesive)"
+		},
+		{
+		"sig":"[t/loc]",
+		"meaning":"time/place"
+		}
+	];
+	//text using our own "markup" of defined signifiers
+	var text = "There once was a [p/t] from [loc] that dreamt he was [v]-ing [prop] [p/t]. [pro] woke up with a fright, in the middle of the [t/loc] to find that [prop] dream had come true.";
+	//takes text and creates the inputs for entry in the modal. Also gives each input an id number that corresponds to the index of the word in the original text that will be replaced.
+	function parseStory(text) {
+		var words = text.split(" ");
+		var inputs = [];
+		for(let i = 0; i < words.length; i++) {
+			if(words[i].indexOf("-") > -1) {
+				words[i] = words[i].split("-");
+				var found = signifiers.find((obj) => {return obj.sig == words[i][0]});
+				if(found != undefined) {
+					console.log(words[i][0]+" : "+found.meaning);
+					inputs.push($("<input>").attr({"class":"form-control libInput","type":"text","id":"loc-"+i,"data-sig":found.meaning}));
+				}
+			}
+      else if(words[i].indexOf(".") > -1) {
+				words[i] = words[i].split(".");
+				var found = signifiers.find((obj) => {return obj.sig == words[i][0]});
+				if(found != undefined) {
+					console.log(words[i][0]+" : "+found.meaning);
+					inputs.push($("<input>").attr({"class":"form-control libInput","type":"text","id":"loc-"+i,"data-sig":found.meaning}));
+				}
+			}
+			else {
+				var found = signifiers.find((obj) => {return obj.sig == words[i]});
+				if(found != undefined) {
+					console.log(words[i]+" : "+found.meaning);
+					inputs.push($("<input>").attr({"class":"form-control libInput","type":"text","id":"loc-"+i,"data-sig":found.meaning}));
+				}
+			}
+		}
+		$.each(inputs,(i, input) => {
+			//.appendTo(".modal-body");
+			$("<div class='input-group'>").html("<div class='input-group-prepend'><span class='input-group-text'>"+$(input).attr("data-sig")+"</span></div>"+$(input).wrap('<div/>').parent().html()).appendTo(".modal-body");
+      $("<br />").appendTo(".modal-body");
+		});
+		console.log(inputs);
+	}
+	//run the function to parse the text when the document loads so we have questions immediately
+	parseStory(text);
+	//defines how the inputs will be inserted into the original story and then displayed
+	$("#goButton").click(() => {
+    var newText = text.split(" ");
+    var inputs = [];
+		$(".libInput").each((i,input) => {
+      //console.log(input);
+      let index = parseInt($(input).attr("id").split("-")[1]);
+      console.log(index);
+      if(newText[index].indexOf("-") > -1) {
+        newText[index] = newText[index].split("-");
+        newText[index][0] = $(input).val();
+        newText[index] = "<span class='input-word'>"+newText[index].join("")+"</span>";
+      }
+      else if(newText[index].indexOf(".") > -1) {
+        newText[index] = "<span class='input-word'>"+$(input).val() + ".</span>";
+      }
+      else {
+          newText[index] = "<span class='input-word'>"+$(input).val()+"</span>";
+      }
+
+    });
+    newText = newText.join(" ");
+    $("#bodyText > p").html(newText);
+    $("#bodyCard").collapse("show");
+	});
+});
+</script>
+<style>
+	body {
+		color: ghostwhite;
+	}
+	.modal-body {
+		color: black;
+	}
+</style>
+</head>
+<body>
+  <div class="container-fluid">
+  <!-- where the story will be displayed after input -->
+  <div class="card card-dark collapse" id="bodyCard">
+  	<div class="card-body bg-dark" id="bodyText">
+  	   <p></p>
+  	</div>
+  </div>
+  </div>
+  <!-- the modal that shows the inputs when the page loads -->
+	<div class="modal fade show" aria-modal="true" id="entryModal">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+
+		  <!-- Modal Header -->
+		  <div class="modal-header bg-dark">
+			<h4 class="modal-title">[M]adlib</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		  </div>
+
+		  <!-- Modal body -->
+		  <div class="modal-body ">
+
+		  </div>
+
+		  <!-- Modal footer -->
+		  <div class="modal-footer bg-dark">
+			<button type="button" class="btn btn-success" id="goButton" data-dismiss="modal">Go!</button>
+		  </div>
+
+		</div>
+	  </div>
+	</div>
+</body>
+</html>
