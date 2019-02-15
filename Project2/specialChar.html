@@ -11,11 +11,18 @@
   <script>
 $(document).ready(async function(){
 	
+	$.ajaxPrefilter( function (options) {
+  		if (options.crossDomain && jQuery.support.cors) {
+    		var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+    		options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+    		//options.url = "http://cors.corsproxy.io/url=" + options.url;
+  		}
+	});
 	function getChars() {
 		return new Promise((resolve,reject) => {
 		$.ajax({
 		url:"https://www.w3.org/2001/06/utf-8-test/postscript-utf-8.html",
-		dataType: "jsonp",
+		dataType: "html",
 		success: function(textString) {
 			resolve(JSON.stringify(textString));
 		}
