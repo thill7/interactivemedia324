@@ -1,0 +1,167 @@
+Geometric Shapes Extended
+These geometric shapes originate from the Webdings/Wingdings collections.
+Isosceles right triangles
+1F780	 🞀 	BLACK LEFT-POINTING ISOSCELES RIGHT TRIANGLE
+ 	 	→	23F4 ⏴ black medium left-pointing triangle
+1F781	 🞁 	BLACK UP-POINTING ISOSCELES RIGHT TRIANGLE
+ 	 	→	23F6 ⏶ black medium up-pointing triangle
+1F782	 🞂 	BLACK RIGHT-POINTING ISOSCELES RIGHT TRIANGLE
+ 	 	→	23F5 ⏵ black medium right-pointing triangle
+1F783	 🞃 	BLACK DOWN-POINTING ISOSCELES RIGHT TRIANGLE
+ 	 	→	23F7 ⏷ black medium down-pointing triangle
+Black circles
+Constitute a set as follows: 22C5, 2219, 1F784, 2022, 2981, 26AB, 25CF, and 2B24
+1F784	 🞄 	BLACK SLIGHTLY SMALL CIRCLE
+White circles
+Adjective refers to the thickness of the ring.
+Constitute a set as follows: 25CB, 2B58, 1F785-1F789
+1F785	 🞅 	MEDIUM BOLD WHITE CIRCLE
+ 	 	→	26AA ⚪ medium white circle
+1F786	 🞆 	BOLD WHITE CIRCLE
+1F787	 🞇 	HEAVY WHITE CIRCLE
+1F788	 🞈 	VERY HEAVY WHITE CIRCLE
+1F789	 🞉 	EXTREMELY HEAVY WHITE CIRCLE
+White circles containing another black circle
+Constitute a set as follows: 2299, 1F78A, and 29BF
+1F78A	 🞊 	WHITE CIRCLE CONTAINING BLACK SMALL CIRCLE
+Target symbol
+1F78B	 🞋 	ROUND TARGET
+ 	 	→	25CE ◎ bullseye
+ 	 	→	29BE ⦾ circled white bullet
+ 	 	→	2B57 ⭗ heavy circle with circle inside
+Black squares
+Constitute a set as follows: 1F78C, 2B1D, 1F78D, 25AA, 25FE, 25FC, 25A0, and 2B1B
+1F78C	 🞌 	BLACK TINY SQUARE
+1F78D	 🞍 	BLACK SLIGHTLY SMALL SQUARE
+White squares
+Constitute a set as follows: 25A1, 1F78E-1F793
+1F78E	 🞎 	LIGHT WHITE SQUARE
+1F78F	 🞏 	MEDIUM WHITE SQUARE
+1F790	 🞐 	BOLD WHITE SQUARE
+ 	 	=	heavy white square
+1F791	 🞑 	HEAVY WHITE SQUARE
+1F792	 🞒 	VERY HEAVY WHITE SQUARE
+1F793	 🞓 	EXTREMELY HEAVY WHITE SQUARE
+White squares containing another black square
+Constitute a set as follows: 1F794, 25A3, and 1F795
+1F794	 🞔 	WHITE SQUARE CONTAINING BLACK VERY SMALL SQUARE
+1F795	 🞕 	WHITE SQUARE CONTAINING BLACK MEDIUM SQUARE
+Target symbol
+1F796	 🞖 	SQUARE TARGET
+Black diamonds
+Constitute a set as follows: 1F797, 1F798, 2B29, 1F799, 2B25, and 25C6
+1F797	 🞗 	BLACK TINY DIAMOND
+1F798	 🞘 	BLACK VERY SMALL DIAMOND
+1F799	 🞙 	BLACK MEDIUM SMALL DIAMOND
+White diamonds containing another black diamond
+Constitute a set as follows: 1F79A, 25C8, and 1F79B
+1F79A	 🞚 	WHITE DIAMOND CONTAINING BLACK VERY SMALL DIAMOND
+1F79B	 🞛 	WHITE DIAMOND CONTAINING BLACK MEDIUM DIAMOND
+Target symbol
+1F79C	 🞜 	DIAMOND TARGET
+Black lozenges
+Constitute a set as follows: 1F79D, 1F79E, 2B2A, 1F79F, 2B27, and 29EB
+1F79D	 🞝 	BLACK TINY LOZENGE
+1F79E	 🞞 	BLACK VERY SMALL LOZENGE
+1F79F	 🞟 	BLACK MEDIUM SMALL LOZENGE
+White lozenge containing another black lozenge
+1F7A0	 🞠 	WHITE LOZENGE CONTAINING BLACK SMALL LOZENGE
+Greek crosses
+1F7A1	 🞡 	THIN GREEK CROSS
+1F7A2	 🞢 	LIGHT GREEK CROSS
+1F7A3	 🞣 	MEDIUM GREEK CROSS
+1F7A4	 🞤 	BOLD GREEK CROSS
+1F7A5	 🞥 	VERY BOLD GREEK CROSS
+ 	 	→	271A ✚ heavy greek cross
+1F7A6	 🞦 	VERY HEAVY GREEK CROSS
+1F7A7	 🞧 	EXTREMELY HEAVY GREEK CROSS
+Saltires
+1F7A8	 🞨 	THIN SALTIRE
+1F7A9	 🞩 	LIGHT SALTIRE
+ 	 	→	2613 ☓ saltire
+1F7AA	 🞪 	MEDIUM SALTIRE
+1F7AB	 🞫 	BOLD SALTIRE
+1F7AC	 🞬 	HEAVY SALTIRE
+1F7AD	 🞭 	VERY HEAVY SALTIRE
+1F7AE	 🞮 	EXTREMELY HEAVY SALTIRE
+Five spoked asterisks
+1F7AF	 🞯 	LIGHT FIVE SPOKED ASTERISK
+1F7B0	 🞰 	MEDIUM FIVE SPOKED ASTERISK
+1F7B1	 🞱 	BOLD FIVE SPOKED ASTERISK
+1F7B2	 🞲 	HEAVY FIVE SPOKED ASTERISK
+1F7B3	 🞳 	VERY HEAVY FIVE SPOKED ASTERISK
+1F7B4	 🞴 	EXTREMELY HEAVY FIVE SPOKED ASTERISK
+Six spoked asterisks
+1F7B5	 🞵 	LIGHT SIX SPOKED ASTERISK
+1F7B6	 🞶 	MEDIUM SIX SPOKED ASTERISK
+ 	 	•	may represent the "star" symbol devised in ITU-T E.161 for use on telephony devices
+1F7B7	 🞷 	BOLD SIX SPOKED ASTERISK
+1F7B8	 🞸 	HEAVY SIX SPOKED ASTERISK
+ 	 	→	2731 ✱ heavy asterisk
+1F7B9	 🞹 	VERY HEAVY SIX SPOKED ASTERISK
+1F7BA	 🞺 	EXTREMELY HEAVY SIX SPOKED ASTERISK
+Eight spoked asterisks
+1F7BB	 🞻 	LIGHT EIGHT SPOKED ASTERISK
+ 	 	→	2733 ✳ eight spoked asterisk
+1F7BC	 🞼 	MEDIUM EIGHT SPOKED ASTERISK
+1F7BD	 🞽 	BOLD EIGHT SPOKED ASTERISK
+1F7BE	 🞾 	HEAVY EIGHT SPOKED ASTERISK
+1F7BF	 🞿 	VERY HEAVY EIGHT SPOKED ASTERISK
+Three pointed stars
+1F7C0	 🟀 	LIGHT THREE POINTED BLACK STAR
+1F7C1	 🟁 	MEDIUM THREE POINTED BLACK STAR
+1F7C2	 🟂 	THREE POINTED BLACK STAR
+1F7C3	 🟃 	MEDIUM THREE POINTED PINWHEEL STAR
+Four pointed stars
+1F7C4	 🟄 	LIGHT FOUR POINTED BLACK STAR
+1F7C5	 🟅 	MEDIUM FOUR POINTED BLACK STAR
+1F7C6	 🟆 	FOUR POINTED BLACK STAR
+ 	 	•	2726 ✦ is a cusp
+ 	 	→	2726 ✦ black four pointed star
+1F7C7	 🟇 	MEDIUM FOUR POINTED PINWHEEL STAR
+1F7C8	 🟈 	REVERSE LIGHT FOUR POINTED PINWHEEL STAR
+ 	 	=	navigate
+Five pointed stars
+Constitute a set as follows: 1F7C9, 2605, 1F7CA, and 272F
+1F7C9	 🟉 	LIGHT FIVE POINTED BLACK STAR
+1F7CA	 🟊 	HEAVY FIVE POINTED BLACK STAR
+Six pointed stars
+Constitute a set as follows: 2736, 1F7CB-1F7CD
+1F7CB	 🟋 	MEDIUM SIX POINTED BLACK STAR
+1F7CC	 🟌 	HEAVY SIX POINTED BLACK STAR
+1F7CD	 🟍 	SIX POINTED PINWHEEL STAR
+Eight pointed stars
+Constitute a set as follows: 2735, 1F7CE-1F7D1
+1F7CE	 🟎 	MEDIUM EIGHT POINTED BLACK STAR
+ 	 	→	2737 ✷ eight pointed rectilinear black star
+1F7CF	 🟏 	HEAVY EIGHT POINTED BLACK STAR
+ 	 	→	2738 ✸ heavy eight pointed rectilinear black star
+1F7D0	 🟐 	VERY HEAVY EIGHT POINTED BLACK STAR
+1F7D1	 🟑 	HEAVY EIGHT POINTED PINWHEEL STAR
+ 	 	→	2735 ✵ eight pointed pinwheel star
+Twelve pointed stars
+Constitute a set as follows: 1F7D2, 2739, 1F7D3, and 1F7D4
+1F7D2	 🟒 	LIGHT TWELVE POINTED BLACK STAR
+1F7D3	 🟓 	HEAVY TWELVE POINTED BLACK STAR
+1F7D4	 🟔 	HEAVY TWELVE POINTED PINWHEEL STAR
+Go stone markers
+1F7D5	 🟕 	CIRCLED TRIANGLE
+1F7D6	 🟖 	NEGATIVE CIRCLED TRIANGLE
+1F7D7	 🟗 	CIRCLED SQUARE
+1F7D8	 🟘 	NEGATIVE CIRCLED SQUARE
+Colored circles
+For use with emoji. Constitute a set as follows: 26AA, 26AB, 1F534, 1F535, 1F7E0-1F7E4
+1F7E0	 🟠 	LARGE ORANGE CIRCLE
+1F7E1	 🟡 	LARGE YELLOW CIRCLE
+1F7E2	 🟢 	LARGE GREEN CIRCLE
+1F7E3	 🟣 	LARGE PURPLE CIRCLE
+1F7E4	 🟤 	LARGE BROWN CIRCLE
+Colored squares
+For use with emoji. Constitute a set as follows: 2B1C, 2B1B, 1F7E5-1F7EB
+1F7E5	 🟥 	LARGE RED SQUARE
+1F7E6	 🟦 	LARGE BLUE SQUARE
+1F7E7	 🟧 	LARGE ORANGE SQUARE
+1F7E8	 🟨 	LARGE YELLOW SQUARE
+1F7E9	 🟩 	LARGE GREEN SQUARE
+1F7EA	 🟪 	LARGE PURPLE SQUARE
+1F7EB	 🟫 	LARGE BROWN SQUARE

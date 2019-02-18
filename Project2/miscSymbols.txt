@@ -1,0 +1,621 @@
+Miscellaneous Symbols
+Weather and astrological symbols
+2600	 ☀ 	BLACK SUN WITH RAYS
+ 	 	=	clear weather
+ 	 	→	2609 ☉ sun
+ 	 	→	1F506 🔆 high brightness symbol
+2601	 ☁ 	CLOUD
+ 	 	=	cloudy weather
+2602	 ☂ 	UMBRELLA
+ 	 	=	rainy weather
+ 	 	→	1F302 🌂 closed umbrella
+ 	 	→	1F327 🌧 cloud with rain
+2603	 ☃ 	SNOWMAN
+ 	 	=	snowy weather
+2604	 ☄ 	COMET
+2605	 ★ 	BLACK STAR
+ 	 	→	22C6 ⋆ star operator
+ 	 	→	2B51 ⭑ black small star
+ 	 	→	2BE8 ⯨ left half black star
+ 	 	→	1F7C9 🟉 light five pointed black star
+2606	 ☆ 	WHITE STAR
+ 	 	→	2729 ✩ stress outlined white star
+ 	 	→	2B50 ⭐ white medium star
+ 	 	→	1F31F 🌟 glowing star
+2607	 ☇ 	LIGHTNING
+2608	 ☈ 	THUNDERSTORM
+2609	 ☉ 	SUN
+ 	 	=	alchemical symbol for gold
+ 	 	→	2299 ⊙ circled dot operator
+ 	 	→	2600 ☀ black sun with rays
+ 	 	→	263C ☼ white sun with rays
+ 	 	→	1F31E 🌞 sun with face
+260A	 ☊ 	ASCENDING NODE
+ 	 	=	alchemical symbol for sublimation
+ 	 	→	1F75E 🝞 alchemical symbol for sublimation
+260B	 ☋ 	DESCENDING NODE
+ 	 	=	alchemical symbol for purify
+ 	 	→	1F763 🝣 alchemical symbol for purify
+260C	 ☌ 	CONJUNCTION
+ 	 	=	alchemical symbol for day
+260D	 ☍ 	OPPOSITION
+Miscellaneous symbols
+260E	 ☎ 	BLACK TELEPHONE
+ 	 	→	2121 ℡ telephone sign
+ 	 	→	2706 ✆ telephone location sign
+ 	 	→	1F4DE 📞 telephone receiver
+ 	 	→	1F57F 🕿 black touchtone telephone
+260F	 ☏ 	WHITE TELEPHONE
+ 	 	→	1F57E 🕾 white touchtone telephone
+2610	 ☐ 	BALLOT BOX
+ 	 	→	25A1 □ white square
+2611	 ☑ 	BALLOT BOX WITH CHECK
+ 	 	→	1F5F9 🗹 ballot box with bold check
+2612	 ☒ 	BALLOT BOX WITH X
+ 	 	→	22A0 ⊠ squared times
+ 	 	→	2327 ⌧ x in a rectangle box
+ 	 	→	2BBD ⮽ ballot box with light x
+ 	 	→	1F5F3 🗳 ballot box with ballot
+ 	 	→	1F5F5 🗵 ballot box with script x
+2613	 ☓ 	SALTIRE
+ 	 	=	St. Andrew's Cross
+ 	 	→	2717 ✗ ballot x
+ 	 	→	1F7A9 🞩 light saltire
+Weather symbol
+2614	 ☔ 	UMBRELLA WITH RAIN DROPS
+ 	 	=	showery weather
+Miscellaneous symbol
+2615	 ☕ 	HOT BEVERAGE
+ 	 	=	tea or coffee, depending on locale
+ 	 	•	can be used to indicate a wait
+ 	 	→	231A ⌚ watch
+ 	 	→	231B ⌛ hourglass
+ 	 	→	1F375 🍵 teacup without handle
+Japanese chess symbols
+2616	 ☖ 	WHITE SHOGI PIECE
+2617	 ☗ 	BLACK SHOGI PIECE
+Miscellaneous symbols
+2618	 ☘ 	SHAMROCK
+ 	 	→	1F340 🍀 four leaf clover
+2619	 ☙ 	REVERSED ROTATED FLORAL HEART BULLET
+ 	 	•	a binding signature mark
+ 	 	→	2767 ❧ rotated floral heart bullet
+ 	 	→	1F659 🙙 south west pointing vine leaf
+Pointing hand symbols
+261A	 ☚ 	BLACK LEFT POINTING INDEX
+261B	 ☛ 	BLACK RIGHT POINTING INDEX
+261C	 ☜ 	WHITE LEFT POINTING INDEX
+ 	 	→	1F448 👈 white left pointing backhand index
+ 	 	→	1F598 🖘 sideways white left pointing index
+261D	 ☝ 	WHITE UP POINTING INDEX
+ 	 	→	1F59E 🖞 sideways white up pointing index
+261E	 ☞ 	WHITE RIGHT POINTING INDEX
+ 	 	=	fist (typographic term)
+ 	 	→	1F599 🖙 sideways white right pointing index
+261F	 ☟ 	WHITE DOWN POINTING INDEX
+ 	 	→	1F597 🖗 white down pointing left hand index
+ 	 	→	1F59F 🖟 sideways white down pointing index
+Warning signs
+2620	 ☠ 	SKULL AND CROSSBONES
+ 	 	=	poison
+ 	 	→	1F571 🕱 black skull and crossbones
+2621	 ☡ 	CAUTION SIGN
+2622	 ☢ 	RADIOACTIVE SIGN
+2623	 ☣ 	BIOHAZARD SIGN
+Medical and healing symbols
+2624	 ☤ 	CADUCEUS
+ 	 	→	2695 ⚕ staff of aesculapius
+ 	 	→	1F750 🝐 alchemical symbol for caduceus
+2625	 ☥ 	ANKH
+Religious and political symbols
+2626	 ☦ 	ORTHODOX CROSS
+2627	 ☧ 	CHI RHO
+ 	 	=	Constantine's cross, Christogram
+ 	 	→	2CE9 ⳩ coptic symbol khi ro
+2628	 ☨ 	CROSS OF LORRAINE
+2629	 ☩ 	CROSS OF JERUSALEM
+ 	 	=	simple cross potent
+ 	 	•	contrasts with the actual cross of Jerusalem, which adds a small crosslet at each corner
+ 	 	→	1F70A 🜊 alchemical symbol for vinegar
+262A	 ☪ 	STAR AND CRESCENT
+262B	 ☫ 	FARSI SYMBOL
+ 	 	=	symbol of iran (1.0)
+262C	 ☬ 	ADI SHAKTI
+ 	 	=	khanda
+ 	 	•	Sikh religious symbol
+262D	 ☭ 	HAMMER AND SICKLE
+262E	 ☮ 	PEACE SYMBOL
+262F	 ☯ 	YIN YANG
+ 	 	→	0FCA ࿊ tibetan symbol nor bu nyis -khyil
+Yijing trigram symbols
+2630	 ☰ 	TRIGRAM FOR HEAVEN
+ 	 	=	qian2
+2631	 ☱ 	TRIGRAM FOR LAKE
+ 	 	=	dui4
+2632	 ☲ 	TRIGRAM FOR FIRE
+ 	 	=	li2
+2633	 ☳ 	TRIGRAM FOR THUNDER
+ 	 	=	zhen4
+2634	 ☴ 	TRIGRAM FOR WIND
+ 	 	=	xun4
+2635	 ☵ 	TRIGRAM FOR WATER
+ 	 	=	kan3
+2636	 ☶ 	TRIGRAM FOR MOUNTAIN
+ 	 	=	gen4
+2637	 ☷ 	TRIGRAM FOR EARTH
+ 	 	=	kun1
+Miscellaneous symbol
+2638	 ☸ 	WHEEL OF DHARMA
+ 	 	→	2388 ⎈ helm symbol
+Emoticons
+Many other emoticons are encoded in the Emoticons block starting at 1F600.
+2639	 ☹ 	WHITE FROWNING FACE
+ 	 	→	1F641 🙁 slightly frowning face
+263A	 ☺ 	WHITE SMILING FACE
+ 	 	→	1F642 🙂 slightly smiling face
+ 	 	=	have a nice day!
+263B	 ☻ 	BLACK SMILING FACE
+Miscellaneous symbol
+263C	 ☼ 	WHITE SUN WITH RAYS
+ 	 	=	compass
+ 	 	→	2609 ☉ sun
+ 	 	→	1F31E 🌞 sun with face
+ 	 	→	1F323 🌣 white sun
+ 	 	→	1F506 🔆 high brightness symbol
+Astrological symbols
+263D	 ☽ 	FIRST QUARTER MOON
+ 	 	=	alchemical symbol for silver
+ 	 	→	1F313 🌓 first quarter moon symbol
+263E	 ☾ 	LAST QUARTER MOON
+ 	 	=	alchemical symbol for silver
+ 	 	→	23FE ⏾ power sleep symbol
+ 	 	→	1F317 🌗 last quarter moon symbol
+ 	 	→	1F319 🌙 crescent moon
+263F	 ☿ 	MERCURY
+ 	 	=	alchemical symbol for quicksilver
+2640	 ♀ 	FEMALE SIGN
+ 	 	=	Venus
+ 	 	=	alchemical symbol for copper
+ 	 	→	1F469 👩 woman
+ 	 	→	1F6BA 🚺 womens symbol
+2641	 ♁ 	EARTH
+ 	 	=	alchemical symbol for antimony
+ 	 	→	1F728 🜨 alchemical symbol for verdigris
+2642	 ♂ 	MALE SIGN
+ 	 	=	Mars
+ 	 	=	alchemical symbol for iron
+ 	 	→	2BFD ⯽ passed symbol
+ 	 	→	1F468 👨 man
+ 	 	→	1F6B9 🚹 mens symbol
+2643	 ♃ 	JUPITER
+ 	 	=	alchemical symbol for tin
+2644	 ♄ 	SATURN
+ 	 	=	alchemical symbol for lead
+2645	 ♅ 	URANUS
+ 	 	→	26E2 ⛢ astronomical symbol for uranus
+2646	 ♆ 	NEPTUNE
+ 	 	=	alchemical symbol for bismuth/tinglass
+ 	 	→	2BC9 ⯉ neptune form two
+2647	 ♇ 	PLUTO
+ 	 	→	2BD3 ⯓ pluto form two
+Zodiacal symbols
+See also Asian zodiacal symbols among the animal symbols in the range 1F400-1F418.
+2648	 ♈ 	ARIES
+ 	 	→	1F40F 🐏 ram
+2649	 ♉ 	TAURUS
+264A	 ♊ 	GEMINI
+264B	 ♋ 	CANCER
+ 	 	→	1F980 🦀 crab
+264C	 ♌ 	LEO
+ 	 	→	1F981 🦁 lion face
+264D	 ♍ 	VIRGO
+ 	 	=	minim (alternate glyph)
+264E	 ♎ 	LIBRA
+ 	 	→	2696 ⚖ scales
+ 	 	→	1F75E 🝞 alchemical symbol for sublimation
+264F	 ♏ 	SCORPIUS
+ 	 	=	Scorpio
+ 	 	=	minim, drop
+ 	 	→	1F982 🦂 scorpion
+2650	 ♐ 	SAGITTARIUS
+ 	 	→	1F3F9 🏹 bow and arrow
+2651	 ♑ 	CAPRICORN
+2652	 ♒ 	AQUARIUS
+ 	 	→	1F3FA 🏺 amphora
+2653	 ♓ 	PISCES
+Chess symbols
+See also various heterodox chess symbols in the Chess Symbols block starting at 1FA00.
+2654	 ♔ 	WHITE CHESS KING
+2655	 ♕ 	WHITE CHESS QUEEN
+2656	 ♖ 	WHITE CHESS ROOK
+2657	 ♗ 	WHITE CHESS BISHOP
+2658	 ♘ 	WHITE CHESS KNIGHT
+2659	 ♙ 	WHITE CHESS PAWN
+265A	 ♚ 	BLACK CHESS KING
+265B	 ♛ 	BLACK CHESS QUEEN
+265C	 ♜ 	BLACK CHESS ROOK
+265D	 ♝ 	BLACK CHESS BISHOP
+265E	 ♞ 	BLACK CHESS KNIGHT
+265F	 ♟ 	BLACK CHESS PAWN
+Playing card symbols
+2660	 ♠ 	BLACK SPADE SUIT
+2661	 ♡ 	WHITE HEART SUIT
+2662	 ♢ 	WHITE DIAMOND SUIT
+ 	 	→	25C7 ◇ white diamond
+ 	 	→	25CA ◊ lozenge
+2663	 ♣ 	BLACK CLUB SUIT
+ 	 	→	2618 ☘ shamrock
+2664	 ♤ 	WHITE SPADE SUIT
+2665	 ♥ 	BLACK HEART SUIT
+ 	 	=	valentine
+ 	 	→	2764 ❤ heavy black heart
+ 	 	→	1F394 🎔 heart with tip on the left
+ 	 	→	1F499 💙 blue heart
+ 	 	→	1F5A4 🖤 black heart
+2666	 ♦ 	BLACK DIAMOND SUIT
+ 	 	→	25C6 ◆ black diamond
+2667	 ♧ 	WHITE CLUB SUIT
+Miscellaneous symbol
+2668	 ♨ 	HOT SPRINGS
+Musical symbols
+2669	 ♩ 	QUARTER NOTE
+ 	 	=	crotchet
+ 	 	→	1D15F 𝅘𝅥 musical symbol quarter note
+266A	 ♪ 	EIGHTH NOTE
+ 	 	=	quaver
+ 	 	→	1D160 𝅘𝅥𝅮 musical symbol eighth note
+ 	 	→	1F3B5 🎵 musical note
+266B	 ♫ 	BEAMED EIGHTH NOTES
+ 	 	=	beamed quavers
+ 	 	→	1F39D 🎝 beamed descending musical notes
+ 	 	→	1F3B6 🎶 multiple musical notes
+266C	 ♬ 	BEAMED SIXTEENTH NOTES
+ 	 	=	beamed semiquavers
+266D	 ♭ 	MUSIC FLAT SIGN
+266E	 ♮ 	MUSIC NATURAL SIGN
+266F	 ♯ 	MUSIC SHARP SIGN
+ 	 	=	z notation infix bag count
+ 	 	→	0023 # number sign
+Syriac cross symbols
+These symbols are used in liturgical texts of Syriac-speaking churches.
+2670	 ♰ 	WEST SYRIAC CROSS
+2671	 ♱ 	EAST SYRIAC CROSS
+Recycling symbols
+2672	 ♲ 	UNIVERSAL RECYCLING SYMBOL
+ 	 	•	used as generic symbol for recycling or to indicate that material is recyclable
+2673	 ♳ 	RECYCLING SYMBOL FOR TYPE-1 PLASTICS
+ 	 	•	polyethylene terephthalate
+2674	 ♴ 	RECYCLING SYMBOL FOR TYPE-2 PLASTICS
+ 	 	•	high density polyethylene
+2675	 ♵ 	RECYCLING SYMBOL FOR TYPE-3 PLASTICS
+ 	 	•	vinyl, polyvinyl chloride
+2676	 ♶ 	RECYCLING SYMBOL FOR TYPE-4 PLASTICS
+ 	 	•	low density polyethylene
+2677	 ♷ 	RECYCLING SYMBOL FOR TYPE-5 PLASTICS
+ 	 	•	polypropylene
+2678	 ♸ 	RECYCLING SYMBOL FOR TYPE-6 PLASTICS
+ 	 	•	polystyrene
+2679	 ♹ 	RECYCLING SYMBOL FOR TYPE-7 PLASTICS
+ 	 	•	other plastics
+267A	 ♺ 	RECYCLING SYMBOL FOR GENERIC MATERIALS
+ 	 	•	used together with other text and labels to indicate the type of material to be recycled
+267B	 ♻ 	BLACK UNIVERSAL RECYCLING SYMBOL
+ 	 	→	1F501 🔁 clockwise rightwards and leftwards open circle arrows
+267C	 ♼ 	RECYCLED PAPER SYMBOL
+ 	 	•	used to indicate 100% recycled paper content
+267D	 ♽ 	PARTIALLY-RECYCLED PAPER SYMBOL
+ 	 	•	percentage of recycled paper content indicated in overlay or next to this symbol
+Miscellaneous symbols
+267E	 ♾ 	PERMANENT PAPER SIGN
+ 	 	=	non-acid paper
+267F	 ♿ 	WHEELCHAIR SYMBOL
+ 	 	=	accessible place
+Dice
+2680	 ⚀ 	DIE FACE-1
+ 	 	→	1F3B2 🎲 game die
+2681	 ⚁ 	DIE FACE-2
+2682	 ⚂ 	DIE FACE-3
+2683	 ⚃ 	DIE FACE-4
+2684	 ⚄ 	DIE FACE-5
+2685	 ⚅ 	DIE FACE-6
+Go markers
+2686	 ⚆ 	WHITE CIRCLE WITH DOT RIGHT
+2687	 ⚇ 	WHITE CIRCLE WITH TWO DOTS
+ 	 	→	1F636 😶 face without mouth
+2688	 ⚈ 	BLACK CIRCLE WITH WHITE DOT RIGHT
+2689	 ⚉ 	BLACK CIRCLE WITH TWO WHITE DOTS
+Yijing monogram and digram symbols
+These form a subset of the larger collection found in the Tai Xuan Jing Symbols block.
+268A	 ⚊ 	MONOGRAM FOR YANG
+268B	 ⚋ 	MONOGRAM FOR YIN
+268C	 ⚌ 	DIGRAM FOR GREATER YANG
+268D	 ⚍ 	DIGRAM FOR LESSER YIN
+268E	 ⚎ 	DIGRAM FOR LESSER YANG
+268F	 ⚏ 	DIGRAM FOR GREATER YIN
+Dictionary and map symbols
+2690	 ⚐ 	WHITE FLAG
+ 	 	→	1F3F3 🏳 waving white flag
+2691	 ⚑ 	BLACK FLAG
+2692	 ⚒ 	HAMMER AND PICK
+ 	 	=	mining, working day (in timetables)
+ 	 	→	26CF ⛏ pick
+ 	 	→	1F6E0 🛠 hammer and wrench
+2693	 ⚓ 	ANCHOR
+ 	 	=	nautical term, harbor (on maps)
+2694	 ⚔ 	CROSSED SWORDS
+ 	 	=	military term, battleground (on maps), killed in action
+ 	 	→	1F93A 🤺 fencer
+2695	 ⚕ 	STAFF OF AESCULAPIUS
+ 	 	=	medical term
+ 	 	•	both inclined or upright renderings of this symbol are common
+ 	 	→	2624 ☤ caduceus
+ 	 	→	1F54F 🕏 bowl of hygieia
+2696	 ⚖ 	SCALES
+ 	 	=	legal term, jurisprudence
+ 	 	→	264E ♎ libra
+2697	 ⚗ 	ALEMBIC
+ 	 	=	chemical term, chemistry
+ 	 	→	1F76D 🝭 alchemical symbol for retort
+2698	 ⚘ 	FLOWER
+ 	 	=	botanical term
+ 	 	→	2055 ⁕ flower punctuation mark
+ 	 	→	2740 ❀ white florette
+ 	 	→	1F337 🌷 tulip
+2699	 ⚙ 	GEAR
+ 	 	=	technology, tools
+269A	 ⚚ 	STAFF OF HERMES
+ 	 	•	signifies a commercial term or commerce
+ 	 	•	glyph shows a heraldic staff with a winged wheel
+269B	 ⚛ 	ATOM SYMBOL
+ 	 	=	nuclear installation (on maps)
+Miscellaneous symbols
+269C	 ⚜ 	FLEUR-DE-LIS
+269D	 ⚝ 	OUTLINED WHITE STAR
+ 	 	•	alternative form of the interlaced pentagram (a symbol of Morocco)
+ 	 	→	26E5 ⛥ right-handed interlaced pentagram
+Symbols for closed captioning from ARIB STD B24
+269E	 ⚞ 	THREE LINES CONVERGING RIGHT
+ 	 	=	someone speaking
+ 	 	→	1F5E6 🗦 three rays left
+269F	 ⚟ 	THREE LINES CONVERGING LEFT
+ 	 	=	background speaking
+ 	 	→	1F5E7 🗧 three rays right
+Miscellaneous symbols
+26A0	 ⚠ 	WARNING SIGN
+ 	 	→	1F6D1 🛑 octagonal sign
+26A1	 ⚡ 	HIGH VOLTAGE SIGN
+ 	 	=	thunder
+ 	 	=	lightning symbol
+ 	 	→	1F5F2 🗲 lightning mood
+Gender symbols
+26A2	 ⚢ 	DOUBLED FEMALE SIGN
+ 	 	=	lesbianism
+ 	 	→	1F46D 👭 two women holding hands
+26A3	 ⚣ 	DOUBLED MALE SIGN
+ 	 	•	a glyph variant has the two circles on the same line
+ 	 	=	male homosexuality
+ 	 	→	1F46C 👬 two men holding hands
+26A4	 ⚤ 	INTERLOCKED FEMALE AND MALE SIGN
+ 	 	•	a glyph variant has the two circles on the same line
+ 	 	=	bisexuality
+26A5	 ⚥ 	MALE AND FEMALE SIGN
+ 	 	=	transgender
+ 	 	=	hermaphrodite (in entomology)
+26A6	 ⚦ 	MALE WITH STROKE SIGN
+ 	 	=	transgender
+ 	 	=	alchemical symbol for iron or crocus of iron
+26A7	 ⚧ 	MALE WITH STROKE AND MALE AND FEMALE SIGN
+ 	 	=	transgender
+26A8	 ⚨ 	VERTICAL MALE WITH STROKE SIGN
+ 	 	=	alchemical symbol for iron
+26A9	 ⚩ 	HORIZONTAL MALE WITH STROKE SIGN
+ 	 	=	alchemical symbol for iron
+Circles
+26AA	 ⚪ 	MEDIUM WHITE CIRCLE
+ 	 	=	asexuality, sexless, genderless
+ 	 	=	engaged, betrothed
+ 	 	•	base for male or female sign
+ 	 	→	1F785 🞅 medium bold white circle
+26AB	 ⚫ 	MEDIUM BLACK CIRCLE
+ 	 	•	UI symbol for record function
+ 	 	→	23FA ⏺ black circle for record
+26AC	 ⚬ 	MEDIUM SMALL WHITE CIRCLE
+ 	 	=	engaged, betrothed (genealogy)
+ 	 	•	can represent wedding ring
+Genealogical symbols
+26AD	 ⚭ 	MARRIAGE SYMBOL
+ 	 	→	221E ∞ infinity
+ 	 	→	1F492 💒 wedding
+26AE	 ⚮ 	DIVORCE SYMBOL
+ 	 	→	29DE ⧞ infinity negated with vertical bar
+ 	 	→	2BFA ⯺ united symbol
+26AF	 ⚯ 	UNMARRIED PARTNERSHIP SYMBOL
+ 	 	→	29DF ⧟ double-ended multimap
+ 	 	→	2BFB ⯻ separated symbol
+26B0	 ⚰ 	COFFIN
+ 	 	=	buried (genealogy)
+ 	 	→	25AD ▭ white rectangle
+26B1	 ⚱ 	FUNERAL URN
+ 	 	=	cremated (genealogy)
+Gender symbol
+26B2	 ⚲ 	NEUTER
+Astrological signs
+26B3	 ⚳ 	CERES
+26B4	 ⚴ 	PALLAS
+26B5	 ⚵ 	JUNO
+26B6	 ⚶ 	VESTA
+26B7	 ⚷ 	CHIRON
+26B8	 ⚸ 	BLACK MOON LILITH
+Astrological aspects
+Constitute a set as follows: 260C, 26BA, 2220, 26B9, 25A1, 25B3, 26BC, 26BB, and 260D, representing the values 0, 30, 45, 60, 90, 120, 135, 150, and 180 in degrees.
+26B9	 ⚹ 	SEXTILE
+ 	 	•	an aspect of 60 degrees
+ 	 	→	002A * asterisk
+ 	 	→	2736 ✶ six pointed black star
+ 	 	→	1F739 🜹 alchemical symbol for sal-ammoniac
+26BA	 ⚺ 	SEMISEXTILE
+ 	 	•	an aspect of 30 degrees
+ 	 	→	22BB ⊻ xor
+26BB	 ⚻ 	QUINCUNX
+ 	 	•	an aspect of 150 degrees
+ 	 	→	22BC ⊼ nand
+26BC	 ⚼ 	SESQUIQUADRATE
+ 	 	•	an aspect of 135 degrees
+Sport symbols
+See other sport symbols in the Miscellaneous Symbols and Pictographs block.
+26BD	 ⚽ 	SOCCER BALL
+26BE	 ⚾ 	BASEBALL
+Miscellaneous symbol from ARIB STD B24
+26BF	 ⚿ 	SQUARED KEY
+ 	 	=	parental lock
+ 	 	→	1F511 🔑 key
+Symbols for draughts and checkers
+26C0	 ⛀ 	WHITE DRAUGHTS MAN
+26C1	 ⛁ 	WHITE DRAUGHTS KING
+26C2	 ⛂ 	BLACK DRAUGHTS MAN
+26C3	 ⛃ 	BLACK DRAUGHTS KING
+Weather symbols from ARIB STD B24
+26C4	 ⛄ 	SNOWMAN WITHOUT SNOW
+ 	 	=	light snow
+26C5	 ⛅ 	SUN BEHIND CLOUD
+ 	 	=	partly cloudy
+ 	 	→	1F324 🌤 white sun with small cloud
+26C6	 ⛆ 	RAIN
+ 	 	=	rainy weather
+26C7	 ⛇ 	BLACK SNOWMAN
+ 	 	=	heavy snow
+26C8	 ⛈ 	THUNDER CLOUD AND RAIN
+ 	 	=	thunderstorm
+ 	 	→	1F329 🌩 cloud with lightning
+Game symbols from ARIB STD B24
+26C9	 ⛉ 	TURNED WHITE SHOGI PIECE
+26CA	 ⛊ 	TURNED BLACK SHOGI PIECE
+26CB	 ⛋ 	WHITE DIAMOND IN SQUARE
+ 	 	→	233A ⌺ apl functional symbol quad diamond
+Traffic signs from ARIB STD B24
+26CC	 ⛌ 	CROSSING LANES
+ 	 	=	accident
+ 	 	→	292C ⤬ falling diagonal crossing rising diagonal
+26CD	 ⛍ 	DISABLED CAR
+Zodiacal symbol
+26CE	 ⛎ 	OPHIUCHUS
+Traffic signs from ARIB STD B24
+26CF	 ⛏ 	PICK
+ 	 	=	under construction
+ 	 	→	2692 ⚒ hammer and pick
+ 	 	→	1F6A7 🚧 construction sign
+26D0	 ⛐ 	CAR SLIDING
+ 	 	=	icy road
+26D1	 ⛑ 	HELMET WITH WHITE CROSS
+ 	 	=	maintenance
+ 	 	→	1F477 👷 construction worker
+26D2	 ⛒ 	CIRCLED CROSSING LANES
+ 	 	=	road closed
+ 	 	→	2297 ⊗ circled times
+26D3	 ⛓ 	CHAINS
+ 	 	=	tyre chains required
+26D4	 ⛔ 	NO ENTRY
+ 	 	→	1F6AB 🚫 no entry sign
+26D5	 ⛕ 	ALTERNATE ONE-WAY LEFT WAY TRAFFIC
+ 	 	•	left side traffic
+26D6	 ⛖ 	BLACK TWO-WAY LEFT WAY TRAFFIC
+ 	 	•	left side traffic
+26D7	 ⛗ 	WHITE TWO-WAY LEFT WAY TRAFFIC
+ 	 	•	left side traffic
+26D8	 ⛘ 	BLACK LEFT LANE MERGE
+ 	 	•	left side traffic
+26D9	 ⛙ 	WHITE LEFT LANE MERGE
+ 	 	•	left side traffic
+26DA	 ⛚ 	DRIVE SLOW SIGN
+26DB	 ⛛ 	HEAVY WHITE DOWN-POINTING TRIANGLE
+ 	 	=	drive slow
+ 	 	→	25BD ▽ white down-pointing triangle
+26DC	 ⛜ 	LEFT CLOSED ENTRY
+26DD	 ⛝ 	SQUARED SALTIRE
+ 	 	=	closed entry
+ 	 	→	22A0 ⊠ squared times
+26DE	 ⛞ 	FALLING DIAGONAL IN WHITE CIRCLE IN BLACK SQUARE
+ 	 	=	closed to large vehicles
+26DF	 ⛟ 	BLACK TRUCK
+ 	 	=	black lorry
+ 	 	=	closed to large vehicles, alternate
+ 	 	→	1F69A 🚚 delivery truck
+26E0	 ⛠ 	RESTRICTED LEFT ENTRY-1
+26E1	 ⛡ 	RESTRICTED LEFT ENTRY-2
+Astronomical symbol
+26E2	 ⛢ 	ASTRONOMICAL SYMBOL FOR URANUS
+ 	 	→	2645 ♅ uranus
+Map symbol from ARIB STD B24
+26E3	 ⛣ 	HEAVY CIRCLE WITH STROKE AND TWO DOTS ABOVE
+ 	 	=	public office
+Pentagram symbols
+These are mystic or occult symbols.
+26E4	 ⛤ 	PENTAGRAM
+ 	 	=	pentalpha, pentangle
+ 	 	•	symbol of various uses, including symbol on Moroccan flag
+ 	 	→	2606 ☆ white star
+26E5	 ⛥ 	RIGHT-HANDED INTERLACED PENTAGRAM
+ 	 	•	symbol of various countries, including Morocco
+ 	 	→	269D ⚝ outlined white star
+26E6	 ⛦ 	LEFT-HANDED INTERLACED PENTAGRAM
+ 	 	•	symbol of various countries, including Ethiopia
+26E7	 ⛧ 	INVERTED PENTAGRAM
+Map symbols from ARIB STD B24
+26E8	 ⛨ 	BLACK CROSS ON SHIELD
+ 	 	=	hospital
+ 	 	→	1F3E5 🏥 hospital
+26E9	 ⛩ 	SHINTO SHRINE
+ 	 	=	torii
+26EA	 ⛪ 	CHURCH
+26EB	 ⛫ 	CASTLE
+ 	 	→	1F3F0 🏰 european castle
+26EC	 ⛬ 	HISTORIC SITE
+ 	 	→	2234 ∴ therefore
+26ED	 ⛭ 	GEAR WITHOUT HUB
+ 	 	=	factory
+ 	 	→	2699 ⚙ gear
+ 	 	→	1F3ED 🏭 factory
+26EE	 ⛮ 	GEAR WITH HANDLES
+ 	 	=	power plant, power substation
+26EF	 ⛯ 	MAP SYMBOL FOR LIGHTHOUSE
+26F0	 ⛰ 	MOUNTAIN
+ 	 	→	1F3D4 🏔 snow capped mountain
+26F1	 ⛱ 	UMBRELLA ON GROUND
+ 	 	=	bathing beach
+ 	 	→	2602 ☂ umbrella
+ 	 	→	1F3D6 🏖 beach with umbrella
+26F2	 ⛲ 	FOUNTAIN
+ 	 	=	park
+26F3	 ⛳ 	FLAG IN HOLE
+ 	 	=	golf course
+ 	 	→	1F6A9 🚩 triangular flag on post
+26F4	 ⛴ 	FERRY
+ 	 	=	ferry boat terminal
+ 	 	→	1F6A2 🚢 ship
+26F5	 ⛵ 	SAILBOAT
+ 	 	=	marina or yacht harbour
+ 	 	→	1F6A3 🚣 rowboat
+26F6	 ⛶ 	SQUARE FOUR CORNERS
+ 	 	=	intersection
+26F7	 ⛷ 	SKIER
+ 	 	=	ski resort
+ 	 	→	1F3BF 🎿 ski and ski boot
+26F8	 ⛸ 	ICE SKATE
+ 	 	=	ice skating rink
+26F9	 ⛹ 	PERSON WITH BALL
+ 	 	=	track and field, gymnasium
+26FA	 ⛺ 	TENT
+ 	 	=	camping site
+ 	 	→	1F3D5 🏕 camping
+26FB	 ⛻ 	JAPANESE BANK SYMBOL
+ 	 	→	1F3E6 🏦 bank
+26FC	 ⛼ 	HEADSTONE GRAVEYARD SYMBOL
+ 	 	=	graveyard, memorial park, cemetery
+26FD	 ⛽ 	FUEL PUMP
+ 	 	=	petrol station, gas station
+26FE	 ⛾ 	CUP ON BLACK SQUARE
+ 	 	=	drive-in restaurant
+ 	 	→	2615 ☕ hot beverage
+ 	 	→	1F375 🍵 teacup without handle
+26FF	 ⛿ 	WHITE FLAG WITH HORIZONTAL MIDDLE BLACK STRIPE
+ 	 	=	Japanese self-defence force site

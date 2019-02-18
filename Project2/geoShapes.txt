@@ -1,0 +1,195 @@
+Geometric Shapes
+Geometric shapes
+Other geometric shapes complementing this set are found in the Miscellaneous Symbols and Arrows block.
+25A0	 ■ 	BLACK SQUARE
+ 	 	=	moding mark (in ideographic text)
+ 	 	→	2588 █ full block
+ 	 	→	2B1B ⬛ black large square
+25A1	 □ 	WHITE SQUARE
+ 	 	=	quadrature
+ 	 	=	alchemical symbol for salt
+ 	 	•	used in astrological contexts for aspect square
+ 	 	•	may be used to represent a missing ideograph
+ 	 	→	20DE ◌⃞ combining enclosing square
+ 	 	→	25FB ◻ white medium square
+ 	 	→	2610 ☐ ballot box
+ 	 	→	2B1C ⬜ white large square
+ 	 	→	3013 〓 geta mark
+25A2	 ▢ 	WHITE SQUARE WITH ROUNDED CORNERS
+25A3	 ▣ 	WHITE SQUARE CONTAINING BLACK SMALL SQUARE
+25A4	 ▤ 	SQUARE WITH HORIZONTAL FILL
+25A5	 ▥ 	SQUARE WITH VERTICAL FILL
+25A6	 ▦ 	SQUARE WITH ORTHOGONAL CROSSHATCH FILL
+25A7	 ▧ 	SQUARE WITH UPPER LEFT TO LOWER RIGHT FILL
+25A8	 ▨ 	SQUARE WITH UPPER RIGHT TO LOWER LEFT FILL
+25A9	 ▩ 	SQUARE WITH DIAGONAL CROSSHATCH FILL
+25AA	 ▪ 	BLACK SMALL SQUARE
+ 	 	=	square bullet
+ 	 	→	2B1D ⬝ black very small square
+25AB	 ▫ 	WHITE SMALL SQUARE
+ 	 	→	2B1E ⬞ white very small square
+25AC	 ▬ 	BLACK RECTANGLE
+25AD	 ▭ 	WHITE RECTANGLE
+25AE	 ▮ 	BLACK VERTICAL RECTANGLE
+ 	 	=	histogram marker
+ 	 	→	220E ∎ end of proof
+25AF	 ▯ 	WHITE VERTICAL RECTANGLE
+ 	 	→	2337 ⌷ apl functional symbol squish quad
+ 	 	→	2395 ⎕ apl functional symbol quad
+25B0	 ▰ 	BLACK PARALLELOGRAM
+25B1	 ▱ 	WHITE PARALLELOGRAM
+25B2	 ▲ 	BLACK UP-POINTING TRIANGLE
+ 	 	→	23F6 ⏶ black medium up-pointing triangle
+ 	 	→	2BC5 ⯅ black medium up-pointing triangle centred
+ 	 	→	1F53A 🔺 up-pointing red triangle
+25B3	 △ 	WHITE UP-POINTING TRIANGLE
+ 	 	=	trine
+ 	 	→	20E4 ◌⃤ combining enclosing upward pointing triangle
+ 	 	→	2206 ∆ increment
+ 	 	→	1F6C6 🛆 triangle with rounded corners
+ 	 	→	1F702 🜂 alchemical symbol for fire
+25B4	 ▴ 	BLACK UP-POINTING SMALL TRIANGLE
+ 	 	→	1F53C 🔼 up-pointing small red triangle
+25B5	 ▵ 	WHITE UP-POINTING SMALL TRIANGLE
+25B6	 ▶ 	BLACK RIGHT-POINTING TRIANGLE
+ 	 	→	23F5 ⏵ black medium right-pointing triangle
+ 	 	→	2BC8 ⯈ black medium right-pointing triangle centred
+25B7	 ▷ 	WHITE RIGHT-POINTING TRIANGLE
+ 	 	=	z notation range restriction
+25B8	 ▸ 	BLACK RIGHT-POINTING SMALL TRIANGLE
+ 	 	→	2023 ‣ triangular bullet
+25B9	 ▹ 	WHITE RIGHT-POINTING SMALL TRIANGLE
+25BA	 ► 	BLACK RIGHT-POINTING POINTER
+25BB	 ▻ 	WHITE RIGHT-POINTING POINTER
+ 	 	=	forward arrow indicator
+ 	 	→	22B3 ⊳ contains as normal subgroup
+25BC	 ▼ 	BLACK DOWN-POINTING TRIANGLE
+ 	 	→	23F7 ⏷ black medium down-pointing triangle
+ 	 	→	2BC6 ⯆ black medium down-pointing triangle centred
+ 	 	→	1F53B 🔻 down-pointing red triangle
+25BD	 ▽ 	WHITE DOWN-POINTING TRIANGLE
+ 	 	=	Hamilton operator
+ 	 	→	2207 ∇ nabla
+ 	 	→	26DB ⛛ heavy white down-pointing triangle
+ 	 	→	1F704 🜄 alchemical symbol for water
+25BE	 ▾ 	BLACK DOWN-POINTING SMALL TRIANGLE
+ 	 	→	1F53D 🔽 down-pointing small red triangle
+25BF	 ▿ 	WHITE DOWN-POINTING SMALL TRIANGLE
+25C0	 ◀ 	BLACK LEFT-POINTING TRIANGLE
+ 	 	→	23F4 ⏴ black medium left-pointing triangle
+ 	 	→	2BC7 ⯇ black medium left-pointing triangle centred
+25C1	 ◁ 	WHITE LEFT-POINTING TRIANGLE
+ 	 	=	z notation domain restriction
+25C2	 ◂ 	BLACK LEFT-POINTING SMALL TRIANGLE
+25C3	 ◃ 	WHITE LEFT-POINTING SMALL TRIANGLE
+25C4	 ◄ 	BLACK LEFT-POINTING POINTER
+25C5	 ◅ 	WHITE LEFT-POINTING POINTER
+ 	 	=	backward arrow indicator
+ 	 	→	22B2 ⊲ normal subgroup of
+25C6	 ◆ 	BLACK DIAMOND
+ 	 	→	2666 ♦ black diamond suit
+ 	 	→	2B25 ⬥ black medium diamond
+ 	 	→	1F536 🔶 large orange diamond
+25C7	 ◇ 	WHITE DIAMOND
+ 	 	→	20DF ◌⃟ combining enclosing diamond
+ 	 	→	22C4 ⋄ diamond operator
+ 	 	→	2662 ♢ white diamond suit
+ 	 	→	27E1 ⟡ white concave-sided diamond
+ 	 	→	2B26 ⬦ white medium diamond
+ 	 	→	1F754 🝔 alchemical symbol for soap
+25C8	 ◈ 	WHITE DIAMOND CONTAINING BLACK SMALL DIAMOND
+25C9	 ◉ 	FISHEYE
+ 	 	=	tainome (Japanese, a kind of bullet)
+25CA	 ◊ 	LOZENGE
+ 	 	→	2662 ♢ white diamond suit
+25CB	 ○ 	WHITE CIRCLE
+ 	 	→	20DD ◌⃝ combining enclosing circle
+ 	 	→	25EF ◯ large circle
+ 	 	→	2B58 ⭘ heavy circle
+ 	 	→	3007 〇 ideographic number zero
+ 	 	→	1F315 🌕 full moon symbol
+25CC	 ◌ 	DOTTED CIRCLE
+ 	 	•	note that the reference glyph for this character is intentionally larger than the dotted circle glyph used to indicate combining characters in this standard; see, for example, 0300 ◌̀
+25CD	 ◍ 	CIRCLE WITH VERTICAL FILL
+25CE	 ◎ 	BULLSEYE
+ 	 	→	229A ⊚ circled ring operator
+ 	 	→	2B57 ⭗ heavy circle with circle inside
+ 	 	→	1F3AF 🎯 direct hit
+ 	 	→	1F78B 🞋 round target
+25CF	 ● 	BLACK CIRCLE
+ 	 	→	2B24 ⬤ black large circle
+ 	 	→	1F311 🌑 new moon symbol
+ 	 	→	1F534 🔴 large red circle
+25D0	 ◐ 	CIRCLE WITH LEFT HALF BLACK
+ 	 	→	1F313 🌓 first quarter moon symbol
+25D1	 ◑ 	CIRCLE WITH RIGHT HALF BLACK
+ 	 	→	1F317 🌗 last quarter moon symbol
+25D2	 ◒ 	CIRCLE WITH LOWER HALF BLACK
+25D3	 ◓ 	CIRCLE WITH UPPER HALF BLACK
+25D4	 ◔ 	CIRCLE WITH UPPER RIGHT QUADRANT BLACK
+25D5	 ◕ 	CIRCLE WITH ALL BUT UPPER LEFT QUADRANT BLACK
+25D6	 ◖ 	LEFT HALF BLACK CIRCLE
+25D7	 ◗ 	RIGHT HALF BLACK CIRCLE
+25D8	 ◘ 	INVERSE BULLET
+ 	 	→	2022 • bullet
+ 	 	→	25E6 ◦ white bullet
+25D9	 ◙ 	INVERSE WHITE CIRCLE
+25DA	 ◚ 	UPPER HALF INVERSE WHITE CIRCLE
+25DB	 ◛ 	LOWER HALF INVERSE WHITE CIRCLE
+25DC	 ◜ 	UPPER LEFT QUADRANT CIRCULAR ARC
+25DD	 ◝ 	UPPER RIGHT QUADRANT CIRCULAR ARC
+25DE	 ◞ 	LOWER RIGHT QUADRANT CIRCULAR ARC
+25DF	 ◟ 	LOWER LEFT QUADRANT CIRCULAR ARC
+25E0	 ◠ 	UPPER HALF CIRCLE
+ 	 	→	2312 ⌒ arc
+25E1	 ◡ 	LOWER HALF CIRCLE
+25E2	 ◢ 	BLACK LOWER RIGHT TRIANGLE
+25E3	 ◣ 	BLACK LOWER LEFT TRIANGLE
+25E4	 ◤ 	BLACK UPPER LEFT TRIANGLE
+25E5	 ◥ 	BLACK UPPER RIGHT TRIANGLE
+25E6	 ◦ 	WHITE BULLET
+ 	 	→	2022 • bullet
+ 	 	→	2218 ∘ ring operator
+ 	 	→	25D8 ◘ inverse bullet
+25E7	 ◧ 	SQUARE WITH LEFT HALF BLACK
+ 	 	→	2B12 ⬒ square with top half black
+25E8	 ◨ 	SQUARE WITH RIGHT HALF BLACK
+25E9	 ◩ 	SQUARE WITH UPPER LEFT DIAGONAL HALF BLACK
+25EA	 ◪ 	SQUARE WITH LOWER RIGHT DIAGONAL HALF BLACK
+25EB	 ◫ 	WHITE SQUARE WITH VERTICAL BISECTING LINE
+25EC	 ◬ 	WHITE UP-POINTING TRIANGLE WITH DOT
+25ED	 ◭ 	UP-POINTING TRIANGLE WITH LEFT HALF BLACK
+25EE	 ◮ 	UP-POINTING TRIANGLE WITH RIGHT HALF BLACK
+25EF	 ◯ 	LARGE CIRCLE
+ 	 	→	20DD ◌⃝ combining enclosing circle
+ 	 	→	25CB ○ white circle
+ 	 	→	2B24 ⬤ black large circle
+ 	 	→	2B55 ⭕ heavy large circle
+ 	 	→	3007 〇 ideographic number zero
+Control code graphics
+25F0	 ◰ 	WHITE SQUARE WITH UPPER LEFT QUADRANT
+25F1	 ◱ 	WHITE SQUARE WITH LOWER LEFT QUADRANT
+25F2	 ◲ 	WHITE SQUARE WITH LOWER RIGHT QUADRANT
+25F3	 ◳ 	WHITE SQUARE WITH UPPER RIGHT QUADRANT
+25F4	 ◴ 	WHITE CIRCLE WITH UPPER LEFT QUADRANT
+25F5	 ◵ 	WHITE CIRCLE WITH LOWER LEFT QUADRANT
+25F6	 ◶ 	WHITE CIRCLE WITH LOWER RIGHT QUADRANT
+25F7	 ◷ 	WHITE CIRCLE WITH UPPER RIGHT QUADRANT
+Geometric shapes
+25F8	 ◸ 	UPPER LEFT TRIANGLE
+25F9	 ◹ 	UPPER RIGHT TRIANGLE
+25FA	 ◺ 	LOWER LEFT TRIANGLE
+ 	 	→	22BF ⊿ right triangle
+25FB	 ◻ 	WHITE MEDIUM SQUARE
+ 	 	=	always (modal operator)
+ 	 	→	25A1 □ white square
+ 	 	→	27E4 ⟤ white square with leftwards tick
+25FC	 ◼ 	BLACK MEDIUM SQUARE
+ 	 	→	23F9 ⏹ black square for stop
+ 	 	→	25A0 ■ black square
+25FD	 ◽ 	WHITE MEDIUM SMALL SQUARE
+ 	 	→	25AB ▫ white small square
+25FE	 ◾ 	BLACK MEDIUM SMALL SQUARE
+ 	 	→	25AA ▪ black small square
+25FF	 ◿ 	LOWER RIGHT TRIANGLE
+ 	 	→	22BF ⊿ right triangle
