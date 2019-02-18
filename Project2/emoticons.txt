@@ -1,0 +1,110 @@
+Emoticons
+The emoticons have been organized by mouth shape to make it easier to locate the different characters in the code chart.
+Faces
+1F600	 😀 	GRINNING FACE
+1F601	 😁 	GRINNING FACE WITH SMILING EYES
+1F602	 😂 	FACE WITH TEARS OF JOY
+1F603	 😃 	SMILING FACE WITH OPEN MOUTH
+ 	 	→	263A ☺ white smiling face
+1F604	 😄 	SMILING FACE WITH OPEN MOUTH AND SMILING EYES
+1F605	 😅 	SMILING FACE WITH OPEN MOUTH AND COLD SWEAT
+1F606	 😆 	SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES
+1F607	 😇 	SMILING FACE WITH HALO
+1F608	 😈 	SMILING FACE WITH HORNS
+ 	 	•	commonly depicted as a (sinister) smiling version of 1F47F 👿 imp
+1F609	 😉 	WINKING FACE
+1F60A	 😊 	SMILING FACE WITH SMILING EYES
+1F60B	 😋 	FACE SAVOURING DELICIOUS FOOD
+1F60C	 😌 	RELIEVED FACE
+ 	 	•	indicates relief, not sleeping
+1F60D	 😍 	SMILING FACE WITH HEART-SHAPED EYES
+1F60E	 😎 	SMILING FACE WITH SUNGLASSES
+1F60F	 😏 	SMIRKING FACE
+1F610	 😐 	NEUTRAL FACE
+ 	 	•	used for the West Wind in some Mahjong annotation
+1F611	 😑 	EXPRESSIONLESS FACE
+1F612	 😒 	UNAMUSED FACE
+1F613	 😓 	FACE WITH COLD SWEAT
+1F614	 😔 	PENSIVE FACE
+1F615	 😕 	CONFUSED FACE
+1F616	 😖 	CONFOUNDED FACE
+1F617	 😗 	KISSING FACE
+1F618	 😘 	FACE THROWING A KISS
+1F619	 😙 	KISSING FACE WITH SMILING EYES
+1F61A	 😚 	KISSING FACE WITH CLOSED EYES
+1F61B	 😛 	FACE WITH STUCK-OUT TONGUE
+1F61C	 😜 	FACE WITH STUCK-OUT TONGUE AND WINKING EYE
+ 	 	•	kidding, not serious
+1F61D	 😝 	FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES
+ 	 	•	kidding, not serious
+1F61E	 😞 	DISAPPOINTED FACE
+ 	 	→	2639 ☹ white frowning face
+1F61F	 😟 	WORRIED FACE
+1F620	 😠 	ANGRY FACE
+1F621	 😡 	POUTING FACE
+ 	 	•	intended to depict pouting rather than simply anger
+1F622	 😢 	CRYING FACE
+1F623	 😣 	PERSEVERING FACE
+1F624	 😤 	FACE WITH LOOK OF TRIUMPH
+ 	 	•	indicates triumph, not anger
+1F625	 😥 	DISAPPOINTED BUT RELIEVED FACE
+1F626	 😦 	FROWNING FACE WITH OPEN MOUTH
+ 	 	•	frowning, not shocked or surprised
+1F627	 😧 	ANGUISHED FACE
+1F628	 😨 	FEARFUL FACE
+1F629	 😩 	WEARY FACE
+1F62A	 😪 	SLEEPY FACE
+1F62B	 😫 	TIRED FACE
+1F62C	 😬 	GRIMACING FACE
+ 	 	•	should not be depicted with zipper mouth
+ 	 	→	1F910 🤐 zipper-mouth face
+1F62D	 😭 	LOUDLY CRYING FACE
+1F62E	 😮 	FACE WITH OPEN MOUTH
+1F62F	 😯 	HUSHED FACE
+1F630	 😰 	FACE WITH OPEN MOUTH AND COLD SWEAT
+1F631	 😱 	FACE SCREAMING IN FEAR
+1F632	 😲 	ASTONISHED FACE
+1F633	 😳 	FLUSHED FACE
+ 	 	•	embarrassed
+1F634	 😴 	SLEEPING FACE
+1F635	 😵 	DIZZY FACE
+1F636	 😶 	FACE WITHOUT MOUTH
+ 	 	→	2687 ⚇ white circle with two dots
+1F637	 😷 	FACE WITH MEDICAL MASK
+Cat faces
+1F638	 😸 	GRINNING CAT FACE WITH SMILING EYES
+1F639	 😹 	CAT FACE WITH TEARS OF JOY
+1F63A	 😺 	SMILING CAT FACE WITH OPEN MOUTH
+1F63B	 😻 	SMILING CAT FACE WITH HEART-SHAPED EYES
+1F63C	 😼 	CAT FACE WITH WRY SMILE
+1F63D	 😽 	KISSING CAT FACE WITH CLOSED EYES
+1F63E	 😾 	POUTING CAT FACE
+ 	 	•	intended to depict pouting rather than simply anger
+1F63F	 😿 	CRYING CAT FACE
+1F640	 🙀 	WEARY CAT FACE
+ 	 	•	indicates tired, not horrified
+Faces
+1F641	 🙁 	SLIGHTLY FROWNING FACE
+ 	 	→	2639 ☹ white frowning face
+1F642	 🙂 	SLIGHTLY SMILING FACE
+ 	 	→	263A ☺ white smiling face
+1F643	 🙃 	UPSIDE-DOWN FACE
+1F644	 🙄 	FACE WITH ROLLING EYES
+Gesture symbols
+1F645	 🙅 	FACE WITH NO GOOD GESTURE
+ 	 	•	conveys "no deal" or "not ok", not anger; the inverse of 1F646 🙆 face with ok gesture
+1F646	 🙆 	FACE WITH OK GESTURE
+1F647	 🙇 	PERSON BOWING DEEPLY
+ 	 	•	most commonly depicted as Japanese-style bowing while seated (dogeza)
+1F648	 🙈 	SEE-NO-EVIL MONKEY
+1F649	 🙉 	HEAR-NO-EVIL MONKEY
+1F64A	 🙊 	SPEAK-NO-EVIL MONKEY
+1F64B	 🙋 	HAPPY PERSON RAISING ONE HAND
+1F64C	 🙌 	PERSON RAISING BOTH HANDS IN CELEBRATION
+ 	 	=	banzai!
+1F64D	 🙍 	PERSON FROWNING
+1F64E	 🙎 	PERSON WITH POUTING FACE
+ 	 	•	intended to depict pouting rather than simply anger
+1F64F	 🙏 	PERSON WITH FOLDED HANDS
+ 	 	•	can indicate sorrow or regret
+ 	 	•	can also indicate pleading, praying, bowing, or thanking
