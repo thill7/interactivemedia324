@@ -15,10 +15,12 @@
 	body {
 		height:100vh;
 		width:100vw;
+		overflow-x:hidden;
 	}
 	#inputCharGroup {
 		height:10vh;
-		top:40vh;
+		top:0;
+		position:fixed;
 	}
 	#inputChar {
 		height:10vh;
@@ -31,7 +33,7 @@
 		width:20vw;
 		font-size:8vh;
 		text-align:center;
-		position:absolute;
+		position:fixed;
 		left: 40vw;
 		bottom:0;
 		height:10vh;
@@ -167,6 +169,16 @@ $(document).ready(async () => {
 	$.each(characterSet, (i, item) => {
 		charDescriptions.push(item[2]);
 	});*/
+	$.each(characterSet, (i, character) => {
+		$("<div class='charBox'>").attr({"id":character[0],"data-alt-name":character[2]}).css({"width":"18vw","height":"18vw","margin":"1vw","border":"5px solid black","box-sizing":"border-box","border-radius":"5px","display":"inline-block","line-height":"18vw","vertical-align":"middle","font-size":"10vw","text-align":"center","overflow":"hidden"}).html(character[1]).appendTo("#mainBody");
+	});
+	$(document).on("click",".charBox", (e) => {
+		var target = e.target;
+		if($(target).text() != "") {
+			$("#pasteArea").val($(target).text());
+			$("#pasteArea").select();
+		}
+	});
 	$("#inputChar").autocomplete({
 		source: charDescriptions,
 		autoFocus: true,
@@ -175,8 +187,12 @@ $(document).ready(async () => {
 			var charObject = characterSet.find((obj) => {return obj[2] == ui.item.value;});
 			if(charObject != undefined) {
 				let character = charObject[1];
+				let vOffset = $(".charBox[data-alt-name='"+charObject[2]+"']").offset().top;
 				$("#pasteArea").val(character);
 				$("#pasteArea").select();
+				if(vOffset != undefined) {
+					window.scrollTo(0,vOffset);
+				}
 			}
 			else {
 				console.log("not found");
@@ -190,5 +206,8 @@ $(document).ready(async () => {
 		<input class="form-control" type="text" id="inputChar" />
 	</div>
 	<input type="textarea" id="pasteArea" readonly/>
+<div id="mainBody">
+
+</div>
 </body>
 </html>
