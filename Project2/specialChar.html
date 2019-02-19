@@ -18,13 +18,20 @@
 		overflow-x:hidden;
 	}
 	#inputCharGroup {
-		height:10vh;
-		top:0;
-		position:sticky;
-    z-index:999;
+	}
+	#sectionSelectGroup {
 	}
 	#inputChar {
 		height:10vh;
+	}
+	#topNav {
+		z-index:999;
+		margin-left:1vw;
+		margin-right: 1vw;
+	}
+	#sectionSelect {
+		height:10vh;
+		
 	}
 	.ui-menu {
 		max-height: 20vh;
@@ -59,12 +66,35 @@
   .charBox {
     transition:box-shadow 0.5s ease;
   }
+  #tooltipSuccess {
+	display:none;
+	width:18vw;
+	height: 6vw;
+	position:absolute;
+	z-index:9999;
+	opacity: 1;
+	text-align:center;
+	font-size: 3vw;
+  }
+  @keyframes copySuccess {
+	from {transform:translateY(0);opacity:1;}
+	to {transform:translateY(-6vw);opacity:0;}
+  }
 </style>
 </head>
 <body>
 <script>
 $(document).ready(async () => {
   var sectionsIndex = 0;
+  function copySuccess(id) {
+	if($(id).length > 0) {
+		let top = $(id).offset().top;
+		let left = $(id).offset().left;
+		top = top + ((window.innerWidth / 100) * 6);
+		console.log(top);
+		$("#tooltipSuccess").css({"display":"block","left":left+"px","top":top+"px","animation":"copySuccess 0.75s ease"});
+	}
+  }
   function getCodes(url) {
 	return new Promise((resolve,reject) => {
 		$.ajax({
@@ -82,6 +112,8 @@ $(document).ready(async () => {
 		rawData = rawData.split("\n");
     sectionMarkers[sectionsIndex] = [];
     sectionMarkers[sectionsIndex].push(rawData[0]);
+	
+	$("<option value='"+rawData[0].split(" ")[0]+"'>").html(rawData[0]).appendTo("#sectionSelect");
 
 		var patt = new RegExp("^[0-9]","g");
 		rawData = rawData.filter((line) => {let lineTest = line.split(" "); return patt.test(lineTest[0]);});
@@ -202,7 +234,7 @@ $(document).ready(async () => {
 	$.each(characterSet, (i, character) => {
     if(sectionAppendIndex < sectionMarkers.length) {
       if(i == sectionMarkers[sectionAppendIndex][1]) {
-      $("<div class='sectionMarker'>").attr({"id":sectionMarkers[sectionAppendIndex][0].split(" ").join("_")}).css({"height":"18vw","width":"58vw","margin":"1vw","border":"0.25vw solid black","box-sizing":"border-box","border-radius":"5px","display":"inline-block","line-height":"18vw","vertical-align":"middle","font-size":"4vw","text-align":"center","overflow":"hidden"}).html(sectionMarkers[sectionAppendIndex][0]).appendTo("#mainBody");
+      $("<div class='sectionMarker'>").attr({"id":sectionMarkers[sectionAppendIndex][0].split(" ")[0]}).css({"height":"18vw","width":"58vw","margin":"1vw","border":"0.25vw solid black","box-sizing":"border-box","border-radius":"5px","display":"inline-block","line-height":"18vw","vertical-align":"middle","font-size":"4vw","text-align":"center","overflow":"hidden"}).html(sectionMarkers[sectionAppendIndex][0]).appendTo("#mainBody");
       sectionAppendIndex++;
       }
     }
@@ -213,6 +245,9 @@ $(document).ready(async () => {
 		if($(target).val() != "") {
       $(target).select();
       document.execCommand("copy");
+	  let id = "#" + $(target).parents(".charBox").attr("id");
+	  console.log(id);
+	  copySuccess(id);
 		}
 	});
 	$("#inputChar").autocomplete({
@@ -239,14 +274,39 @@ $(document).ready(async () => {
   $(document).click("body",() => {
     $(".charBox").css("box-shadow","none");
   });
+  $("#tooltipSuccess").on("animationend webkitAnimationEnd",() => {
+	$("#tooltipSuccess").css("display","none");
+  });
+  $(document).on("change","#sectionSelect",() => {
+	window.location.hash = $("#sectionSelect").val().replace(/\s/g,"");
+  });
+  $(window).scroll(function (event) {
+    var scroll = $(window).scrollTop();
+    if(scroll > $(".sectionMarker").eq(0).offset().top) {
+		$("#topNav").css("position","fixed");
+	}
+	else {
+		$("#topNav").css("position","");
+	}
+  });
 });
 </script>
-<div class="input-group input-group-lg" id="inputCharGroup">
-		<span class="input-group-addon">Character</span>
-		<input class="form-control" type="text" id="inputChar" />
+<div class="row" id="topNav">
+	<div class="col-md-6" style="padding:0;">
+		<div class="input-group input-group-lg" id="inputCharGroup">
+				<span class="input-group-addon">Character</span>
+				<input class="form-control" type="text" id="inputChar" />
+		</div>
 	</div>
+	<div class="col-md-6" style="padding:0;">
+		<div class="input-group" id="sectionSelectGroup">	
+			<select class="form-control" id="sectionSelect"></select>
+		</div>
+	</div>
+</div>
 <div id="mainBody">
 
 </div>
+<div class="alert alert-success" id="tooltipSuccess">Copied!</div>
 </body>
 </html>
