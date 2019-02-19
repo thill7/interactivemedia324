@@ -56,6 +56,9 @@
     outline:none;
     border:none;
   }
+  .charBox {
+    transition:box-shadow 0.5s ease;
+  }
 </style>
 </head>
 <body>
@@ -210,7 +213,6 @@ $(document).ready(async () => {
 		if($(target).val() != "") {
       $(target).select();
       document.execCommand("copy");
-      alert("copied!");
 		}
 	});
 	$("#inputChar").autocomplete({
@@ -221,7 +223,10 @@ $(document).ready(async () => {
 			var charObject = characterSet.find((obj) => {return obj[2] == ui.item.value;});
 			if(charObject != undefined) {
 				let character = charObject[1];
-				let vOffset = $(".charBox[data-alt-name='"+charObject[2]+"']").offset().top;
+				let vOffset = $(".charBox[data-alt-name='"+charObject[2]+"']").offset().top-200;
+        if($(".charBox[data-alt-name='"+charObject[2]+"']").length > 0) {
+          $(".charBox[data-alt-name='"+charObject[2]+"']").css({"box-shadow":"0 0 1vw 0.25vw cyan"});
+        }
 				if(vOffset != undefined) {
 					window.scrollTo(0,vOffset);
 				}
@@ -231,6 +236,9 @@ $(document).ready(async () => {
 			}
 		}
 	});
+  $(document).click("body",() => {
+    $(".charBox").css("box-shadow","none");
+  });
 });
 </script>
 <div class="input-group input-group-lg" id="inputCharGroup">
