@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://thill7.github.io/interactivemedia324/Project2/specialChar.html#Geometric -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	body {
+		height:auto;
+		width:100vw;
+		overflow-x:hidden;
+																	background-color: goldenrod;
+																	font-family: "Suez One", serif;
+	}
+	body::-webkit-scrollbar {
+		display:none;
+	}
+	#inputCharGroup {
+	}
+	#sectionSelectGroup {
+		width:100%;
+	}
+	#inputChar {
+		height:10vh;
+	}
+	#topNav {
+		z-index:999;
+																	margin-left:0vw;
+																	margin-right: 0.5vw;
+																	background-color:gold;
+																	position: sticky;
+																	position: -webkit-sticky;
+																	top: 0;
+																	padding: 0.5vw;
+																	padding-left: 1vw;
+																	padding-right: 1vw;
+																	width: 100%;
+		}
+
+																	h1 {
+																		text-align: center;
+																		font-size: 10vw;
+																		line-height: 60%;
+																	}
+
+
+																	h2 {
+																		text-align: center;
+																		font-size: 3vw;
+
+																	}
+																	.col-md-6 {
+																		padding-left: 0.5vw;
+																	}
+	#sectionSelect {
+		height:10vh;
+		font-size: 2vh;
+	}
+	.ui-menu {
+		max-height: 20vh;
+		overflow-y:scroll;
+		z-index:9999;
+		margin-right:1vw;
+		position:absolute;
+	}
+	#pasteArea {
+		width:20vw;
+		font-size:8vh;
+		text-align:center;
+		position:fixed;
+		left: 40vw;
+		bottom:0;
+		height:10vh;
+	}
+  .characterBox {
+																    width:19vw;
+																    height:19vw;
+    text-align:center;
+    line-height: 18vw;
+    vertical-align: middle;
+    overflow:hidden;
+    position:relative;
+    left:-1vw;
+    resize:none;
+    outline:none;
+    border:none;
+  }
+  .characterBox:focus {
+    outline:none;
+    border:none;
+  }
+  .charBox {
+    transition:box-shadow 0.5s ease;
+  }
+  #sectionMarker {
+    }
+  #tooltipSuccess {
+	display:none;
+	width:18vw;
+	height:5vw;
+	position:absolute;
+	z-index:9999;
+	opacity: 1;
+	text-align:center;
+															font-size: 2vw;
+  }
+
+
+    @keyframes copySuccess {
+	from {transform:translateY(0);opacity:1;}
+	to {transform:translateY(-6vw);opacity:0;}
+  }
+</style>
+</head>
+<body>
+																													<h1>GODDAMN!</h1>
+																													<h2>special characters</h2>
+<script>
+$(document).ready(async () => {
+  var sectionsIndex = 0;
+  function copySuccess(id) {
+	if($(id).length > 0) {
+		let top = $(id).offset().top;
+		let left = $(id).offset().left;
+		top = top + ((window.innerWidth / 100) * 6);
+		console.log(top);
+		$("#tooltipSuccess").css({"display":"block","left":left+"px","top":top+"px","animation":"copySuccess 0.75s ease"});
+	}
+  }
+  function getCodes(url) {
+	return new Promise((resolve,reject) => {
+		$.ajax({
+			url: url,
+			dataType: "text",
+			success: function(data) {
+				resolve(data);
+			}
+		});
+	});
+  }
+	async function parseCodes(url) {
+		var rawData = await getCodes(url);
+
+		rawData = rawData.split("\n");
+    sectionMarkers[sectionsIndex] = [];
+    sectionMarkers[sectionsIndex].push(rawData[0]);
+
+	$("<option value='"+rawData[0].split(" ")[0].replace(/\s/g,"")+"'>").html(rawData[0]).appendTo("#sectionSelect");
+
+		var patt = new RegExp("^[0-9]","g");
+		rawData = rawData.filter((line) => {let lineTest = line.split(" "); return patt.test(lineTest[0]);});
+
+		var parsedData = [];
+
+		$.each(rawData,(i, line) => {
+		let lineSplit = line.split(" ");
+		parsedData[i] = [];
+		for(let j = 0; j < lineSplit.length; j++) {
+
+			if(j < 2) {
+				parsedData[i].push(lineSplit[j].replace(/\s/g,''));
+			}
+
+			else if( j == 2 ) {
+				parsedData[i][2] = lineSplit[j].replace(/\s/g,'');
+			}
+			else {
+				parsedData[i][2] += (" " + lineSplit[j].replace(/\s/g,''));
+			}
+		}
+		});
+
+		console.log(parsedData);
+
+		if(parsedData.length > 0) {
+      sectionMarkers[sectionsIndex].push(characterSet.length);
+      $.each(parsedData, (i, item) => {
+				characterSet.push(item);
+			});
+		}
+		charDescriptions = [];
+		$.each(characterSet, (i, item) => {
+			charDescriptions.push(item[2]);
+		});
+    sectionsIndex++;
+	}
+	var characterSet = [];
+	var charDescriptions = [];
+  var sectionMarkers = [];
+
+	var urls = [
+		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/boxDrawing.txt",
+		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/runes.txt",
+		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/arrows.txt",
+		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/miscTechnical.txt",
+		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/supplementalMath.txt",
+		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/miscSymbols.txt",
+		//"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/geoShapesExt.txt",
+		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/geoShapes.txt",
+		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/blockElements.txt",
+    "https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/emoticons.txt"
+	];
+	for(let i = 0; i < urls.length; i++) {
+		await parseCodes(urls[i]);
+	}
+  console.log(sectionMarkers);
+
+	console.log(characterSet);
+  var sectionAppendIndex = 0;
+	$.each(characterSet, (i, character) => {
+    if(sectionAppendIndex < sectionMarkers.length) {
+      if(i == sectionMarkers[sectionAppendIndex][1]) {
+      $("<div class='sectionMarker'>").attr({"id":sectionMarkers[sectionAppendIndex][0].split(" ")[0].replace(/\s/g,'')}).css({"height":"18vw","width":"58vw","margin":"1vw","border":"0.25vw solid black","box-sizing":"border-box","border-radius":"5px","display":"inline-block","line-height":"18vw","vertical-align":"middle","font-size":"4vw","text-align":"center","overflow":"hidden"
+
+
+
+
+
+
+
+
+
+
+
+      									,"background-color":"#222","color":"white"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  										}).html(sectionMarkers[sectionAppendIndex][0]).appendTo("#mainBody");
+      sectionAppendIndex++;
+      }
+    }
+    $("<div class='charBox'>").attr({"id":character[0],"data-alt-name":character[2]}).css({"width":"18%","height":"18vw","margin":"1%","border":"0.25vw solid black","box-sizing":"border-box","border-radius":"5px","display":"inline-block","line-height":"18vw","vertical-align":"middle","font-size":"5vw","text-align":"center","overflow":"hidden"}).html("<textarea class='characterBox' readonly>"+character[1]+"</textarea>").appendTo("#mainBody");
+	});
+	$(document).on("click",".charBox", (e) => {
+		var target = e.target;
+		if($(target).val() != "") {
+      $(target).select();
+      document.execCommand("copy");
+	  let id = "#" + $(target).parents(".charBox").attr("id");
+	  console.log(id);
+	  copySuccess(id);
+		}
+	});
+	$("#inputChar").autocomplete({
+		source: charDescriptions,
+		autoFocus: true,
+		select: function(event,ui) {
+			console.log(ui.item.value);
+			var charObject = characterSet.find((obj) => {return obj[2] == ui.item.value;});
+			if(charObject != undefined) {
+				let character = charObject[1];
+				let vOffset = $(".charBox[data-alt-name='"+charObject[2]+"']").offset().top-200;
+        if($(".charBox[data-alt-name='"+charObject[2]+"']").length > 0) {
+          $(".charBox[data-alt-name='"+charObject[2]+"']").css({"box-shadow":"0 0 1vw 0.25vw cyan"});
+        }
+				if(vOffset != undefined) {
+					window.scrollTo(0,vOffset);
+				}
+			}
+			else {
+				console.log("not found");
+			}
+		}
+	});
+  $(document).click("body",() => {
+    $(".charBox").css("box-shadow","none");
+  });
+  $("#tooltipSuccess").on("animationend webkitAnimationEnd",() => {
+	$("#tooltipSuccess").css("display","none");
+  });
+  $(document).on("change","#sectionSelect",() => {
+	window.location.href = "#"+$("#sectionSelect").val().replace(/\s/g,"");
+  });
+  $(window).scroll(function (event) {
+    var scroll = $(window).scrollTop();
+    if(scroll > $(".sectionMarker").eq(0).offset().top) {
+		$("#topNav").css({"position":"fixed","box-shadow":"0 0 3vh 0.5vh grey"});
+	}
+	else {
+		$("#topNav").css({"position":"","box-shadow":""});
+	}
+  });
+	$(document).on("mouseover",".characterBox",(e) => {
+		var text = e.target;
+		text = $(text).parents(".charBox").attr("data-alt-name");
+		$("#inputChar").val(text);
+	});
+	$(document).on("mouseout",".characterBox",(e) => {
+		$("#inputChar").val("");
+	});
+});
+</script>
+<!-- changed navbar -->
+<div class="row" id="topNav">
+	<div class="col-md-6" style="padding:0;">
+		<div class="input-group input-group-lg" id="inputCharGroup">
+				<span class="input-group-addon">Character</span>
+				<input class="form-control" type="text" id="inputChar" />
+		</div>
+	</div>
+	<div class="col-md-6" style="padding:0;">
+		<div class="input-group" id="sectionSelectGroup">
+			<select class="form-control" id="sectionSelect"></select>
+		</div>
+	</div>
+</div>
+<div id="mainBody">
+
+</div>
+<div class="alert alert-success" id="tooltipSuccess">Copied!</div>
+</body>
+</html>
