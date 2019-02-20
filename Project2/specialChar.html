@@ -20,6 +20,7 @@
 	#inputCharGroup {
 	}
 	#sectionSelectGroup {
+		width:100%;
 	}
 	#inputChar {
 		height:10vh;
@@ -113,7 +114,7 @@ $(document).ready(async () => {
     sectionMarkers[sectionsIndex] = [];
     sectionMarkers[sectionsIndex].push(rawData[0]);
 	
-	$("<option value='"+rawData[0].split(" ")[0]+"'>").html(rawData[0]).appendTo("#sectionSelect");
+	$("<option value='"+rawData[0].split(" ")[0].replace(/\s/g,"")+"'>").html(rawData[0]).appendTo("#sectionSelect");
 
 		var patt = new RegExp("^[0-9]","g");
 		rawData = rawData.filter((line) => {let lineTest = line.split(" "); return patt.test(lineTest[0]);});
@@ -234,7 +235,7 @@ $(document).ready(async () => {
 	$.each(characterSet, (i, character) => {
     if(sectionAppendIndex < sectionMarkers.length) {
       if(i == sectionMarkers[sectionAppendIndex][1]) {
-      $("<div class='sectionMarker'>").attr({"id":sectionMarkers[sectionAppendIndex][0].split(" ")[0]}).css({"height":"18vw","width":"58vw","margin":"1vw","border":"0.25vw solid black","box-sizing":"border-box","border-radius":"5px","display":"inline-block","line-height":"18vw","vertical-align":"middle","font-size":"4vw","text-align":"center","overflow":"hidden"}).html(sectionMarkers[sectionAppendIndex][0]).appendTo("#mainBody");
+      $("<div class='sectionMarker'>").attr({"id":sectionMarkers[sectionAppendIndex][0].split(" ")[0].replace(/\s/g,"")}).css({"height":"18vw","width":"58vw","margin":"1vw","border":"0.25vw solid black","box-sizing":"border-box","border-radius":"5px","display":"inline-block","line-height":"18vw","vertical-align":"middle","font-size":"4vw","text-align":"center","overflow":"hidden"}).html(sectionMarkers[sectionAppendIndex][0]).appendTo("#mainBody");
       sectionAppendIndex++;
       }
     }
@@ -278,7 +279,7 @@ $(document).ready(async () => {
 	$("#tooltipSuccess").css("display","none");
   });
   $(document).on("change","#sectionSelect",() => {
-	window.location.hash = $("#sectionSelect").val().replace(/\s/g,"");
+	window.location.href = "#"+$("#sectionSelect").val().replace(/\s/g,"");
   });
   $(window).scroll(function (event) {
     var scroll = $(window).scrollTop();
