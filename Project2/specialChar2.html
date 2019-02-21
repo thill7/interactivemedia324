@@ -207,9 +207,11 @@ $(document).ready(async () => {
 		"https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/blockElements.txt",
     "https://raw.githubusercontent.com/thill7/interactivemedia324/master/Project2/emoticons.txt"
 	];
+	var parseFunctions = [];
 	for(let i = 0; i < urls.length; i++) {
-		await parseCodes(urls[i]);
+		parseFunctions.push(parseCodes(urls[i]));
 	}
+	await Promise.all(parseFunctions);
   console.log(sectionMarkers);
 
 	console.log(characterSet);
