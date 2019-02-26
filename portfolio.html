@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	#inner {
+		transform: translateZ(0);
+		width: 100vw;
+		height: 100vh;
+		transition: transform 2s ease;
+		transform-style: preserve-3d;
+	}
+	#perspectiveBox {
+		perspective: 20vh;
+		height:100vh;
+		width:100vw;
+		overflow:hidden;
+		
+	}
+	#shadowBoxLeft {
+		position:absolute;
+		left:0;
+		top: 0;
+		transform-origin: left center;
+		height: 100vh;
+		width: 20vh;
+		transform: rotateY(90deg);
+		background: linear-gradient(to right, lightgrey, dimgrey);
+	}
+	#shadowBoxRight {
+		position:absolute;
+		right:0;
+		top: 0;
+		transform-origin: right center;
+		height: 100vh;
+		width: 20vh;
+		transform: rotateY(-90deg);
+		background: linear-gradient(to left, lightgrey, dimgrey);
+	}
+	#shadowBoxTop {
+		position:absolute;
+		top: 0;
+		transform-origin: top center;
+		height: 20vh;
+		width: 100vw;
+		transform: rotateX(-90deg);
+		background: linear-gradient(to bottom, lightgrey, dimgrey);
+	}
+	#shadowBoxBottom {
+		position:absolute;
+		bottom:0;
+		transform-origin: bottom center;
+		height: 20vh;
+		width: 100vw;
+		transform: rotateX(90deg);
+		background: linear-gradient(to top, lightgrey, dimgrey);
+	}
+	#shadowBoxBack {
+		position:absolute;
+		height:100vh;
+		width: 100vw;
+		transform: translateZ(-20vh);
+		background-color: dimgrey;
+	}
+	.navigation {
+		width: 30vw;
+		height: 20vh;
+		background-color: black;
+		box-shadow: 0 -15px 15px 1px ghostwhite inset;
+		z-index: 99;
+		position: absolute;
+		transform: translateZ(-10vh);
+		border-radius:5px;
+	}
+	#education {
+		top: 60vh;
+		left: 0;
+	}
+	#about {
+		top: 60vh;
+		right: 0;
+	}
+	#work {
+		top: 0;
+		right: 35vw;
+	}
+	.connectingLine {
+		position: absolute;
+		z-index: 1;
+	}
+</style>
+<script>
+$(document).ready(() => {
+	var boxHovered = null;
+	$(".navigation").click((e) => {
+		var box = e.target;
+		if($(box).attr("id") == "about") {
+			$("#inner").css("transform","translate3D(-30vw,-20vh,20vh)");
+		}
+		else if($(box).attr("id") == "education") {
+			$("#inner").css("transform","translate3D(30vw,-20vh,20vh)");
+		}
+		else {
+			$("#inner").css("transform","translate3D(0,30vh,20vh)");
+		}
+		boxHovered = box;
+	});
+	$(document).on("dblclick","body",(e) => {
+		$("#inner").css("transform","none");
+	});
+	Hammer($("body")[0]).on("doubletap",() => {
+		$("#inner").css("transform","none");
+	});
+});
+
+</script>
+</head>
+
+<body>
+
+<div id="perspectiveBox">
+<div id="inner">
+	<div id="shadowBoxLeft">
+	</div>
+	<div id="shadowBoxRight">
+	</div>
+	<div id="shadowBoxTop">
+	</div>
+	<div id="shadowBoxBottom">
+	</div>
+	<div id="shadowBoxBack">
+	</div>
+	<div id="education" class="navigation">
+	
+	</div>
+	<div id="about" class="navigation">
+	
+	</div>
+	<div id="work" class="navigation">
+	
+	</div>
+</div>
+</div>
+</body>
+</html>
