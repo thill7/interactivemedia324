@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(async function(){
+var blinker = "<span class='cursor'>┃</span>";
+var helpHtml = `<br />${"*".repeat(25)}<br /><br />${"*".repeat(25)}<br />`;
+var builtIn = {
+  "HELP":function () {
+    let currentText = $("#textLine").html().split("<")[0];
+    $("#textLine").html(currentText+helpHtml+blinker);
+  },
+  "HOME":function () {
+
+  }
+};
+$(document).keydown((e) => {
+  var key = e.which;
+  if(key != 8) {
+    if(key === 13) {
+      let command = $("#textLine").html().split("<br />");
+      if(Array.isArray(command)) {
+        command = command[command.length - 1];
+      }
+      command = command.split("<")[0];
+      console.log(command);
+      if(command != "") {
+        builtIn[command].call();
+      }
+    }
+    else {
+      console.log(String.fromCharCode(key));
+      if(key != undefined) {
+        let currentText = $("#textLine").html().split("<")[0];
+        $("#textLine").html(currentText+String.fromCharCode(key)+blinker);
+      }
+    }
+  }
+  else {
+    if($("#textLine").html().split("<")[0].length > 0) {
+      let currentText = $("#textLine").html().split("<")[0];
+      $("#textLine").html(currentText.substring(0,currentText.length - 2)+String.fromCharCode(key)+blinker);
+    }
+  }
+});
+});
+</script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<style>
+  #terminal {
+    font-family: Consolas, monospace;
+    color: white;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    font-size: 3vw;
+  }
+  @keyframes blink {
+    0% {opacity:1;}
+    50% {opacity:0;}
+    100% {opacity:1;}
+  }
+  .cursor {
+    animation: blink 0.5s steps(1,end) infinite alternate;
+  }
+</style>
+</head>
+<body>
+	<div id="terminal">
+    <p id="textLine""><span class="cursor">┃</span></p>
+  </div>
+</body>
+</html>
