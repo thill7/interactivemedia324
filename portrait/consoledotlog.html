@@ -15,7 +15,7 @@ var helpHtml = `<br />${"*".repeat(25)}<br /><br />${"*".repeat(25)}<br />`;
 var builtIn = {
   "HELP":function () {
     let currentText = $("#textLine").html().split("<")[0];
-    $("#textLine").html(currentText+helpHtml+blinker);
+    $("#textLine").html(currentText+helpHtml);
   },
   "HOME":function () {
 
@@ -29,9 +29,8 @@ $(document).keydown((e) => {
       if(Array.isArray(command)) {
         command = command[command.length - 1];
       }
-      command = command.split("<")[0];
       console.log(command);
-      if(command != "") {
+      if(command != "" && builtIn.hasOwnProperty(command)) {
         builtIn[command].call();
       }
     }
@@ -39,14 +38,14 @@ $(document).keydown((e) => {
       console.log(String.fromCharCode(key));
       if(key != undefined) {
         let currentText = $("#textLine").html().split("<")[0];
-        $("#textLine").html(currentText+String.fromCharCode(key)+blinker);
+        $("#textLine").html(currentText+String.fromCharCode(key));
       }
     }
   }
   else {
-    if($("#textLine").html().split("<")[0].length > 0) {
-      let currentText = $("#textLine").html().split("<")[0];
-      $("#textLine").html(currentText.substring(0,currentText.length - 2)+String.fromCharCode(key)+blinker);
+    if($("#textLine").html().length > 0) {
+      let currentText = $("#textLine").html();
+      $("#textLine").html(currentText.substring(0,currentText.length - 2)+String.fromCharCode(key));
     }
   }
 });
@@ -72,12 +71,17 @@ $(document).keydown((e) => {
   }
   .cursor {
     animation: blink 0.5s steps(1,end) infinite alternate;
+    display:inline;
+
+  }
+  #textLine {
+    display:inline;
   }
 </style>
 </head>
 <body>
 	<div id="terminal">
-    <p id="textLine""><span class="cursor">┃</span></p>
+    <p id="textLine""></p><span class="cursor">┃</span>
   </div>
 </body>
 </html>
