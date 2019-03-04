@@ -212,6 +212,9 @@ $(document).ready(() => {
 		$(".numContainer").css("display","none");
 		$("#year-20"+year).css("display","block");
 	});
+	$("#seventeen, #eighteen, #nineteen").on("hover",() => {
+		$("body").css("overflow-y","none");
+	});
 });
 </script>
 </head>
@@ -317,10 +320,10 @@ $(document).ready(() => {
 	</div>
 	<div id="year-2019">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6" style="height:100vh;">
 				<img src="./images/2019/1.jpg" class="boxImg" />
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" style="height:100vh;">
 				<img src="./images/2019/2.jpg" class="boxImg" />
 			</div>
 		</div>
