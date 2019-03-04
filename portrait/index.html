@@ -212,8 +212,11 @@ $(document).ready(() => {
 		$(".numContainer").css("display","none");
 		$("#year-20"+year).css("display","block");
 	});
-	$("#seventeen, #eighteen, #nineteen").on("hover",() => {
-		$("body").css("overflow-y","none");
+	$("#seventeen, #eighteen, #nineteen").on("mouseover",() => {
+		$("body").css("overflow-y","hidden");
+	});
+	$("#seventeen, #eighteen, #nineteen").on("mouseout",() => {
+		$("body").css("overflow-y","");
 	});
 });
 </script>
