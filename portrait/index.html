@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	background-color:black;
+	overflow-x:hidden;
+	transition:background-color 3s ease;
+}
+.numContainer {
+	line-height: 100vh;
+	vertical-align: middle;
+	height:100%;
+	text-align: center;
+}
+#mainRow {
+	height: 100vh;
+	width:100vw;
+}
+#seventeen:before {
+	display: block;
+    content: '17';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+}
+#seventeen:after {
+	display: block;
+    content: '17';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+	color: #f0f;
+    z-index: -2;
+}
+#seventeen {
+	font-family: Helvetica, sans-serif;
+	color: ghostwhite;
+	font-size: 20vw;
+	display: inline;
+}
+#seventeen:hover:before {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+#seventeen:hover:after {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+}
+#eighteen:before {
+	display: block;
+    content: '18';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+}
+#eighteen:after {
+	display: block;
+    content: '18';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+	color: #f0f;
+    z-index: -2;
+}
+#eighteen {
+	font-family: Helvetica, sans-serif;
+	color: ghostwhite;
+	font-size: 20vw;
+	display: inline;
+}
+#eighteen:hover:before {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+#eighteen:hover:after {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+}
+#nineteen:before {
+	display: block;
+    content: '19';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+}
+#nineteen:after {
+	display: block;
+    content: '19';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+	color: #f0f;
+    z-index: -2;
+}
+#nineteen {
+	font-family: Helvetica, sans-serif;
+	color: ghostwhite;
+	font-size: 20vw;
+	display: inline;
+}
+#nineteen:hover:before {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+#nineteen:hover:after {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+}
+@keyframes glitch {
+    0% {
+        transform: translate(0)
+    }
+    20% {
+        transform: translate(-5px, 5px)
+    }
+    40% {
+        transform: translate(-5px, -5px)
+    }
+    60% {
+        transform: translate(5px, 5px)
+    }
+    80% {
+        transform: translate(5px, -5px)
+    }
+    to {
+        transform: translate(0)
+    }
+}
+.boxImg {
+	object-fit: scale-down;
+	width:100%;
+	margin-left:auto;
+	margin-right: auto;
+	max-height: 100%;
+}
+.col-md-3 {
+	height: 30vh;
+}
+#year-2017 {
+	height:100vh;
+	width: 100vw;
+	display:none;
+	position: absolute;
+	top:0;
+	left:0;
+}
+#year-2018 {
+	height:100vh;
+	width: 100vw;
+	display:none;
+	position: absolute;
+	top:0;
+	left:0;
+}
+</style>
+<script>
+$(document).ready(() => {
+	var year = undefined;
+	$(".numContainer").click((e) => {
+		var target = e.target;
+		ear = $(target).find("p").html();
+		if(year == undefined) {
+			year = $(target).html();
+		}
+		console.log(year);
+		$("body").css("background-color","ghostwhite");
+	});
+	$("body").on("transitionend webkitTransitionEnd", () => {
+		$(".numContainer").css("display","none");
+		$("#year-20"+year).css("display","block");
+	});
+});
+</script>
+</head>
+<body>
+	<div class="row" id="mainRow">
+		<div class="col-md-4 numContainer">
+			<p id="seventeen">17</p>
+		</div>
+		<div class="col-md-4 numContainer">
+			<p id="eighteen">18</p>
+		</div>
+		<div class="col-md-4 numContainer">
+			<p id="nineteen">19</p>
+		</div>
+	</div>
+	<div id="year-2017">
+		<div class="row" style="margin-top: 2.5vh;">
+			<div class="col-md-3">
+				<img src="./images/2017/1.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/2.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/3.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/4.jpg" class="boxImg" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<img src="./images/2017/5.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/6.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/7.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/8.jpg" class="boxImg" />
+			</div>
+		</div>
+		<div class="row" style="margin-bottom: 2.5vh;">
+			<div class="col-md-3">
+				<img src="./images/2017/9.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/10.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/11.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2017/12.jpg" class="boxImg" />
+			</div>
+		</div>
+	</div>
+	<div id="year-2018">
+		<div class="row" style="margin-top: 2.5vh;">
+			<div class="col-md-3">
+				<img src="./images/2018/1.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/2.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/3.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/4.jpg" class="boxImg" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<img src="./images/2018/5.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/6.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/7.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/8.jpg" class="boxImg" />
+			</div>
+		</div>
+		<div class="row" style="margin-bottom: 2.5vh;">
+			<div class="col-md-3">
+				<img src="./images/2018/9.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/10.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/11.jpg" class="boxImg" />
+			</div>
+			<div class="col-md-3">
+				<img src="./images/2018/12.jpg" class="boxImg" />
+			</div>
+		</div>
+	</div>
+</body>
+</html>
