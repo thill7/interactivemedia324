@@ -284,7 +284,7 @@ body {
 	margin-left:auto;
 	margin-right:auto;
 	object-fit:cover;
-	height:100vh;
+	width:100vw;
 	transition: filter 0.1s ease, transform 0.1s ease;
 }
 
@@ -322,29 +322,29 @@ $(document).ready(() => {
 		change = true;
 		if(page < 12 && year < 19) {
 			page++;
-			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)scaleY(2)"});
 		}
 		else if(page < 2 && year == 19) {
 			page++;
-			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)scaleY(2)"});
 
 		}
 		else if(year < 19){
 			year++;
 			page = 1;
-			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)scaleY(2)"});
 		}
 		else {
 			year = 17;
 			page = 1;
-			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)scaleY(2)"});
 		}
 	});
 	$("#leftArrow").click(() => {
 		change = true;
 		if(page > 1) {
 			page--;
-			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)scaleX(2)"});
 		}
 		else if(year > 17) {
 			year--;
@@ -354,12 +354,12 @@ $(document).ready(() => {
 			else {
 				page = 12;
 			}
-			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)scaleX(2)"});
 		}
 		else {
 			year = 19;
 			page = 2;
-			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)scaleX(2)"});
 		}
 	});
 	$("body").on("transitionend webkitTransitionEnd", () => {
