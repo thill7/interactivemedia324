@@ -14,7 +14,7 @@
 <style>
 body {
 	background-color:black;
-	overflow-x:hidden;
+	overflow:hidden;
 	transition:background-color 3s ease;
 }
 .numContainer {
@@ -195,18 +195,172 @@ body {
 	top:0;
 	left:0;
 }
+#rightArrow:before {
+	  display: block;
+    content: '⇨';
+    position: absolute;
+    bottom: 0;
+    right: 0vw;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+}
+#rightArrow:after {
+	display: block;
+    content: '⇨';
+    position: absolute;
+    bottom: 0;
+    right: 0vw;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+	color: #f0f;
+    z-index: -2;
+}
+#rightArrow {
+	font-family: Helvetica, sans-serif;
+	color: ghostwhite;
+	font-size: 10vw;
+	display: inline;
+	position:fixed;
+	right:2vw;
+	bottom:0;
+}
+#rightArrow:hover:before {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+#rightArrow:hover:after {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+}
+#leftArrow:before {
+	display: block;
+    content: '⇦';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+}
+#leftArrow:after {
+	display: block;
+    content: '⇦';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    color: #0ff;
+    z-index: -1;
+	color: #f0f;
+    z-index: -2;
+}
+#leftArrow {
+	font-family: Helvetica, sans-serif;
+	color: ghostwhite;
+	font-size: 10vw;
+	display: inline;
+	position:fixed;
+	right:left;
+	bottom:0;
+	left:2vw;
+}
+#leftArrow:hover:before {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+#leftArrow:hover:after {
+	animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
+}
+.mainImg {
+	display:block;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	object-fit:cover;
+	width:100vw;
+	transition: filter 0.1s ease, transform 0.1s ease;
+}
+
+@keyframes imgDistort {
+	0% {transform:none;filter:none;}
+	25% {transform:skewX(45deg);filter:hue-rotate(45deg);}
+	50% {transform:none;filter:invert(90%);}
+	100% {transform:skewX(-20deg);}
+}
+#topNav {
+	display:none;
+}
+#images {
+	overflow:none;
+}
 </style>
 <script>
 $(document).ready(() => {
 	var year = undefined;
+	var page = undefined;
 	$(".numContainer").click((e) => {
+		page = 1;
 		var target = e.target;
-		ear = $(target).find("p").html();
-		if(year == undefined) {
-			year = $(target).html();
+		if($(target).hasClass("numContainer")) {
+			  year = parseInt($(target).find("p").text());
+		}
+		else {
+				year = parseInt($(target).text());
 		}
 		console.log(year);
-		$("body").css("background-color","ghostwhite");
+		$(".mainImg").attr("src","./images/20"+year+"/"+page+".jpg");
+		$('.nav-tabs a:last').tab('show');
+	});
+	$("#rightArrow").click(() => {
+		change = true;
+		if(page < 12 && year < 19) {
+			page++;
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+		}
+		else if(page < 2 && year == 19) {
+			page++;
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+
+		}
+		else if(year < 19){
+			year++;
+			page = 1;
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+		}
+		else {
+			year = 17;
+			page = 1;
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+		}
+	});
+	$("#leftArrow").click(() => {
+		change = true;
+		if(page > 1) {
+			page--;
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+		}
+		else if(year > 17) {
+			year--;
+			if(year == 19) {
+				page = 2;
+			}
+			else {
+				page = 12;
+			}
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+		}
+		else {
+			year = 19;
+			page = 2;
+			$(".mainImg").css({"filter":"invert(60%)","transform":"skewY(40deg)"});
+		}
 	});
 	$("body").on("transitionend webkitTransitionEnd", () => {
 		$(".numContainer").css("display","none");
@@ -218,10 +372,23 @@ $(document).ready(() => {
 	$("#seventeen, #eighteen, #nineteen").on("mouseout",() => {
 		$("body").css("overflow-y","");
 	});
+	$(".mainImg").on("webkitTransitionEnd transitionend", () =>{
+			if(change == true) {
+				$(".mainImg").attr("src","./images/20"+year+"/"+page+".jpg");
+			}
+			change = false;
+			$(".mainImg").css({"filter":"none","transform":"none"});
+	});
 });
 </script>
 </head>
 <body>
+<ul class="nav nav-tabs" id="topNav">
+	  <li class="active"><a data-toggle="tab" href="#main">Main</a></li>
+	  <li><a data-toggle="tab" href="#images">Images</a></li>
+</ul>
+<div class="tab-content">
+	<div id="main" class="tab-pane fade in active">
 	<div class="row" id="mainRow">
 		<div class="col-md-4 numContainer">
 			<p id="seventeen">17</p>
@@ -233,103 +400,14 @@ $(document).ready(() => {
 			<p id="nineteen">19</p>
 		</div>
 	</div>
-	<div id="year-2017">
-		<div class="row" style="margin-top: 2.5vh;">
-			<div class="col-md-3">
-				<img src="./images/2017/1.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/2.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/3.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/4.jpg" class="boxImg" />
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<img src="./images/2017/5.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/6.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/7.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/8.jpg" class="boxImg" />
-			</div>
-		</div>
-		<div class="row" style="margin-bottom: 2.5vh;">
-			<div class="col-md-3">
-				<img src="./images/2017/9.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/10.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/11.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2017/12.jpg" class="boxImg" />
-			</div>
+  </div>
+	<div id="images" class="tab-pane fade">
+		<div class="row" id="mainRow">
+			<img src="./images/2017/1.jpg" class="mainImg" />
+			<p id="leftArrow">⇦</p>
+			<p id="rightArrow">⇨</p>
 		</div>
 	</div>
-	<div id="year-2018">
-		<div class="row" style="margin-top: 2.5vh;">
-			<div class="col-md-3">
-				<img src="./images/2018/1.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/2.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/3.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/4.jpg" class="boxImg" />
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<img src="./images/2018/5.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/6.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/7.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/8.jpg" class="boxImg" />
-			</div>
-		</div>
-		<div class="row" style="margin-bottom: 2.5vh;">
-			<div class="col-md-3">
-				<img src="./images/2018/9.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/10.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/11.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-3">
-				<img src="./images/2018/12.jpg" class="boxImg" />
-			</div>
-		</div>
-	</div>
-	<div id="year-2019">
-		<div class="row">
-			<div class="col-md-6" style="height:100vh;">
-				<img src="./images/2019/1.jpg" class="boxImg" />
-			</div>
-			<div class="col-md-6" style="height:100vh;">
-				<img src="./images/2019/2.jpg" class="boxImg" />
-			</div>
-		</div>
-	</div>
+</div>
 </body>
 </html>
