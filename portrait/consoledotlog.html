@@ -125,7 +125,7 @@ $(document).on("mousemove",(e) =>{
   $("#mouseX").text(e.pageX);
   $("#mouseY").text(e.pageY);
 });
-$(".cursor").touchstart(() => {
+$(".cursor").on("touchstart",() => {
   var input = prompt("Enter a command.");
   if(input != "") {
     input = input.toUpperCase();
