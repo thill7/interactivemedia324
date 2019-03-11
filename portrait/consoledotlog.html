@@ -11,21 +11,39 @@
   <script>
 $(document).ready(async function(){
 var blinker = "<span class='cursor'>┃</span>";
-var helpHtml = `<br />${"*".repeat(25)}<br /><br />${"*".repeat(25)}<br />`;
+var helpHtml = `<br />${"*".repeat(25)}<br />` +
+`Commands:<br />`+
+`<span class="helpCmd" data-cmd="HOME">▷ Home (clears terminal and redirects to start)</span><br />`+
+`<span class="helpCmd" data-cmd="WORK">▷ Work (displays a list of works to view)</span><br />`+
+`<span class="helpCmd" data-cmd="BIO">▷ Bio (about me)</span><br />`+
+`<br />${"*".repeat(25)}<br />`;
+var myWork = `<br />${"▚".repeat(25)}<br />` +
+`<span class="workSelect" data-project="book_project">▷ Book Project (Winter 2018 : Intro to Typography)</span><br />`+
+`<span class="workSelect" data-project="digital_images_project">▷ Final Project (Spring 2018 : Digital Images and Photography)</span><br />`+
+`<span class="workSelect" data-project="collection_project">▷ Collection Project (Winter 2018 : Applied Interactive Media)</span><br />`+
+`<span class="workSelect" data-project="sss_project">▷ Single Serve Website (Winter 2018 : Applied Interactive Media)</span><br />`+
+`<br />${"▚".repeat(25)}<br />`;
 var builtIn = {
   "HELP":function () {
-    let currentText = $("#textLine").html().split("<")[0];
+    let currentText = $("#textLine").html();
     $("#textLine").html(currentText+helpHtml);
   },
   "HOME":function () {
-
+	$("#textLine").empty();
+  },
+  "WORK":function () {
+	let currentText = $("#textLine").html();
+    $("#textLine").html(currentText+myWork);
+  },
+  "BIO": function () {
+  
   }
 };
 $(document).keydown((e) => {
   var key = e.which;
   if(key != 8) {
     if(key === 13) {
-      let command = $("#textLine").html().split("<br />");
+      let command = $("#textLine").html().split("<br>");
       if(Array.isArray(command)) {
         command = command[command.length - 1];
       }
@@ -37,17 +55,49 @@ $(document).keydown((e) => {
     else {
       console.log(String.fromCharCode(key));
       if(key != undefined) {
-        let currentText = $("#textLine").html().split("<")[0];
+        let currentText = $("#textLine").html();
         $("#textLine").html(currentText+String.fromCharCode(key));
       }
     }
   }
   else {
     if($("#textLine").html().length > 0) {
-      let currentText = $("#textLine").html();
-      $("#textLine").html(currentText.substring(0,currentText.length - 2)+String.fromCharCode(key));
+      let currentText = $("#textLine").html().split("<br>");
+	  let currentTextLine = currentText[currentText.length - 1];
+	  currentText = currentText.splice((currentText.length - 1), 1);
+	  if(currentTextLine.length > 0) {
+		$("#textLine").html(currentText + currentTextLine.substring(0,currentTextLine.length - 2));
+	  }
     }
   }
+});
+$(document).on("click",".helpCmd",(e) => {
+	var el = e.target;
+	let command = $(el).attr("data-cmd");
+	if(command != "") {
+		builtIn[command].call();
+	}	
+});
+$(document).on("click",".workSelect",(e) => {
+	var el = e.target;
+	var project = $(el).attr("data-project");
+	if(project != "") {
+		if(project == "sss_project") {
+			$("#project").attr("src","https://thill7.github.io/interactivemedia324/Project2/");
+			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>Source</a>");
+			$("#projectFrame").css("display","block");
+		}
+		else if(project == "collection_project") {
+			$("#project").attr("src","https://thill7.github.io/interactivemedia324/project1/homeTemp.html");
+			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>Source</a>");
+			$("#projectFrame").css("display","block");
+		}
+	}
+});
+$("#exitButton").click(() => {
+	if($("#projectFrame").css("display") == "block") {
+		$("#projectFrame").css("display","none");
+	}
 });
 });
 </script>
@@ -56,13 +106,15 @@ $(document).keydown((e) => {
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous"></script>
 <style>
+  body {
+	background-color: black;
+  }
   #terminal {
     font-family: Consolas, monospace;
     color: white;
-    background-color: black;
-    width: 100vw;
-    height: 100vh;
-    font-size: 3vw;
+    width: 100%;
+	height:100%;
+    font-size: 5vh;
   }
   @keyframes blink {
     0% {opacity:1;}
@@ -77,11 +129,67 @@ $(document).keydown((e) => {
   #textLine {
     display:inline;
   }
+  .helpCmd:hover {
+	background-color: white;
+	color: black;
+  }
+  .workSelect:hover {
+	background-color: white;
+	color: black;
+  }
+  #projectFrame {
+	display:none;
+	width: 50vw;
+	height: 60vh;
+	position: fixed;
+	top: 25vh;
+	left: 25vw;
+  }
+  #project {
+	position: absolute;
+	top:0;
+	left:0;
+	height:50vh;
+	width:50vw;
+	
+  }
+  #frameInfo {
+	position: absolute;
+	height: 10vh;
+	width: 50vw;
+	bottom: 0;
+	background-color:white;
+	display: flex;
+	justify-content: center;
+  }
+  #frameInfo button {
+	width: -webkit-fill-available;
+  }
+  #frameInfo button:first-child {
+	background-color:powderblue;
+	color: white;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+  }
+  #frameInfo button:last-child {
+	background-color:crimson;
+	color: white;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+  }
 </style>
 </head>
 <body>
 	<div id="terminal">
     <p id="textLine""></p><span class="cursor">┃</span>
+	<div id="projectFrame">
+		<iframe id="project">
+		</iframe>
+		<div id="frameInfo">
+				<button class="info" id="frameSource"></button>
+				<button class="danger " id="exitButton">⨯</button>
+		</div>
+	</div>
   </div>
 </body>
 </html>
