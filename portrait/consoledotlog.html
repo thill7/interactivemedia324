@@ -10,6 +10,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
 $(document).ready(async function(){
+  $("#systemName").text(navigator.platform.split(" ")[0]);
+var colors = ["crimson","orangered","goldenrod","lightgreen","cornflowerblue","midnightblue","indigo"];
 var blinker = "<span class='cursor'>┃</span>";
 var helpHtml = `<br />${"*".repeat(25)}<br />` +
 `Commands:<br />`+
@@ -17,12 +19,20 @@ var helpHtml = `<br />${"*".repeat(25)}<br />` +
 `<span class="helpCmd" data-cmd="WORK">▷ Work (displays a list of works to view)</span><br />`+
 `<span class="helpCmd" data-cmd="BIO">▷ Bio (about me)</span><br />`+
 `<br />${"*".repeat(25)}<br />`;
-var myWork = `<br />${"▚".repeat(25)}<br />` +
+var myWork = `<br />${"<span class='checker'>▚</span>".repeat(25)}<br />` +
 `<span class="workSelect" data-project="book_project">▷ Book Project (Winter 2018 : Intro to Typography)</span><br />`+
 `<span class="workSelect" data-project="digital_images_project">▷ Final Project (Spring 2018 : Digital Images and Photography)</span><br />`+
 `<span class="workSelect" data-project="collection_project">▷ Collection Project (Winter 2018 : Applied Interactive Media)</span><br />`+
 `<span class="workSelect" data-project="sss_project">▷ Single Serve Website (Winter 2018 : Applied Interactive Media)</span><br />`+
-`<br />${"▚".repeat(25)}<br />`;
+`<br />${"<span class='checker'>▚</span>".repeat(25)}<br />`;
+var bio = `<br>var me = {<br>`+
+  `name: 'Tanner Hill',<br>`+
+  `age: <i>undefined</i>,<br>`+
+  `education: {,<br>`+
+  `&emsp;major: 'Computer Science',<br>`+
+  `&emsp;minor: 'Art and Design',<br>`+
+  `&emsp;}<br>`+
+  `};<br>`;
 var builtIn = {
   "HELP":function () {
     let currentText = $("#textLine").html();
@@ -34,9 +44,13 @@ var builtIn = {
   "WORK":function () {
 	let currentText = $("#textLine").html();
     $("#textLine").html(currentText+myWork);
+    $(".checker").each((i, item) => {
+        $(item).css("color",colors[i % 7]);
+    });
   },
   "BIO": function () {
-  
+    let currentText = $("#textLine").html();
+    $("#textLine").html(currentText+bio);
   }
 };
 $(document).keydown((e) => {
@@ -84,7 +98,7 @@ $(document).on("click",".helpCmd",(e) => {
 	let command = $(el).attr("data-cmd");
 	if(command != "") {
 		builtIn[command].call();
-	}	
+	}
 });
 $(document).on("click",".workSelect",(e) => {
 	var el = e.target;
@@ -92,12 +106,12 @@ $(document).on("click",".workSelect",(e) => {
 	if(project != "") {
 		if(project == "sss_project") {
 			$("#project").attr("src","https://thill7.github.io/interactivemedia324/Project2/");
-			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>Source</a>");
+			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>▢</a>");
 			$("#projectFrame").css("display","block");
 		}
 		else if(project == "collection_project") {
 			$("#project").attr("src","https://thill7.github.io/interactivemedia324/project1/homeTemp.html");
-			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>Source</a>");
+			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>▢</a>");
 			$("#projectFrame").css("display","block");
 		}
 	}
@@ -106,6 +120,10 @@ $("#exitButton").click(() => {
 	if($("#projectFrame").css("display") == "block") {
 		$("#projectFrame").css("display","none");
 	}
+});
+$(document).on("mousemove",(e) =>{
+  $("#mouseX").text(e.pageX);
+  $("#mouseY").text(e.pageY);
 });
 });
 </script>
@@ -116,13 +134,33 @@ $("#exitButton").click(() => {
 <style>
   body {
 	background-color: black;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  height:100vh;
+  width:100vw;
+  }
+  #info {
+    background-color: black;
+    height:10%;
+    top:0;
+    left:0;
+    border-bottom:1vh dashed white;
+    z-index:99;
+    width:100%;
+    position: absolute;
   }
   #terminal {
     font-family: Consolas, monospace;
-    color: white;
+    color: green;
     width: 100%;
-	height:100%;
+	  height:90%;
     font-size: 5vh;
+    position: absolute;
+    top:10%;
+    left:0;
+    right:0;
+    overflow-y:scroll;
+    overflow-x:hidden;
   }
   @keyframes blink {
     0% {opacity:1;}
@@ -132,10 +170,15 @@ $("#exitButton").click(() => {
   .cursor {
     animation: blink 0.5s steps(1,end) infinite alternate;
     display:inline;
-
+    position: relative;
+    top:10%;
   }
   #textLine {
+    top:10%;
+    position: relative;
     display:inline;
+    overflow-y:scroll;
+    max-height:90%;
   }
   .helpCmd:hover {
 	background-color: white;
@@ -147,31 +190,55 @@ $("#exitButton").click(() => {
   }
   #projectFrame {
 	display:none;
-	width: 50vw;
-	height: 60vh;
+	width: 75vw;
+	height: 80vh;
 	position: fixed;
-	top: 25vh;
-	left: 25vw;
+	top: 12.5vh;
+	left: 12.5vw;
   }
   #project {
 	position: absolute;
-	top:0;
+	bottom:0;
 	left:0;
-	height:50vh;
-	width:50vw;
-	
+	height:75vh;
+	width:75vw;
+
   }
   #frameInfo {
 	position: absolute;
-	height: 10vh;
-	width: 50vw;
-	bottom: 0;
+	height: 5vh;
+	width: 75vw;
+	top: 0;
 	background-color:white;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
+  background-color: grey;
   }
   #frameInfo button {
-	width: -webkit-fill-available;
+	padding-left:1vw;
+  padding-right:1vw;
+  font-size: 3vh;
+  line-height:5vh;
+  vertical-align: middle;
+  }
+  #frameInfo a {
+    text-decoration:none;
+    color:white;
+  }
+  #frameInfo a:link {
+    text-decoration: none;
+  }
+
+  #frameInfo a:visited {
+    text-decoration: none;
+  }
+
+  #frameInfo a:hover {
+    text-decoration: none;
+  }
+
+  #frameInfo a:active {
+    text-decoration: none;
   }
   #frameInfo button:first-child {
 	background-color:powderblue;
@@ -185,19 +252,40 @@ $("#exitButton").click(() => {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
   }
+  body::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 999;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  }
+  #info h1 {
+    font-size: 2vh;
+  }
+}
 </style>
 </head>
 <body>
-	<div id="terminal">
+  <div id="info">
+    <h1>TYPE 'HELP' FOR AVAILABLE COMMANDS | x = <span id='mouseX'>0</span> && y = <span id="mouseY">0</span> && System = <span id="systemName"></span></h1>
+  </div>
+  <div id="terminal">
+
     <p id="textLine""></p><span class="cursor">┃</span>
-	<div id="projectFrame">
+  </div>
+  <div id="projectFrame">
 		<iframe id="project">
 		</iframe>
 		<div id="frameInfo">
 				<button class="info" id="frameSource"></button>
-				<button class="danger " id="exitButton">⨯</button>
+				<button class="danger " id="exitButton"><a href="#">╳</a></button>
 		</div>
 	</div>
-  </div>
 </body>
 </html>
