@@ -42,7 +42,8 @@ var builtIn = {
 $(document).keydown((e) => {
   var key = e.which;
   if(key != 8) {
-    if(key === 13) {
+    console.log("not backspace");
+	if(key === 13) {
       let command = $("#textLine").html().split("<br>");
       if(Array.isArray(command)) {
         command = command[command.length - 1];
@@ -62,11 +63,18 @@ $(document).keydown((e) => {
   }
   else {
     if($("#textLine").html().length > 0) {
-      let currentText = $("#textLine").html().split("<br>");
-	  let currentTextLine = currentText[currentText.length - 1];
-	  currentText = currentText.splice((currentText.length - 1), 1);
-	  if(currentTextLine.length > 0) {
-		$("#textLine").html(currentText + currentTextLine.substring(0,currentTextLine.length - 2));
+	  if($("#textLine").html().indexOf("<br>") > 0) {
+		var text = $("#textLine").html();
+		if(text[text.length - 1] != ">") {
+			text = text.slice(0,(text.length - 1));
+			$("#textLine").html(text);
+		}
+	  }
+	  else {
+		console.log("no br");
+		let currentTextLine = $("#textLine").html();
+		currentTextLine = currentTextLine.slice(0,(currentTextLine.length - 1));
+		$("#textLine").html(currentTextLine);
 	  }
     }
   }
