@@ -129,18 +129,15 @@ $(".cursor").on("touchstart",() => {
   var input = prompt("Enter a command.");
   if(input != "") {
     input = input.toUpperCase();
-    $("#textLine").html($("#textLine").html() + input);
-    let command = $("#textLine").html().split("<br>");
-    if(Array.isArray(command)) {
-      command = command[command.length - 1];
-    }
-    console.log(command);
-    if(command != "" && builtIn.hasOwnProperty(command)) {
-      builtIn[command].call();
+    if(builtIn.hasOwnProperty(input)) {
+      builtIn[input].call();
     }
     else {
       alert("This is not a valid command! Type HELP for valid commands.");
     }
+  }
+  else {
+    alert("This is not a valid command! Type HELP for valid commands.");
   }
 });
 });
