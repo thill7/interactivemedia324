@@ -11,19 +11,20 @@
   <script>
 $(document).ready(async function(){
   $("#systemName").text(navigator.platform.split(" ")[0]);
+var selected = null;
 var colors = ["crimson","orangered","goldenrod","lightgreen","cornflowerblue","midnightblue","indigo"];
 var blinker = "<span class='cursor'>┃</span>";
 var helpHtml = `<br />${"*".repeat(25)}<br />` +
 `Commands:<br />`+
-`<span class="helpCmd" data-cmd="HOME">▷ Home (clears terminal and redirects to start)</span><br />`+
-`<span class="helpCmd" data-cmd="WORK">▷ Work (displays a list of works to view)</span><br />`+
-`<span class="helpCmd" data-cmd="BIO">▷ Bio (about me)</span><br />`+
+`<span class="helpCmd optional" data-cmd="HOME">▷ Home (clears terminal and redirects to start)</span><br />`+
+`<span class="helpCmd optional" data-cmd="WORK">▷ Work (displays a list of works to view)</span><br />`+
+`<span class="helpCmd optional" data-cmd="BIO">▷ Bio (about me)</span><br />`+
 `<br />${"*".repeat(25)}<br />`;
 var myWork = `<br />${"<span class='checker'>▚</span>".repeat(25)}<br />` +
-`<span class="workSelect" data-project="book_project">▷ Book Project (Winter 2018 : Intro to Typography)</span><br />`+
-`<span class="workSelect" data-project="digital_images_project">▷ Final Project (Spring 2018 : Digital Images and Photography)</span><br />`+
-`<span class="workSelect" data-project="collection_project">▷ Collection Project (Winter 2018 : Applied Interactive Media)</span><br />`+
-`<span class="workSelect" data-project="sss_project">▷ Single Serve Website (Winter 2018 : Applied Interactive Media)</span><br />`+
+`<span class="workSelect optional" data-project="book_project">▷ Book Project (Winter 2018 : Intro to Typography)</span><br />`+
+`<span class="workSelect optional" data-project="digital_images_project">▷ Final Project (Spring 2018 : Digital Images and Photography)</span><br />`+
+`<span class="workSelect optional" data-project="collection_project">▷ Collection Project (Winter 2018 : Applied Interactive Media)</span><br />`+
+`<span class="workSelect optional" data-project="sss_project">▷ Single Serve Website (Winter 2018 : Applied Interactive Media)</span><br />`+
 `<br />${"<span class='checker'>▚</span>".repeat(25)}<br />`;
 var bio = `<br>var me = {<br>`+
   `name: 'Tanner Hill',<br>`+
@@ -37,9 +38,11 @@ var builtIn = {
   "HELP":function () {
     let currentText = $("#textLine").html();
     $("#textLine").html(currentText+helpHtml);
+	selected = $(".optional").length;
   },
   "HOME":function () {
 	$("#textLine").empty();
+	selected = null;
   },
   "WORK":function () {
 	let currentText = $("#textLine").html();
@@ -47,6 +50,7 @@ var builtIn = {
     $(".checker").each((i, item) => {
         $(item).css("color",colors[i % 7]);
     });
+	selected = $(".optional").length;
   },
   "BIO": function () {
     let currentText = $("#textLine").html();
@@ -58,15 +62,58 @@ $(document).keydown((e) => {
   if(key != 8) {
     console.log("not backspace");
 	if(key === 13) {
-      let command = $("#textLine").html().split("<br>");
-      if(Array.isArray(command)) {
-        command = command[command.length - 1];
-      }
-      console.log(command);
-      if(command != "" && builtIn.hasOwnProperty(command)) {
-        builtIn[command].call();
-      }
+      if($(".selected").length > 0) {
+			if($(".selected").eq(0).hasClass("helpCmd")) {
+				let command = $(".selected").eq(0).attr("data-cmd");
+				if(command != "") {
+					builtIn[command].call();
+				}
+			}
+		else {
+			var project = $(".selected").eq(0).attr("data-project");
+			if(project != "") {
+				if(project == "sss_project") {
+					$("#project").attr("src","https://thill7.github.io/interactivemedia324/Project2/");
+					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>▢</a>");
+					$("#projectFrame").css("display","block");
+				}
+				else if(project == "collection_project") {
+					$("#project").attr("src","https://thill7.github.io/interactivemedia324/project1/homeTemp.html");
+					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>▢</a>");
+					$("#projectFrame").css("display","block");
+				}
+			}
+		}
+	  }
+	  else {
+		  let command = $("#textLine").html().split("<br>");
+		  if(Array.isArray(command)) {
+			command = command[command.length - 1];
+		  }
+		  console.log(command);
+		  if(command != "" && builtIn.hasOwnProperty(command)) {
+			builtIn[command].call();
+		  }
+	  }
     }
+	else if(key === 38 || key === 40) {
+		if(key === 38) {
+			if(selected != null && selected != 0) {
+				console.log(selected);
+				selected--;
+				$(".optional").removeClass("selected");
+				$(".optional").eq(selected).addClass("selected");
+			}
+		}
+		else {
+			if(selected != null && selected != $(".optional").length - 1) {
+				console.log(selected);
+				selected++;
+				$(".optional").removeClass("selected");
+				$(".optional").eq(selected).addClass("selected");
+			}
+		}
+	}
     else {
       console.log(String.fromCharCode(key));
       if(key != undefined) {
@@ -122,6 +169,8 @@ $("#exitButton").click(() => {
 	}
 });
 $(document).on("mousemove",(e) =>{
+  $(".optional").removeClass("selected");
+  selected = $(".optional").length;
   $("#mouseX").text(e.pageX);
   $("#mouseY").text(e.pageY);
 });
@@ -208,8 +257,9 @@ $(".cursor").on("touchstart",() => {
 	width: 75vw;
 	height: 80vh;
 	position: fixed;
-	top: 12.5vh;
+	top: 0vh;
 	left: 12.5vw;
+	z-index:999;
   }
   #project {
 	position: absolute;
@@ -266,6 +316,10 @@ $(".cursor").on("touchstart",() => {
 	color: white;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
+  }
+  .selected {
+	background-color: white;
+	color: black;
   }
   body::before {
   content: " ";
