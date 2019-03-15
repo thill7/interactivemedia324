@@ -223,6 +223,7 @@ $(".cursor").on("touchstart",() => {
 
 $("#frameInfo").on("mousedown",(e) => {
 	if(dragWindow == false) {
+		$("#terminal").css({"-webkit-user-select":"none","user-select":"none"});
 		dragWindow = true;
 		cursorOffset.top = e.pageY - $("#projectFrame").offset().top;
 		cursorOffset.left = e.pageX - $("#projectFrame").offset().left;
@@ -230,6 +231,7 @@ $("#frameInfo").on("mousedown",(e) => {
 });
 $("#frameInfo").on("mouseup",(e) => {
 	if(dragWindow == true) {
+		$("#terminal").css({"-webkit-user-select":"","user-select":""});
 		dragWindow = false;
 	}
 });
