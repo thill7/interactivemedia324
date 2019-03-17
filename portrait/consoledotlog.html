@@ -100,6 +100,13 @@ $(document).keydown((e) => {
 					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>▢</a>");
 					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
 				}
+				else if(project == "book_project") {
+					let randDots = Math.floor(Math.random() * 10) + 1;
+					typeWord("Opening Book Project",randDots);
+					$("#project").attr("src","./works/BookProject.pdf");
+					$("#frameSource").html("<a href='./works/BookProject.pdf' target='_blank'>▢</a>");
+					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+				}
 			}
 		}
 	  }
