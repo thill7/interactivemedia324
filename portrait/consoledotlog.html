@@ -89,22 +89,25 @@ $(document).keydown((e) => {
 				if(project == "sss_project") {
 					let randDots = Math.floor(Math.random() * 10) + 1;
 					typeWord("Opening SSS project",randDots);
+					$("#urlInfo").text("C:\\work\\"+project);
 					$("#project").attr("src","https://thill7.github.io/interactivemedia324/Project2/");
-					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>▢</a>");
+					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>🗖</a>");
 					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
 				}
 				else if(project == "collection_project") {
 					let randDots = Math.floor(Math.random() * 10) + 1;
 					typeWord("Opening Collection Project project",randDots);
+					$("#urlInfo").text("C:\\work\\"+project);
 					$("#project").attr("src","https://thill7.github.io/interactivemedia324/project1/homeTemp.html");
-					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>▢</a>");
+					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>🗖</a>");
 					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
 				}
 				else if(project == "book_project") {
 					let randDots = Math.floor(Math.random() * 10) + 1;
 					typeWord("Opening Book Project",randDots);
+					$("#urlInfo").text("C:\\work\\"+project);
 					$("#project").attr("src","./works/BookProject.pdf");
-					$("#frameSource").html("<a href='./works/BookProject.pdf' target='_blank'>▢</a>");
+					$("#frameSource").html("<a href='./works/BookProject.pdf' target='_blank'>🗖</a>");
 					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
 				}
 			}
@@ -179,15 +182,25 @@ $(document).on("click",".workSelect",(e) => {
 		if(project == "sss_project") {
 			let randDots = Math.floor(Math.random() * 10) + 1;
 			typeWord("Opening SSS project",randDots);
+			$("#urlInfo").text("C:\\work\\"+project);
 			$("#project").attr("src","https://thill7.github.io/interactivemedia324/Project2/");
-			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>▢</a>");
+			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>🗖</a>");
 			setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
 		}
 		else if(project == "collection_project") {
 			let randDots = Math.floor(Math.random() * 10) + 1;
 			typeWord("Opening SSS project",randDots);
 			$("#project").attr("src","https://thill7.github.io/interactivemedia324/project1/homeTemp.html");
-			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>▢</a>");
+			$("#urlInfo").text("C:\\work\\"+project);
+			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>🗖</a>");
+			setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+		}
+		else if(project == "book_project") {
+			let randDots = Math.floor(Math.random() * 10) + 1;
+			typeWord("Opening Book Project",randDots);
+			$("#urlInfo").text("C:\\work\\"+project);
+			$("#project").attr("src","./works/BookProject.pdf");
+			$("#frameSource").html("<a href='./works/BookProject.pdf' target='_blank'>🗖</a>");
 			setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
 		}
 	}
@@ -202,14 +215,18 @@ var cursorOffset = {
   		"left":0
   	};
 var dragWindow = false;
-$(document).on("mousemove",(e) =>{
+$(document).on("mousemove touchmove",(e) =>{
   $(".optional").removeClass("selected");
   selected = $(".optional").length;
   $("#mouseX").text(e.pageX);
   $("#mouseY").text(e.pageY);
   if(dragWindow == true) {
-  	
-  	$("#projectFrame").css({"top":e.pageY - cursorOffset.top,"left":e.pageX - cursorOffset.left});
+  	if(e.touches != undefined) {
+		$("#projectFrame").css({"top":e.touches[0].pageY - cursorOffset.top,"left":e.touches[0].pageX - cursorOffset.left});
+	}
+	else {
+		$("#projectFrame").css({"top":e.pageY - cursorOffset.top,"left":e.pageX - cursorOffset.left});
+	}
   }
 });
 $(".cursor").on("touchstart",() => {
@@ -228,15 +245,23 @@ $(".cursor").on("touchstart",() => {
   }
 });
 
-$("#frameInfo").on("mousedown",(e) => {
+$("#frameInfo").on("mousedown touchstart",(e) => {
 	if(dragWindow == false) {
-		$("#terminal").css({"-webkit-user-select":"none","user-select":"none"});
-		dragWindow = true;
-		cursorOffset.top = e.pageY - $("#projectFrame").offset().top;
-		cursorOffset.left = e.pageX - $("#projectFrame").offset().left;
+		if( e.touches != undefined ) {
+			$("#terminal").css({"-webkit-user-select":"none","user-select":"none"});
+			dragWindow = true;
+			cursorOffset.top = e.touches[0].pageY - $("#projectFrame").offset().top;
+			cursorOffset.left = e.touches[0].pageX - $("#projectFrame").offset().left;
+		}
+		else {
+			$("#terminal").css({"-webkit-user-select":"none","user-select":"none"});
+			dragWindow = true;
+			cursorOffset.top = e.pageY - $("#projectFrame").offset().top;
+			cursorOffset.left = e.pageX - $("#projectFrame").offset().left;
+		}
 	}
 });
-$("#frameInfo").on("mouseup",(e) => {
+$("#frameInfo").on("mouseup touchend",(e) => {
 	if(dragWindow == true) {
 		$("#terminal").css({"-webkit-user-select":"","user-select":""});
 		dragWindow = false;
@@ -396,6 +421,15 @@ $("#frameInfo").on("mouseup",(e) => {
     font-size: 2vh;
     color:white;
   }
+  #urlInfo {
+	position:absolute;
+	color:black;
+	left:1vw;
+	height:5vh;
+	line-height:5vh;
+	vertical-align: middle;
+	font-size: 2vw;
+  }
 }
 </style>
 </head>
@@ -411,8 +445,9 @@ $("#frameInfo").on("mouseup",(e) => {
 		<iframe id="project">
 		</iframe>
 		<div id="frameInfo">
+				<p id="urlInfo">Test</p>
 				<button class="info" id="frameSource"></button>
-				<button class="danger " id="exitButton"><a href="#">╳</a></button>
+				<button class="danger " id="exitButton"><a href="#">⌧</a></button>
 		</div>
 	</div>
 </body>
