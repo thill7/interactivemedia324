@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(async function(){
+  $("#systemName").text(navigator.platform.split(" ")[0]);
+var selected = null;
+var colors = ["crimson","orangered","goldenrod","lightgreen","cornflowerblue","midnightblue","indigo"];
+var blinker = "<span class='cursor'>┃</span>";
+var helpHtml = `<br />${"?".repeat(25)}<br />` +
+`Commands:<br />`+
+`<span class="helpCmd optional" data-cmd="HOME">▷ Home (clears terminal and redirects to start)</span><br />`+
+`<span class="helpCmd optional" data-cmd="WORK">▷ Work (displays a list of works to view)</span><br />`+
+`<span class="helpCmd optional" data-cmd="BIO">▷ Bio (about me)</span><br />`+
+`<br />${"?".repeat(25)}<br />`;
+var myWork = `<br />${"<span class='checker'>▚</span>".repeat(25)}<br />` +
+`<span class="workSelect optional" data-project="book_project" data-description="a typographical exercise in design, utilizing InDesign and Illustrator to synthesize a layout for a textbook concept.">▷ Book Project [typography]</span><br />`+
+`<span class="workSelect optional" data-project="digital_images_project" data-description="logos, business cards, stationery: graphic design work for non-existent companies practicing the choices that translate from the soul of a business to its visual communication.">▷ Digital Images Project [graphic design]</span><br />`+
+`<span class="workSelect optional" data-project="collection_project" data-description="a careful layout of senseless content, choices always have to be made concerning collections: design, interaction, navigation, etc.">▷ Collection Project [conceptual interactive media]</span><br />`+
+`<span class="workSelect optional" data-project="sss_project" data-description="more of a utility, this single serve site (SSS) is a resource for quickly fiding and copying those damn special characters (tm) that always seem to elude your grasp.">▷ Single Serve Website [applied interactive web coding]</span><br />`+
+`<br />${"<span class='checker'>▚</span>".repeat(25)}<br />`;
+var bio = `<br>var me = {<br>`+
+  `name: 'Tanner Hill',<br>`+
+  `age: <i>undefined</i>,<br>`+
+  `education: {<br>`+
+  `&emsp;major: 'Computer Science',<br>`+
+  `&emsp;minor: 'Art and Design',<br>`+
+  `&emsp;},<br>`+
+  `contact: 'tanner.hill.96@gmail.com'<br>`+
+  `};<br>`;
+var builtIn = {
+  "HELP":function () {
+    let currentText = $("#textLine").html();
+    $("#textLine").html(currentText+helpHtml);
+	selected = $(".optional").length;
+  },
+  "HOME":function () {
+	$("#textLine").empty();
+	selected = null;
+  },
+  "WORK":function () {
+	let currentText = $("#textLine").html();
+    $("#textLine").html(currentText+myWork);
+    $(".checker").each((i, item) => {
+        $(item).css("color",colors[i % 7]);
+    });
+	selected = $(".optional").length;
+  },
+  "BIO": function () {
+    let currentText = $("#textLine").html();
+    $("#textLine").html(currentText+bio);
+  }
+};
+function typeWord(word,dotNum) {
+	let currentText = $("#textLine").html();
+    $("#textLine").html(currentText+"<br>"+word);
+	var typeDots = function() {
+		let currentText = $("#textLine").html();
+    	$("#textLine").html(currentText+".");
+	}
+	var typing = setInterval(typeDots,500);
+	setTimeout(function() {
+	clearInterval(typing);
+	let currentText = $("#textLine").html();
+    $("#textLine").html(currentText+"<br>");
+	},500 * dotNum);
+}
+$(document).keydown((e) => {
+  var key = e.which;
+  if(key != 8) {
+    console.log("not backspace");
+	if(key === 13) {
+      if($(".selected").length > 0) {
+			if($(".selected").eq(0).hasClass("helpCmd")) {
+				let command = $(".selected").eq(0).attr("data-cmd");
+				if(command != "") {
+					builtIn[command].call();
+					document.getElementById("terminal").scrollTo($(".cursor").offset().left,$(".cursor").offset().top);
+				}
+			}
+		else {
+			var project = $(".selected").eq(0).attr("data-project");
+			var desc = $(".selected").eq(0).attr("data-description");
+			if(project != "") {
+				if(project == "sss_project") {
+					let randDots = Math.floor(Math.random() * 10) + 1;
+					typeWord("Opening SSS project",randDots);
+					$("#urlInfo").text("C:\\work\\"+project);
+					$("#innerInfo").html(desc);
+					$("#project").attr("src","https://thill7.github.io/interactivemedia324/Project2/");
+					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>🗖</a>");
+					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+				}
+				else if(project == "collection_project") {
+					let randDots = Math.floor(Math.random() * 10) + 1;
+					typeWord("Opening Collection Project project",randDots);
+					$("#urlInfo").text("C:\\work\\"+project);
+					$("#innerInfo").html(desc);
+					$("#project").attr("src","https://thill7.github.io/interactivemedia324/project1/homeTemp.html");
+					$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>🗖</a>");
+					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+				}
+				else if(project == "book_project") {
+					let randDots = Math.floor(Math.random() * 10) + 1;
+					typeWord("Opening Book Project",randDots);
+					$("#urlInfo").text("C:\\work\\"+project);
+					$("#innerInfo").html(desc);
+					$("#project").attr("src","./works/BookProject.pdf");
+					$("#frameSource").html("<a href='./works/BookProject.pdf' target='_blank'>🗖</a>");
+					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+				}
+				else if(project == "digital_images_project") {
+					let randDots = Math.floor(Math.random() * 10) + 1;
+					typeWord("Opening Digital Images Project",randDots);
+					$("#urlInfo").text("C:\\work\\"+project);
+					$("#innerInfo").html(desc);
+					$("#project").attr("src","./cdl_graphic_design.html");
+					$("#frameSource").html("<a href='./cdl_graphic_design.html' target='_blank'>🗖</a>");
+					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+				}
+			}
+		}
+	  }
+	  else {
+		  let command = $("#textLine").html().split("<br>");
+		  if(Array.isArray(command)) {
+			command = command[command.length - 1];
+		  }
+		  console.log(command);
+		  if(command != "" && builtIn.hasOwnProperty(command)) {
+			builtIn[command].call();
+			document.getElementById("terminal").scrollTo($(".cursor").offset().left,$(".cursor").offset().top);
+		  }
+	  }
+    }
+	else if(key === 38 || key === 40) {
+		if(key === 38) {
+			if(selected != null && selected != 0) {
+				console.log(selected);
+				selected--;
+				$(".optional").removeClass("selected");
+				$(".optional").eq(selected).addClass("selected");
+			}
+		}
+		else {
+			if(selected != null && selected != $(".optional").length - 1) {
+				console.log(selected);
+				selected++;
+				$(".optional").removeClass("selected");
+				$(".optional").eq(selected).addClass("selected");
+			}
+		}
+	}
+    else {
+      console.log(String.fromCharCode(key));
+      if(key != undefined) {
+        let currentText = $("#textLine").html();
+        $("#textLine").html(currentText+String.fromCharCode(key));
+      }
+    }
+  }
+  else {
+    if($("#textLine").html().length > 0) {
+	  if($("#textLine").html().indexOf("<br>") > 0) {
+		var text = $("#textLine").html();
+		if(text[text.length - 1] != ">") {
+			text = text.slice(0,(text.length - 1));
+			$("#textLine").html(text);
+		}
+	  }
+	  else {
+		console.log("no br");
+		let currentTextLine = $("#textLine").html();
+		currentTextLine = currentTextLine.slice(0,(currentTextLine.length - 1));
+		$("#textLine").html(currentTextLine);
+	  }
+    }
+  }
+});
+$(document).on("click",".helpCmd",(e) => {
+	var el = e.target;
+	let command = $(el).attr("data-cmd");
+	if(command != "") {
+		builtIn[command].call();
+		document.getElementById("terminal").scrollTo($(".cursor").offset().left,$(".cursor").offset().top);
+	}
+});
+$(document).on("click",".workSelect",(e) => {
+	var el = e.target;
+	var project = $(el).attr("data-project");
+	var desc = $(el).attr("data-description");
+	if(project != "") {
+		if(project == "sss_project") {
+			let randDots = Math.floor(Math.random() * 10) + 1;
+			typeWord("Opening SSS project",randDots);
+			$("#urlInfo").text("C:\\work\\"+project);
+			$("#innerInfo").html(desc);
+			$("#project").attr("src","https://thill7.github.io/interactivemedia324/Project2/");
+			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/Project2/' target='_blank'>🗖</a>");
+			setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+		}
+		else if(project == "collection_project") {
+			let randDots = Math.floor(Math.random() * 10) + 1;
+			typeWord("Opening SSS project",randDots);
+			$("#innerInfo").html(desc);
+			$("#project").attr("src","https://thill7.github.io/interactivemedia324/project1/homeTemp.html");
+			$("#urlInfo").text("C:\\work\\"+project);
+			$("#frameSource").html("<a href='https://thill7.github.io/interactivemedia324/project1/homeTemp.html' target='_blank'>🗖</a>");
+			setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+		}
+		else if(project == "book_project") {
+			let randDots = Math.floor(Math.random() * 10) + 1;
+			typeWord("Opening Book Project",randDots);
+			$("#urlInfo").text("C:\\work\\"+project);
+			$("#innerInfo").html(desc);
+			$("#project").attr("src","./works/BookProject.pdf");
+			$("#frameSource").html("<a href='./works/BookProject.pdf' target='_blank'>🗖</a>");
+			setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+		}
+		else if(project == "digital_images_project") {
+			let randDots = Math.floor(Math.random() * 10) + 1;
+			typeWord("Opening Digital Images Project",randDots);
+			$("#urlInfo").text("C:\\work\\"+project);
+			$("#innerInfo").html(desc);
+			$("#project").attr("src","cdl_graphic_design.html");
+			$("#frameSource").html("<a href='./cdl_graphic_design.html' target='_blank'>🗖</a>");
+			setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
+		}
+	}
+});
+$("#exitButton").click(() => {
+	if($("#projectFrame").css("display") == "block") {
+		$("#projectFrame").css("display","none");
+	}
+});
+var cursorOffset = {
+  		"top":0,
+  		"left":0
+  	};
+var dragWindow = false;
+$(document).on("mousemove touchmove",(e) =>{
+  $(".optional").removeClass("selected");
+  selected = $(".optional").length;
+  $("#mouseX").text(e.pageX);
+  $("#mouseY").text(e.pageY);
+  if(dragWindow == true) {
+  	if(e.touches != undefined) {
+		$("#projectFrame").css({"top":e.touches[0].pageY - cursorOffset.top,"left":e.touches[0].pageX - cursorOffset.left});
+	}
+	else {
+		$("#projectFrame").css({"top":e.pageY - cursorOffset.top,"left":e.pageX - cursorOffset.left});
+	}
+  }
+});
+$(".cursor").on("touchstart",() => {
+  var input = prompt("Enter a command.");
+  if(input != "") {
+    input = input.toUpperCase();
+    if(builtIn.hasOwnProperty(input)) {
+      builtIn[input].call();
+	  document.getElementById("terminal").scrollTo($(".cursor").offset().left,$(".cursor").offset().top);
+    }
+    else {
+      alert("This is not a valid command! Type HELP for valid commands.");
+    }
+  }
+  else {
+    alert("This is not a valid command! Type HELP for valid commands.");
+  }
+});
+
+$("#frameInfo").on("mousedown touchstart",(e) => {
+	if(dragWindow == false) {
+		if( e.touches != undefined ) {
+			$("#terminal").css({"-webkit-user-select":"none","user-select":"none"});
+			dragWindow = true;
+			cursorOffset.top = e.touches[0].pageY - $("#projectFrame").offset().top;
+			cursorOffset.left = e.touches[0].pageX - $("#projectFrame").offset().left;
+		}
+		else {
+			$("#terminal").css({"-webkit-user-select":"none","user-select":"none"});
+			dragWindow = true;
+			cursorOffset.top = e.pageY - $("#projectFrame").offset().top;
+			cursorOffset.left = e.pageX - $("#projectFrame").offset().left;
+		}
+	}
+});
+$("#frameInfo").on("mouseup touchend",(e) => {
+	if(dragWindow == true) {
+		$("#terminal").css({"-webkit-user-select":"","user-select":""});
+		dragWindow = false;
+	}
+});
+});
+</script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<style>
+  body {
+	background-color: black;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  height:100vh;
+  width:100vw;
+  }
+  #innerInfo {
+	font-size: 2vh;
+	text-align:center;
+  }
+  #info {
+    background-color: black;
+    height:10%;
+    top:0;
+    left:0;
+    border-bottom:1vh dashed white;
+    z-index:99;
+    width:100%;
+    position: absolute;
+  }
+  #terminal {
+    font-family: Inconsolata, monospace;
+    color: white;
+    width: 100%;
+	height:90%;
+    font-size: 3vh;
+    position: absolute;
+    top:10%;
+    left:0;
+    right:0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    text-shadow: 0 0 5px #C8C8C8;
+  }
+  
+  @keyframes blink {
+    0% {opacity:1;}
+    50% {opacity:0;}
+    100% {opacity:1;}
+  }
+  .cursor {
+    animation: blink 0.5s steps(1,end) infinite alternate;
+    display:inline;
+    position: relative;
+    top:10%;
+  }
+  #textLine {
+    top:10%;
+    position: relative;
+    display:inline;
+    overflow-y:scroll;
+    max-height:90%;
+  }
+  .helpCmd:hover {
+	background-color: white;
+	color: black;
+  }
+  .workSelect:hover {
+	background-color: white;
+	color: black;
+  }
+  #projectFrame {
+	display:none;
+	width: 75vw;
+	height: 95vh;
+	position: fixed;
+	top: 0vh;
+	left: 12.5vw;
+	z-index:999;
+  }
+  #projectInfo {
+	width: 75vw;
+	height: 15vh;
+	position: absolute;
+	bottom:0;
+	background-color:ghostwhite;
+	box-shadow: 0 -15px 25px 5px grey inset;
+  }
+  #project {
+	position: absolute;
+	bottom:15vh;
+	left:0;
+	height:75vh;
+	width:75vw;
+	padding-left: 0.5vw;
+	padding-right: 0.5vw;
+	padding-bottom: 0.5vh;
+	background: dimgrey;
+  }
+  #frameInfo {
+	position: absolute;
+	height: 5vh;
+	width: 75vw;
+	top: 0;
+	background-color:white;
+	display: flex;
+	justify-content: flex-end;
+  background-color: grey;
+  }
+  #frameInfo button {
+	padding-left:1vw;
+  padding-right:1vw;
+  font-size: 3vh;
+  line-height:5vh;
+  vertical-align: middle;
+  }
+  #frameInfo a {
+    text-decoration:none;
+    color:white;
+  }
+  #frameInfo a:link {
+    text-decoration: none;
+  }
+
+  #frameInfo a:visited {
+    text-decoration: none;
+  }
+
+  #frameInfo a:hover {
+    text-decoration: none;
+  }
+
+  #frameInfo a:active {
+    text-decoration: none;
+  }
+  #frameInfo button:first-child {
+	background-color:powderblue;
+	color: white;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+  }
+  #frameInfo button:last-child {
+	background-color:crimson;
+	color: white;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+  }
+  .selected {
+	background-color: white;
+	color: black;
+  }
+  body::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 9999;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  }
+  #info h1 {
+    font-size: 2vh;
+    color:white;
+  }
+  #urlInfo {
+	position:absolute;
+	color:black;
+	left:1vw;
+	height:5vh;
+	line-height:5vh;
+	vertical-align: middle;
+	font-size: 2vw;
+	font-family: Inconsolata, monospace;
+  }
+}
+</style>
+</head>
+<body>
+  <div id="info">
+    <h1>TYPE 'HELP' FOR AVAILABLE COMMANDS | x = <span id='mouseX'>0</span> && y = <span id="mouseY">0</span> && System = <span id="systemName"></span></h1>
+  </div>
+  <div id="terminal">
+
+    <p id="textLine""></p><span class="cursor">┃</span>
+  </div>
+  <div id="projectFrame">
+		<iframe id="project">
+		</iframe>
+		<div id="frameInfo">
+				<p id="urlInfo">Test</p>
+				<button class="info" id="frameSource"></button>
+				<button class="danger " id="exitButton"><a href="#">⌧</a></button>
+		</div>
+		<div id="projectInfo">
+			<p id="innerInfo"></p>
+		</div>
+	</div>
+</body>
+</html>
