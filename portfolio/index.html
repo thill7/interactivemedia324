@@ -113,7 +113,7 @@ $(document).keydown((e) => {
 					typeWord("Opening Book Project",randDots);
 					$("#urlInfo").text("C:\\work\\"+project);
 					$("#innerInfo").html(desc);
-					$("#project").attr("src","./works/BookProject.pdf");
+					$("#project").attr("src","./BookProject.pdf");
 					$("#frameSource").html("<a href='./BookProject.pdf' target='_blank'>🗖</a>");
 					setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
 				}
@@ -222,7 +222,7 @@ $(document).on("click",".workSelect",(e) => {
 			$("#urlInfo").text("C:\\work\\"+project);
 			$("#innerInfo").html(desc);
 			$("#project").attr("src","./BookProject.pdf");
-			$("#frameSource").html("<a href='./works/BookProject.pdf' target='_blank'>🗖</a>");
+			$("#frameSource").html("<a href='./BookProject.pdf' target='_blank'>🗖</a>");
 			setTimeout(function() {$("#projectFrame").css("display","block");},randDots * 500);
 		}
 		else if(project == "digital_images_project") {
