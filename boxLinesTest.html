@@ -3,13 +3,23 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
 $(document).ready(async function(){
+var boxMoveStart = {
+	"top":$("#boxMove").offset().top,
+	"left":$("#boxMove").offset().left
+}
+var boxStaticStart = {
+	"top":$("#boxStatic").offset().top,
+	"left":$("#boxStatic").offset().left
+}
+$("#boxMove").attr({"data-start-x":boxMoveStart.left,"data-start-y":boxMoveStart.top});
+$("#boxStatic").attr({"data-start-x":boxStaticStart.left,"data-start-y":boxStaticStart.top});
 var boxStaticSide = {
 	"x":0,
 	"y":0
@@ -23,6 +33,31 @@ boxMoveSide.x = $("#boxMove").offset().left;
 boxStaticSide.y = $("#boxStatic").offset().top + ($("#boxStatic").height() / 2);
 boxMoveSide.y = $("#boxMove").offset().top + ($("#boxMove").height() / 2);
 $("#connectingLine").attr({"x1":boxStaticSide.x,"y1":boxStaticSide.y,"x2":boxMoveSide.x,"y2":boxMoveSide.y});
+
+var boxMoving = undefined;
+var updateLine = function() {
+	boxStaticSide.x = $("#boxStatic").offset().left + $("#boxStatic").width();
+	boxMoveSide.x = $("#boxMove").offset().left;
+	boxStaticSide.y = $("#boxStatic").offset().top + ($("#boxStatic").height() / 2);
+	boxMoveSide.y = $("#boxMove").offset().top + ($("#boxMove").height() / 2);
+	$("#connectingLine").attr({"x1":boxStaticSide.x,"y1":boxStaticSide.y,"x2":boxMoveSide.x,"y2":boxMoveSide.y});
+}
+function startMove(element) {
+	let randX = Math.floor(Math.random() * window.innerWidth) - $(element).attr("data-start-x");
+	let randY = Math.floor(Math.random() * window.innerHeight) - $(element).attr("data-start-y");
+	$(element).css({"transform":"translate("+randX+"px,"+randY+"px)"});
+	boxMoving = setInterval(updateLine,50);
+}
+$(".box").on("transitionstart webkitTransitionStart", (e) => {
+	
+});
+$(".box").on("transitionend webkitTransitionEnd", (e) => {
+	//clearInterval(boxMoving);
+	let el = e.target;
+	startMove(el);
+});
+//startMove($("#boxMove"));
+//startMove($("#boxStatic"));
 var cursorOffset = {
   		"top":0,
   		"left":0
@@ -76,12 +111,14 @@ body {
 	width:100vw;
 }
 .box {
-	background: linear-gradient(to bottom, crimson, dimgrey);
+	background: linear-gradient(to bottom, ghostwhite, dimgrey);
 	width: 20vw;
 	height: 10vh;
 	position: absolute;
 	z-index:99;
 	tocuh-action: none;
+	transition: transform 10s ease;
+	border-radius: 10px;
 }
 #boxMove {
 	right: 10vw;
