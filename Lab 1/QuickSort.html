@@ -13,7 +13,7 @@ $(document).ready(async function(){
 	function startWorker() {
 	    if (typeof(Worker) !== "undefined") {
 		  if (typeof(w) == "undefined") {
-		    w = new Worker("https://raw.githubusercontent.com/thill7/interactivemedia324/master/Lab%201/qsWorker.js");
+		    w = new Worker("./qsWorker.js");
 		  }
 		  w.onmessage = function(event) {
 		    console.log(event.data);
