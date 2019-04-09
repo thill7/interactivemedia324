@@ -25,7 +25,7 @@ function testSort(testAmt,size) {
 		}
 		swaps = 0;
 		time = performance.now();
-		quickSort(nums);
+		quickSort(nums,0,(nums.length - 1));
 		time = performance.now() - time;
 		timeGroup.push(time);
 		swapsGroup.push(swaps);
@@ -35,7 +35,7 @@ function testSort(testAmt,size) {
 	var message = {
 		"size":size,
 		"timeAvg":timeAvg,
-		"swapsAvg":swapsGroup
+		"swapsAvg":swapsAvg
 	};
 	postMessage(message);
 }
@@ -75,6 +75,6 @@ function quickSort(nums,start,end) {
 	}
 }
 
-for(let i = 100; i <= 1000; i+= 100) {
+for(let i = 1000; i <= 10000; i+= 1000) {
 	testSort(10,i);
 }
