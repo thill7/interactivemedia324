@@ -14,7 +14,7 @@ async function testSort(testAmt) {
 	var nums = [];
 	var swapsGroup = [];
 	var timeGroup = [];
-	var time = window.performance.now();
+	var time = performance.now();
 	for(let i = 0; i < testAmt; i++) {
 		nums = [];
 		swaps = 0;
@@ -25,9 +25,9 @@ async function testSort(testAmt) {
 				nums.push(num);
 			}
 		}
-		time = window.performance.now();
+		time = performance.now();
 		await quickSort(nums);
-		time = window.performance.now();
+		time = performance.now();
 		timeGroup.push(time);
 		swapsGroup.push(swaps);
 	}
