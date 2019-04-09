@@ -59,9 +59,9 @@ async function swap(nums,firstNum,secondNum) {
 	let temp = nums[firstNum];
 	nums[firstNum] = nums[secondNum];
 	nums[secondNum] = temp;
-	$("#sorted > div").each((i, cont) => {
+	/*$("#sorted > div").each((i, cont) => {
 		$(cont).html(nums[i]);
-	});
+	});*/
 	await wait(2000);
 	swaps++;
 	//$("#swapsAmt").html(swaps);
