@@ -66,10 +66,10 @@ function quickSort(nums,start,end) {
 				too_small_index--;
 			}
 			if(too_big_index < too_small_index) {
-				await swap(nums,too_small_index,too_big_index);
+				swap(nums,too_small_index,too_big_index);
 			}
 		} while(too_small_index > too_big_index);
-		await swap(nums,too_small_index,pivot);
+		swap(nums,too_small_index,pivot);
 		quickSort(nums,(too_small_index + 1),end);
 		quickSort(nums,start,too_small_index);
 	}
