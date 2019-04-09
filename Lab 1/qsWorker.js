@@ -16,7 +16,6 @@ function testSort(testAmt,size) {
 	var time = performance.now();
 	for(let i = 0; i < testAmt; i++) {
 		nums = [];
-		swaps = 0;
 		time = 0;
 		while(nums.length < size) {
 			let num = Math.floor(Math.random() * size) + 1;
@@ -24,6 +23,7 @@ function testSort(testAmt,size) {
 				nums.push(num);
 			}
 		}
+		swaps = 0;
 		time = performance.now();
 		quickSort(nums);
 		time = performance.now() - time;
@@ -35,7 +35,7 @@ function testSort(testAmt,size) {
 	var message = {
 		"size":size,
 		"timeAvg":timeAvg,
-		"swapsAvg":swapsAvg
+		"swapsAvg":swapsGroup
 	};
 	postMessage(message);
 }
@@ -46,7 +46,7 @@ async function wait(ms) {
   });
 }
 
-async function swap(nums,firstNum,secondNum) {
+function swap(nums,firstNum,secondNum) {
 	let temp = nums[firstNum];
 	nums[firstNum] = nums[secondNum];
 	nums[secondNum] = temp;
