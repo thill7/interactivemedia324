@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>QuickSort</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(async function(){
+	function startWorker() {
+	    if (typeof(Worker) !== "undefined") {
+		  if (typeof(w) == "undefined") {
+		    w = new Worker("./qsWorker.js");
+		  }
+		  w.onmessage = function(event) {
+		    console.log(event.data);
+		  };
+	    } else {
+			console.log("no web worker support");
+	    }
+	}
+
+	var swaps = 0;
+	
+	function getRandomColor() {
+	    var letters = '0123456789ABCDEF';
+	    var color = '#';
+	    for (var i = 0; i < 6; i++) {
+		  color += letters[Math.floor(Math.random() * 16)];
+	    }
+	    return color;
+	}
+	
+	async function wait(ms) {
+	  return new Promise(resolve => {
+		setTimeout(resolve, ms);
+	  });
+	}
+	
+	async function swap(nums,firstNum,secondNum) {
+		let temp = nums[firstNum];
+		nums[firstNum] = nums[secondNum];
+		nums[secondNum] = temp;
+		$("#sorted > div").each((i, cont) => {
+			$(cont).html(nums[i]);
+		});
+		await wait(2000);
+		swaps++;
+		$("#swapsAmt").html(swaps);
+	}
+	var colors = [];
+	async function quickSort(nums,start,end) {
+		var randColor = getRandomColor();
+		while(colors.includes(randColor)) {
+			randColor = getRandomColor();
+		}
+		colors.push(randColor);
+		for(let i = start; i < end + 1; i++) {
+			$("#sorted").children().eq(i).css({"background-color":randColor,"color":"ghostwhite"});
+		}
+		if(end - start > 0) {
+			var pivot = start;
+			var too_big_index = start + 1;
+			var too_small_index = end;
+			do {
+				while(nums[too_big_index] <= nums[pivot]) {
+					too_big_index++;
+				}
+				while(nums[too_small_index] > nums[pivot]) {
+					too_small_index--;
+				}
+				if(too_big_index < too_small_index) {
+					await swap(nums,too_small_index,too_big_index);
+				}
+			} while(too_small_index > too_big_index);
+			await swap(nums,too_small_index,pivot);
+			quickSort(nums,(too_small_index + 1),end);
+			quickSort(nums,start,too_small_index);
+		}
+	}
+	
+	//nums = [40,20,10,80,60,50,7,30,100];
+	/*nums = [];
+	var size = 30;
+	while(nums.length < size) {
+		let num = Math.floor(Math.random() * size) + 1;
+		if(!(nums.includes(num))) {
+			nums.push(num);
+		}
+	}
+	console.log(nums);
+	$.each(nums, (i, num) => {
+		$("<div>").html(num).appendTo("#unsorted");
+	});
+	$.each(nums, (i, num) => {
+		$("<div>").html(num).appendTo("#sorted");
+	});
+	
+	var start = window.performance.now();
+	quickSort(nums,0,(nums.length - 1));
+	start = window.performance.now() - start;
+	console.log(nums);
+	console.log(`completed in ${start} nanoseconds...`);
+	
+	*/
+	startWorker();
+});
+</script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<style>
+#unsorted {
+	height: 20vh;
+	top: 15vh;
+	width:100vw;
+	display: flex;
+	border: 5px solid black;
+	position: absolute;
+	line-height: 20vh;
+	vertical-align: middle;
+	text-align: center;
+}
+#unsorted > div {
+	width: -webkit-fill-available;
+	height: 100%;
+	border-left: 0.25vw solid black;
+	border-right: 0.25vw solid black;
+}
+#unsorted > div:first-child {
+	border-left:none;
+}
+#unsorted > div:last-child {
+	border-right: none;
+}
+#sorted {
+	height: 20vh;
+	top: 65vh;
+	width:100vw;
+	display: flex;
+	border: 5px solid black;
+	position: absolute;
+	line-height: 20vh;
+	vertical-align: middle;
+	text-align: center;
+	
+}
+#sorted > div {
+	width: -webkit-fill-available;
+	height: 100%;
+	border-left: 0.25vw solid black;
+	border-right: 0.25vw solid black;
+}
+#sorted > div:first-child {
+	border-left:none;
+}
+#sorted > div:last-child {
+	border-right: none;
+}
+#control {
+	position:absolute;
+	height: 10vh;
+	width: 20vw;
+	left:40vw;
+	top:40vh;
+	
+}
+#swapCntr {
+	height:100%;
+	width:100%;
+}
+</style>
+</head>
+<body>
+<div id="unsorted">
+</div>
+<div id="control">
+	<div class="well alert alert-info" id="swapCntr">
+		Swaps:&nbsp;<span id="swapsAmt">0</span><br />
+		Complexity: Θ(nlog(n))
+	</div>
+</div>
+<div id="sorted">
+</div>
+</body>
+</html>
