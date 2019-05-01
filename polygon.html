@@ -13,6 +13,9 @@ $(document).ready(async function(){
 	function createPolygon(sides,radius) {
 		var _canvas = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
 		var _circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+		var _polygon = document.createElementNS("http://www.w3.org/2000/svg", 'polygon');
+		var points = "";
+		var trueRadius = (window.innerWidth / 100) * radius;
 		var counter = document.createElement("span");
 		$(counter).css({"position":"absolute","top":radius*2+"vw","width":radius*2+"vw","text-align":"center","font-size":"3vw","font-family":"monospace"});
 		$(counter).html("Sides: "+sides);
@@ -24,24 +27,31 @@ $(document).ready(async function(){
 		_canvas.setAttribute("style",canvasStyle);
 		var coords = [];
 		for(let i = 0; i < sides; i++) {
-			let x = radius + (radius * Math.cos(2 * Math.PI * i / sides));
-			let y = radius + (radius * Math.sin(2 * Math.PI * i / sides));
+			let x = trueRadius + (trueRadius * Math.cos(2 * Math.PI * i / sides));
+			let y = trueRadius + (trueRadius * Math.sin(2 * Math.PI * i / sides));
 			var coordsLocal = [];
 			coordsLocal.push(x);
 			coordsLocal.push(y);
 			coords.push(coordsLocal);
 		}
 		for(let i = 0; i < coords.length; i++) {
-			let _newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+			
+			//let _newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line');
 			let x1 = coords[i][0];
 			let y1 = coords[i][1];
-			let x2 = coords[(i+1) % sides][0];
-			let y2 = coords[(i+1) % sides][1];
-			$(_newLine).attr({"x1":x1+"vw","x2":x2+"vw","y1":y1+"vw","y2":y2+"vw", "class":"innerLine"});
-			$(_newLine).css({"stroke":"ghostwhite","stroke-width":"2"});
-			_canvas.appendChild(_newLine);
+			//let x2 = coords[(i+1) % sides][0];
+			//let y2 = coords[(i+1) % sides][1];
+			points += `${x1},${y1} `;
+			//$(_newLine).attr({"x1":x1+"vw","x2":x2+"vw","y1":y1+"vw","y2":y2+"vw", "class":"innerLine"});
+			//$(_newLine).css({"stroke":"ghostwhite","stroke-width":"2"});
+			//_canvas.appendChild(_newLine);
 		}
+		_polygon.setAttribute("points",points);
+		_polygon.setAttribute("class","polygon");
+		$(_polygon).css({"height":radius*2+"vw","width":radius*2+"vw"});
+		_canvas.appendChild(_polygon);
 		document.body.appendChild(_canvas);
+		console.log(points);
 	}
 	i = 3;
 	function buildingCircle() {
@@ -77,6 +87,12 @@ $(document).ready(async function(){
 	left: 37.5vw;
 	bottom: 1vw;
 	position:absolute;
+}
+.polygon {
+	fill:powderblue;
+	stroke: ghostwhite;
+	stroke-width: 2;
+	position: absolute;
 }
 </style>
 </head>
