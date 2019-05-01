@@ -17,13 +17,13 @@ $(document).ready(async function(){
 		var points = "";
 		var trueRadius = (window.innerWidth / 100) * radius;
 		var counter = document.createElement("span");
-		$(counter).css({"position":"absolute","top":radius*2+"vw","width":radius*2+"vw","text-align":"center","font-size":"3vw","font-family":"monospace"});
+		$(counter).css({"position":"absolute","top":radius*2+"vw","width":"100vw","text-align":"center","font-size":"3vw","font-family":"monospace"});
 		$(counter).html("Sides: "+sides);
 		$(_circle).attr({"cx":radius,"cy":radius,"r":"60"});
 		_canvas.setAttribute("class","canvas");
 		_canvas.appendChild(_circle);
 		document.body.appendChild(counter);
-		let canvasStyle = `height: ${radius*2}vw; width: ${radius*2}vw;`;
+		let canvasStyle = `height: ${radius*2}vw; width: ${radius*2}vw; left: ${50 - radius}vw`;
 		_canvas.setAttribute("style",canvasStyle);
 		var coords = [];
 		for(let i = 0; i < sides; i++) {
