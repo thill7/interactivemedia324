@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>polygon</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(async function(){
+	function createPolygon(sides,radius) {
+		var _canvas = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+		var _circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+		var counter = document.createElement("span");
+		$(counter).css({"position":"absolute","top":radius*2+"vw","width":radius*2+"vw","text-align":"center","font-size":"3vw","font-family":"monospace"});
+		$(counter).html("Sides: "+sides);
+		$(_circle).attr({"cx":radius,"cy":radius,"r":"60"});
+		_canvas.setAttribute("class","canvas");
+		_canvas.appendChild(_circle);
+		document.body.appendChild(counter);
+		let canvasStyle = `height: ${radius*2}vw; width: ${radius*2}vw;`;
+		_canvas.setAttribute("style",canvasStyle);
+		var coords = [];
+		for(let i = 0; i < sides; i++) {
+			let x = radius + (radius * Math.cos(2 * Math.PI * i / sides));
+			let y = radius + (radius * Math.sin(2 * Math.PI * i / sides));
+			var coordsLocal = [];
+			coordsLocal.push(x);
+			coordsLocal.push(y);
+			coords.push(coordsLocal);
+		}
+		for(let i = 0; i < coords.length; i++) {
+			let _newLine = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+			let x1 = coords[i][0];
+			let y1 = coords[i][1];
+			let x2 = coords[(i+1) % sides][0];
+			let y2 = coords[(i+1) % sides][1];
+			$(_newLine).attr({"x1":x1+"vw","x2":x2+"vw","y1":y1+"vw","y2":y2+"vw", "class":"innerLine"});
+			$(_newLine).css({"stroke":"ghostwhite","stroke-width":"2"});
+			_canvas.appendChild(_newLine);
+		}
+		document.body.appendChild(_canvas);
+	}
+	i = 3;
+	function buildingCircle() {
+		$("span").remove();
+		$("svg").remove();
+		createPolygon(i,20);
+		i++;
+		if(i == 361) {
+			clearInterval(building);
+			alert("done!");
+		}
+	}
+	var building = setInterval(buildingCircle, 500);
+	$("#stop").click(() => {
+		clearInterval(building);
+	});
+});
+</script>
+<style>
+.canvas {
+	position: absolute;
+	background-color: black;
+}
+.innerLine {
+	stroke:rgb(255,0,0);
+	stroke-width: 2;
+}
+#stop {
+	border: 1vw solid black;
+	background-color: rgba(0,0,0,0);
+	font-size: 3vw;
+	width: 25vw;
+	left: 37.5vw;
+	bottom: 1vw;
+	position:absolute;
+}
+</style>
+</head>
+<body>
+<button id="stop">STOP</button>
+</body>
+</html>
