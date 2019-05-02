@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Closing Time</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script>
+$(document).ready(() => {
+var cTime = "14:00";
+$("#closingTime").val(cTime);
+if(Cookies.get('cTime') != undefined) {
+	cTime = Cookies.get('cTime');
+	console.log(cTime);
+	$("#closingTime").val(cTime);
+}
+function tick() {
+	var time = new Date();
+	var timeString = `${time.getHours()}:${(time.getMinutes().toString()).padStart(2,'0')}`;
+	$("#clock").html(timeString);
+	var currentHour = parseInt(time.getHours());
+	var closingHour = parseInt(cTime.split(":")[0]);
+	console.log(`current hour ${currentHour}, closing hour: ${closingHour}`);
+	if(closingHour == currentHour) {
+		console.log("closing time!");
+		$("#closingSection-0 .panel-heading").css("background-color","crimson");
+	}
+	else if(closingHour - currentHour == 1) {
+		$("#closingSection-1 .panel-heading").css("background-color","crimson");
+	}
+	else if(closingHour - currentHour == 2) {
+		$("#closingSection-2 .panel-heading").css("background-color","crimson");
+	}
+	else if(closingHour - currentHour == 3) {
+		$("#closingSection-3 .panel-heading").css("background-color","crimson");
+	}
+}
+
+var closingData = {
+	"3 - 2 Hours Before Closing": ["manage signals","take note of ingredients expiring today","wipe out hot bar and cold bar fridges (note quanitity/expiration of WC's and VSC)","begin condensing dishes (consult SSV)"],
+	"2 - 1 Hour(s) Before Closing": ["continue condensing dishes","start washing blender covers (one at a time)","make WC's (4-5) and H&H carafes (5-6) to par","check teat times/infusion times","clean front sinks with magic eraser (wash pitcher rinser in back)"],
+	"1 Hour Before Closing": ["double check/ stock milks, WC's, and VSC", "sweep lobby/ wipe down tables", "double check dates on perishable ingredients (inclusions, sauces, etc.)", "mop if lobby is relatively clear of traffic/ guests", "if extra time permits, start washing parts (not the bean hopper) on espresso machines"],
+	"After Closing": ["mop, if it hasn't been done yet", "check condiment bar for H&H carafe","begin washing all dishes not yet cleaned: all parts from espresso machines (store beans in cubes/ pitchers), all cold bar/hot bar equipment (pitchers, spoons, spoon container, blender pitchers, etc.), all warming station equipment (tongs, knife, containers for both, cutting board), tea tongs, all tea/ iced coffee pitchers (dump contents because they expire at EOD)","double check stock of important items like sleeves, straws, lids, cups, etc.","consult SSV if all of the above finished"]
+};
+for(let i = 0; i < Object.keys(closingData).length; i++) {
+	var sectionTitle = Object.keys(closingData)[i];
+	var sectionData = Object.values(closingData)[i];
+	console.log(sectionTitle);
+	console.log(sectionData);
+	var section = document.createElement("div");
+	$(section).attr({"class":"panel panel-default closingSection","id":"closingSection-"+(Object.keys(closingData).length - i - 1)});
+	var title = document.createElement("div");
+	$(title).attr({"class":"panel-heading"});
+	title.innerHTML = `<h2>${sectionTitle}</h2>`;
+	var content = document.createElement("div");
+	$(content).attr({"class":"panel-body"});
+	var list = document.createElement("ul");
+	$(list).attr({"class":"list-group"});
+	for(let j = 0; j < sectionData.length; j++) {
+		let listItem = document.createElement("li");
+		$(listItem).attr({"class":"list-group-item"});
+		listItem.textContent = sectionData[j];
+		list.appendChild(listItem);
+	}
+	section.appendChild(title);
+	content.appendChild(list);
+	section.appendChild(content);
+	
+	document.body.appendChild(section);
+	/*
+	var title = $("div").attr({"class":"panel-heading"}).html("<h2>"+key+"</h2>");
+	var content = $("div").attr({"class":"panel-heading"}).html();
+	var section = $("div").attr({"class":"closingSection panel panel-default"});*/
+} 
+
+tick();
+var tickInterval = setInterval(tick, 60000);
+$("#closingTime").on("change",function() {
+	cTime = $("#closingTime").val();
+	console.log(cTime);
+	Cookies.set('cTime',cTime);
+});
+});
+</script>
+<style>
+#mainBanner {
+	text-align:center;
+	background-color: #003c00;
+	color: ghostwhite;
+}
+.closingSection .panel-heading {
+	background-color: #005000;
+	color: ghostwhite;
+}
+</style>
+</head>
+<body>
+<div class="jumbotron" id="mainBanner">
+	<h1>Closing Time</h1>
+	<p>Non-official guide for closing.</p>
+	<h2 id="clock"></h2>
+</div>
+<div class="input-group">
+	<span class="input-group-addon">Closing Time</span>
+	<input class="form-control" type="time" readonly id="closingTime" />
+</div>
+</div>
+</body>
+</html>
