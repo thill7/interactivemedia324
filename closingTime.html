@@ -12,6 +12,11 @@
 <script>
 $(document).ready(() => {
 var cTime = "14:00";
+var checks = [];
+if(Cookies.get('checks') != undefined) {
+	checks = JSON.parse(Cookies.get('checks'));
+	console.log(checks);
+}
 $("#closingTime").val(cTime);
 if(Cookies.get('cTime') != undefined) {
 	cTime = Cookies.get('cTime');
@@ -41,7 +46,7 @@ function tick() {
 }
 
 var closingData = {
-	"3 - 2 Hours Before Closing": ["manage signals","take note of ingredients expiring today","wipe out hot bar and cold bar fridges (note quanitity/expiration of WC's and VSC)","begin condensing dishes (consult SSV)"],
+	"3 - 2 Hours Before Closing": ["manage signals","take note of ingredients expiring today","wipe out hot bar and cold bar fridges (note quantity/expiration of WC's and VSC)","begin condensing dishes (consult SSV)"],
 	"2 - 1 Hour(s) Before Closing": ["continue condensing dishes","start washing blender covers (one at a time)","make WC's (4-5) and H&H carafes (5-6) to par","check teat times/infusion times","clean front sinks with magic eraser (wash pitcher rinser in back)"],
 	"1 Hour Before Closing": ["double check/ stock milks, WC's, and VSC", "sweep lobby/ wipe down tables", "double check dates on perishable ingredients (inclusions, sauces, etc.)", "mop if lobby is relatively clear of traffic/ guests", "if extra time permits, start washing parts (not the bean hopper) on espresso machines"],
 	"After Closing": ["mop, if it hasn't been done yet", "check condiment bar for H&H carafe","begin washing all dishes not yet cleaned: all parts from espresso machines (store beans in cubes/ pitchers), all cold bar/hot bar equipment (pitchers, spoons, spoon container, blender pitchers, etc.), all warming station equipment (tongs, knife, containers for both, cutting board), tea tongs, all tea/ iced coffee pitchers (dump contents because they expire at EOD)","double check stock of important items like sleeves, straws, lids, cups, etc.","consult SSV if all of the above finished"]
@@ -63,7 +68,7 @@ for(let i = 0; i < Object.keys(closingData).length; i++) {
 	for(let j = 0; j < sectionData.length; j++) {
 		let listItem = document.createElement("li");
 		$(listItem).attr({"class":"list-group-item"});
-		listItem.textContent = sectionData[j];
+		listItem.innerHTML = `${sectionData[j]} <input type="checkbox" id="${i}-${j}" class="taskCheck"/>`;
 		list.appendChild(listItem);
 	}
 	section.appendChild(title);
@@ -83,6 +88,16 @@ $("#closingTime").on("change",function() {
 	cTime = $("#closingTime").val();
 	console.log(cTime);
 	Cookies.set('cTime',cTime);
+});
+$(document).on("change",".taskCheck", (e) => {
+	var target = e.target;
+	if($(target).prop("checked") == true) {
+		checks.push($(target).attr("id"));
+	}
+	else {
+		checks.splice(checks.indexOf($(target).attr("id")), 1);
+	}
+	Cookies.set('checks',JSON.stringify(checks));
 });
 });
 </script>
