@@ -68,7 +68,7 @@ for(let i = 0; i < Object.keys(closingData).length; i++) {
 	for(let j = 0; j < sectionData.length; j++) {
 		let listItem = document.createElement("li");
 		$(listItem).attr({"class":"list-group-item"});
-		if(checks.contains(`${i}-${j}`) {
+		if(checks.contains(`${i}-${j}`)) {
 			listItem.innerHTML = `${sectionData[j]} <input checked type="checkbox" id="${i}-${j}" class="taskCheck"/>`;
 		}
 		else {
