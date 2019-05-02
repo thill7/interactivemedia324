@@ -11,7 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script>
 $(document).ready(() => {
-var cTime = "14:00";
+var cTime = "19:00";
 var checks = [];
 if(Cookies.get('checks') != undefined) {
 	checks = JSON.parse(Cookies.get('checks'));
@@ -68,7 +68,12 @@ for(let i = 0; i < Object.keys(closingData).length; i++) {
 	for(let j = 0; j < sectionData.length; j++) {
 		let listItem = document.createElement("li");
 		$(listItem).attr({"class":"list-group-item"});
-		listItem.innerHTML = `${sectionData[j]} <input type="checkbox" id="${i}-${j}" class="taskCheck"/>`;
+		if(checks.contains(`${i}-${j}`) {
+			listItem.innerHTML = `${sectionData[j]} <input checked type="checkbox" id="${i}-${j}" class="taskCheck"/>`;
+		}
+		else {
+			listItem.innerHTML = `${sectionData[j]} <input type="checkbox" id="${i}-${j}" class="taskCheck"/>`;
+		}
 		list.appendChild(listItem);
 	}
 	section.appendChild(title);
