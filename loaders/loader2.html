@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>loader</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(async function(){
+	
+});
+</script>
+<style>
+.loaderBase {
+	width: 10vw;
+	height: 10vw;
+	border-radius: 0.5vw;
+	background-color:powderblue;
+	box-shadow: 0 0 1vw 0.25vw black inset;
+	position: absolute;
+	left:45vw;
+	opacity: 0.6;
+	border-radius: 100%;
+}
+.loaderInner {
+	width: 4vw;
+	height: 4vw;
+	margin: 1vw;
+	background-color: black;
+	border-radius: 100%;
+	animation: innerBox 1s linear infinite;
+	position: absolute;
+	z-index: 99;
+	transform-origin: bottom center;
+	left:2vw;
+}
+@keyframes innerBox {
+	0% {transform:rotate(0deg);background-color:black;}
+	to {transform:rotate(360deg)}
+}
+</style>
+</head>
+<body>
+<div class="loaderBase">
+	<div class="loaderInner"></div>
+	<div class="loaderInner2"></div>
+</div>
+</body>
+</html>
