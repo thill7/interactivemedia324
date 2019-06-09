@@ -57,7 +57,7 @@ $(document).ready(async function(){
 	function buildingCircle() {
 		$("span").remove();
 		$("svg").remove();
-		createPolygon(i,20);
+		createPolygon(i,35);
 		i++;
 		if(i == 361) {
 			clearInterval(building);
@@ -74,6 +74,7 @@ $(document).ready(async function(){
 .canvas {
 	position: absolute;
 	background-color: black;
+        top:20vh;
 }
 .innerLine {
 	stroke:rgb(255,0,0);
