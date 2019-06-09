@@ -17,7 +17,7 @@ $(document).ready(async function(){
 		var points = "";
 		var trueRadius = (window.innerWidth / 100) * radius;
 		var counter = document.createElement("span");
-		$(counter).css({"position":"absolute","top":radius*2+"vw","width":"100vw","text-align":"center","font-size":"3vw","font-family":"monospace"});
+		$(counter).css({"position":"absolute","bottom":"10vh","width":"100vw","text-align":"center","font-size":"3vw","font-family":"monospace"});
 		$(counter).html("Sides: "+sides);
 		$(_circle).attr({"cx":radius,"cy":radius,"r":"60"});
 		_canvas.setAttribute("class","canvas");
