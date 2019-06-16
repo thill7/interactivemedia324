@@ -41,7 +41,7 @@ var
 	_vehicles = {},
 	_constraints = {},
 	_materials = {},
-	_objects_Ammo() = {},
+	_objects_Ammo = {},
 	_num_objects = 0,
 	_num_wheels = 0,
 	_num_constraints = 0,
