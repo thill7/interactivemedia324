@@ -28,7 +28,6 @@
             height: 50%;
             display: inline;
             z-index: 2;
-            transition: height 0.1s ease;
         }
         .bar:first-child {
             background-color: crimson;
@@ -78,8 +77,8 @@
                 var barSubdivisions = [bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8];
                 $(".bar").each((i, barEl) => {
                     let newHeight = getSum(barSubdivisions[i]);
-                    let thisMax = barSubdivisions[i].length * 128;
-                    newHeight /= thisMax;
+                    let thisMax = barSubdivisions[i].length * 256;
+                    newHeight = thisMax / newHeight;
                     $(barEl).css("height",newHeight+"%");
                 });
             }
