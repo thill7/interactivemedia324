@@ -104,6 +104,7 @@
                 frequencyData = new Uint8Array(analyser.frequencyBinCount);
                 
                 audio.play();
+                audio.volume = 0.7;
                 renderFrame();
             });
         });
