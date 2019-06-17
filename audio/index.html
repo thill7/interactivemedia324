@@ -78,7 +78,8 @@
                 $(".bar").each((i, barEl) => {
                     let newHeight = getSum(barSubdivisions[i]);
                     let thisMax = barSubdivisions[i].length * 256;
-                    newHeight = thisMax / newHeight;
+                    newHeight /= thisMax;
+                    newHeight *= 100;
                     $(barEl).css("height",newHeight+"%");
                 });
             }
