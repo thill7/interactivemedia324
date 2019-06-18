@@ -21,6 +21,7 @@
             bottom: 0;
             display: flex;
             justify-content: center;
+            transition: background-color 0.1s ease;
         }
         .bar {
             width: 9.375%;
@@ -59,11 +60,20 @@
     <body>
         <script>
         $(document).ready( () => {
-            var ctx, audio, audioSrc, analyser, frequencyData;
+            var ctx, audio, audioSrc, analyser, frequencyData, bgColorIndex;
+            bgColorIndex = 1;
+            bgColors = ["black","cornflowerblue","deepskyblue","crimson","indigo"];
             function getSum(arr) {
                 return arr.reduce(function(a,b){
                     return a + b;
                 }, 0);    
+            }
+            function changeBG() {
+                $("#barBox").css("background-color",bgColors[bgColorIndex]);
+                bgColorIndex++;
+                if(bgColorIndex == bgColors.length) {
+                    bfColorIndex = 0;
+                }
             }
             function calcBars() {
                 let bar1 = frequencyData.slice(0,80);
@@ -81,6 +91,11 @@
                     newHeight /= thisMax;
                     newHeight *= 100;
                     $(barEl).css("height",newHeight+"%");
+                    if(i == 0 && newHeight > 65 && bassChange == true) {
+                        bassChange = false;
+                        changeBG();
+                        setTimeout(() => {bassChange = true;},250);
+                    }
                 });
             }
             
