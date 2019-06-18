@@ -103,14 +103,14 @@
 
                 frequencyData = new Uint8Array(analyser.frequencyBinCount);
                 
-                audio.play();
+                audio.Play();
                 audio.volume = 0.7;
                 renderFrame();
             });
         });
         </script>
         <audio id="mainAudio">
-            <source src="./testMusic.mp3" crossOrigin="anonymous" type="audio/mpeg">
+            <source src="./testMusic.mp3" preload="auto" crossOrigin="anonymous" type="audio/mpeg">
                 No support...
         </audio>
         <div id="barBox">
