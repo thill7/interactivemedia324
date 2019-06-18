@@ -92,11 +92,6 @@
                     newHeight /= thisMax;
                     newHeight *= 100;
                     $(barEl).css("height",newHeight+"%");
-                    if(i == 0 && newHeight > 60 && bassChange == true) {
-                        bassChange = false;
-                        changeBG();
-                        setTimeout(() => {bassChange = true;},250);
-                    }
                 });
             }
             
