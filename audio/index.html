@@ -103,8 +103,7 @@
 
                 frequencyData = new Uint8Array(analyser.frequencyBinCount);
                 
-                audio.play();
-                audio.volume = 0.7;
+                documeent.querySelector("playAudio").play();
                 if(audio.muted) {
                     alert("muted");
                 }
@@ -113,9 +112,13 @@
         });
         </script>
         <audio id="mainAudio">
-            <source src="./testMusic.mp3" controls preload="auto" crossOrigin="anonymous" type="audio/mpeg">
+            <source src="./testMusic.mp3" preload="auto" crossOrigin="anonymous" type="audio/mpeg">
                 No support...
         </audio>
+        <audio id="playAudio">
+                <source src="./testMusic.mp3" controls preload="auto" crossOrigin="anonymous" type="audio/mpeg">
+                    No support...
+            </audio>
         <div id="barBox">
             <div class="bar"></div>
             <div class="bar"></div>
