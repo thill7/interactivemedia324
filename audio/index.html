@@ -62,6 +62,7 @@
         $(document).ready( () => {
             var ctx, audio, audioSrc, analyser, frequencyData, bgColorIndex;
             bgColorIndex = 1;
+            var bassChange = true;
             bgColors = ["black","cornflowerblue","deepskyblue","crimson","indigo"];
             function getSum(arr) {
                 return arr.reduce(function(a,b){
