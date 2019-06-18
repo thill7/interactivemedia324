@@ -92,7 +92,7 @@
                     newHeight /= thisMax;
                     newHeight *= 100;
                     $(barEl).css("height",newHeight+"%");
-                    if(i == 0 && newHeight > 55 && bassChange == true) {
+                    if(i == 0 && newHeight > 60 && bassChange == true) {
                         bassChange = false;
                         changeBG();
                         setTimeout(() => {bassChange = true;},250);
@@ -133,7 +133,7 @@
                 No support...
         </audio>
         <audio id="playAudio">
-                <source src="./testMusic.mp3" controls preload="auto" crossOrigin="anonymous" type="audio/mpeg">
+                <source src="./testMusic2.mp3" controls preload="auto" crossOrigin="anonymous" type="audio/mpeg">
                     No support...
             </audio>
         <div id="barBox">
