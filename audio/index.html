@@ -66,14 +66,14 @@
                 }, 0);    
             }
             function calcBars() {
-                let bar1 = frequencyData.slice(0,128);
-                let bar2 = frequencyData.slice(128,256);
-                let bar3 = frequencyData.slice(256,384);
-                let bar4 = frequencyData.slice(384,512);
-                let bar5 = frequencyData.slice(512,640);
-                let bar6 = frequencyData.slice(640,768);
-                let bar7 = frequencyData.slice(768,896);
-                let bar8 = frequencyData.slice(896,1025);
+                let bar1 = frequencyData.slice(0,80);
+                let bar2 = frequencyData.slice(80,160);
+                let bar3 = frequencyData.slice(160,240);
+                let bar4 = frequencyData.slice(240,320);
+                let bar5 = frequencyData.slice(320,400);
+                let bar6 = frequencyData.slice(400,480);
+                let bar7 = frequencyData.slice(480,560);
+                let bar8 = frequencyData.slice(560,641);
                 var barSubdivisions = [bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8];
                 $(".bar").each((i, barEl) => {
                     let newHeight = getSum(barSubdivisions[i]);
