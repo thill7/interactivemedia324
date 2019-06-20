@@ -123,7 +123,7 @@
                 audio = document.querySelector("#mainAudio");
                 //audio.crossOrigin = "anonymous";
 
-                audioSrc = ctx.createMediaStreamSource(audio);
+                audioSrc = ctx.createMediaElementSource(audio);
                 analyser = ctx.createAnalyser();
 
                 audioSrc.connect(analyser);
