@@ -85,7 +85,6 @@
                 }
             }
             function calcBars() {
-                canvasCtx.clearRect(0,0,WIDTH,HEIGHT);
                 canvasCtx.fillStyle = 'rgb(200, 200, 200)';
                 canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
                 canvasCtx.lineWidth = 2;
@@ -100,9 +99,9 @@
                     var y = v * HEIGHT / 2;
 
                     if(i === 0) {
-                        canvasCtx.moveTo(x, y);
-                    } else {
                         canvasCtx.lineTo(x, y);
+                    } else {
+                        canvasCtx.moveTo(x, y);
                     }
 
                     x += sliceWidth;
@@ -115,6 +114,7 @@
             function renderFrame() {
                 requestAnimationFrame(renderFrame);
                 analyser.getByteTimeDomainData(frequencyData);
+                canvasCtx.clearRect(0,0,WIDTH,HEIGHT);
                 calcBars();
                 console.log(frequencyData);
             }
@@ -127,6 +127,7 @@
                 analyser = ctx.createAnalyser();
 
                 audioSrc.connect(analyser);
+                analyser.fftSize = 2048;
 
                 frequencyData = new Uint8Array(analyser.frequencyBinCount);
                 
