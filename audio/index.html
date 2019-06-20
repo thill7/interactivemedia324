@@ -10,6 +10,10 @@
             height: 100%;
             overflow: hidden;
         }
+        #drawBox {
+            width: 100%;
+            height: 100%;
+        }
         #barBox {
             height: 100%;
             width: 100%;
@@ -61,6 +65,10 @@
         <script>
         $(document).ready( () => {
             var ctx, audio, audioSrc, analyser, frequencyData, bgColorIndex;
+            const WIDTH = window.innderWidth;
+            const HEIGHT = window.innerHeight;
+            var canvas = document.querySelector("#drawBox");
+            var canvasCtx = canvas.getContext("2d");
             bgColorIndex = 1;
             var bassChange = true;
             bgColors = ["black","cornflowerblue","deepskyblue","crimson","indigo"];
@@ -77,27 +85,35 @@
                 }
             }
             function calcBars() {
-                let bar1 = frequencyData.slice(0,80);
-                let bar2 = frequencyData.slice(80,160);
-                let bar3 = frequencyData.slice(160,240);
-                let bar4 = frequencyData.slice(240,320);
-                let bar5 = frequencyData.slice(320,400);
-                let bar6 = frequencyData.slice(400,480);
-                let bar7 = frequencyData.slice(480,560);
-                let bar8 = frequencyData.slice(560,641);
-                var barSubdivisions = [bar1,bar2,bar3,bar4,bar5,bar6,bar7,bar8];
-                $(".bar").each((i, barEl) => {
-                    let newHeight = getSum(barSubdivisions[i]);
-                    let thisMax = barSubdivisions[i].length * 256;
-                    newHeight /= thisMax;
-                    newHeight *= 100;
-                    $(barEl).css("height",newHeight+"%");
-                });
+                canvasCtx.clearRect(0,0,canvasCtx.width,canvasCtx.height);
+                canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+                canvasCtx.fillRect(0, 0, canvasCtx.width, canvasCtx.height);
+                canvasCtx.lineWidth = 2;
+                canvasCtx.strokeStyle = 'rgb(0,0,0)';
+                canvasCtx.beginPath();
+
+                var sliceWidth = WIDTH * 1.0 / analyser.frequencyBinCount;
+                var x = 0;
+
+                for(let i = 0; i < analyser.frequencyBinCount; i++) {
+                    let v = frequencyData[i] / 128.0;
+                    let y = v * HEIGHT / 2;
+
+                    if(i === 0) {
+                        canvasCtx.moveTo(x, y);
+                    } else {
+                        canvasCtx.lineTo(x, y);
+                    }
+
+                    x += sliceWidth;
+                }
+
+                canvasCtx.lineTo(canvas.width, canvas.height/2);
+                canvasCtx.stroke();
             }
             
             function renderFrame() {
                 requestAnimationFrame(renderFrame);
-
                 analyser.getByteFrequencyData(frequencyData);
                 calcBars();
                 console.log(frequencyData);
@@ -131,15 +147,6 @@
                 <source src="./testMusic2.mp3" controls preload="auto" crossOrigin="anonymous" type="audio/mpeg">
                     No support...
             </audio>
-        <div id="barBox">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
+        <canvas id="drawBox"></canvas>
     </body>
 </html>
